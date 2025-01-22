@@ -66,7 +66,6 @@ project-name/
 - Hi, my name is **Ben Le** I'm excited about this project because it helps people combat rising prices and enjoy life. Fun fact: I play the piano and my fav artist is Yann Tiersen
 - **Quinn Desforge-Major** BCIT student doing stuff at school. Fun fact: I have two arms, legs, eyes, and ears.
 - **Andrei Chepakovich** - BCIT CST Student with a passion for creating user-friendly applications. Fun fact: I love to play video games.
-- **DTC-05** - BCIT CST Student, Frontend enthusiast with a knack for creative design. Fun fact: Has a collection of over 50 houseplants.
 - Hi my name is **Mason**. I am looking forward to developing our application! Fun Fact: All the dogs that my family has owned have been Jack Russells
 
 ---
