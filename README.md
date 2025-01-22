@@ -65,7 +65,6 @@ project-name/
 
 - Hi, my name is **Ben Le** I'm excited about this project because it helps people combat rising prices and enjoy life. Fun fact: I play the piano and my fav artist is Yann Tiersen
 - **Andrei Chepakovich** - BCIT CST Student with a passion for creating user-friendly applications. Fun fact: I love to play video games.
-- Hi, my name is **Ben Le** I'm excited about this project because it helps people combat rising prices and enjoy life more.
 
 ---
 
