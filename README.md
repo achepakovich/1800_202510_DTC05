@@ -65,6 +65,7 @@ project-name/
 
 - Hi, my name is **Ben Le** I'm excited about this project because it helps people combat rising prices and enjoy life more.
 - **DTC-05** - BCIT CST Student, Frontend enthusiast with a knack for creative design. Fun fact: Has a collection of over 50 houseplants.
+- Hi my name is **Mason**. I am looking forward to developing our application! Fun Fact: All the dogs that my family has owned have been Jack Russells
 
 ---
 
