@@ -6,30 +6,34 @@ Summarize your project's purpose, problem solved, key features, user benefits, d
 
 Example:
 
-This client-side JavaScript web application provides real-time weather updates for cities worldwide. It simplifies accessing weather information through an intuitive mobile-first interface, allowing users to input a city name and receive data on temperature, humidity, and conditions.
-
-Developed for the [Course Name] course, applying User-Centred Design practices, agile project management processes, integrating a weather API, and Firebase backend services.
+DealHound saves shoppers time and money by organizing and searching for deals on groceries. This app is meant to eliminate the hastle of using flyers or more bloated apps. Key features include:
+- Item browser
+- Favourites
+- Shopping list
+- Linked accounts
+- Filters
+DealHound helps users ease pain-points of shopping frugally. The current goal for this app is to achieve the basic functionality that other methods/apps use in a distilled form. DealHound is developed in HTML, CSS, and Javascript, making use of Bootstrap for interface design.
 
 ---
 
 ## Features
 
-Example:
-
-- Real-time weather updates for any city.
-- Responsive design for desktop and mobile.
-- Displays temperature, humidity, and weather conditions.
+- Item browser
+- Favourites
+- Shopping list
+- Linked accounts
+- Filters
+    - By location
+    - By distance
+    - By item
+    - By price
 
 ---
 
 ## Technologies Used
 
-Example:
-
 - **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Firebase for hosting
-- **Database**: Firestore
-- **API**: OpenWeatherMap API
+- **Backend**: Netlify for hosting
 
 ---
 
@@ -37,24 +41,24 @@ Example:
 
 Example:
 
-1. Open your browser and visit `http://localhost:3000`.
-2. Enter the name of the city in the search bar and press enter.
-3. View the weather information displayed on the screen.
+1. Open your browser and visit `http://dealhound.ca`.
+2. Sign in or sign up to access personalized features, or;
+3. Browse deals without personalized features.
 
 ---
 
 ## Project Structure
 
-Example:
-
 ```
 project-name/
-├── src/
-│   ├── index.html
-│   ├── style.css
-│   ├── app.js
-│   └── components/
-├── package.json
+├── images/
+│   ├── hound.png
+│   └── card#.jpg
+├── scripts/
+│   └── script.js
+├── styles/
+│   └── style.js
+├── index.html
 ├── README.md
 └── .gitignore
 ```
@@ -72,6 +76,8 @@ project-name/
 
 ## Acknowledgments
 
+<!-- TODO -->
+
 Example:
 
 - Weather data sourced from [OpenWeatherMap](https://openweathermap.org/).
@@ -82,7 +88,11 @@ Example:
 
 ## Limitations and Future Work
 
+<!-- TODO -->
+
 ### Limitations
+
+<!-- TODO -->
 
 Example:
 
@@ -91,6 +101,8 @@ Example:
 - The user interface can be further enhanced for accessibility.
 
 ### Future Work
+
+<!-- TODO -->
 
 Example:
 
@@ -103,5 +115,5 @@ Example:
 
 ## License
 
-Example:
-This project is licensed under the MIT License. See the LICENSE file for details.
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
