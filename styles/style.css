@@ -1,5 +1,6 @@
 .splash {
-    background-image: url("../images/splash2.jpg");
-    background-repeat: repeat;
-    background-size: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url('../images/splash2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: auto;
 }
