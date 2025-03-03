@@ -16,6 +16,10 @@
 
 .key-feature-odd {}
 
-.our-mission-images{
+.our-mission-images {
     max-width: 40%;
+}
+
+#mission-header {
+    font-size: 5vw;
 }
