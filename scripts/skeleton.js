@@ -14,6 +14,7 @@ function loadSkeleton() {
         } else {
             // No user is signed in.
             console.log($('#navbarPlaceholder').load('./text/nav_before_login.html'));
+            console.log($('#navbarDuringLogin').load('./text/nav_during_login.html'));
             console.log($('#footerPlaceholder').load('./text/footer.html'));
         }
     });
