@@ -4,3 +4,18 @@
     background-position: center;
     height: auto;
 }
+
+#aboutus {
+    max-width: 1024px;
+    margin-top: 60px;
+}
+
+#key-features {
+    margin-top: 30px;
+}
+
+.key-feature-odd {}
+
+.our-mission-images{
+    max-width: 40%;
+}
