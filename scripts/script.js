@@ -9,3 +9,6 @@ function logout() {
         // An error happened.
     });
 }
+
+$("#signOut").on('click', logout);
+
