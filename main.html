@@ -33,6 +33,18 @@
 </head>
 
 <body>
+    <template id="dealCardTemplate">
+        <div class="card py-2 mx-2 hovernow" style="width: 18rem">
+            <img class="card-image card-img-top" src=" ..." alt="..." />
+            <h5 class="card-item">Card title</h5>
+            <div class="card-body-template mt-3">
+                <p><span class="fw-semibold">Deal: </span><span class="card-deal"></span></p>
+                <p><span class="fw-semibold">Price: </span><span class="card-deal"></span></p>
+                <p><span class="fw-semibold">Retailer: </span><span class="card-deal"></span></p>
+                <p><span class="fw-semibold">End Date: </span><span class="card-deal"></span></p>
+            </div>
+        </div>
+    </template>
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
@@ -200,6 +212,15 @@
                     </div>
                 </div>
             </div>
+
+            <div class="container">
+                <div id="deals-go-here" class="row row-cols-auto">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="deals-go-here" class="row row-cols-auto">
         </div>
     </div>
 
@@ -257,6 +278,7 @@
     <script src="./scripts/firebaseAPI_Team05.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/main.js"></script>
 </body>
 
 </html>
