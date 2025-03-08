@@ -7,8 +7,9 @@ function writeDeals() {
         brand: "Barilla",
         type: "50% off",
         retailer: "No Frills", //replace with your own city?
-        startdate: "3/5/2025",
-        enddate: "4/5/2025",
+        startDate: "3/5/2025",
+        endDate: "4/5/2025",
+        code: "https://product-images.metro.ca/images/h50/ha5/9530112049182.jpg",
         last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
 }
@@ -32,7 +33,10 @@ function displayCardsDynamically(collection) {
             allDeals.forEach(doc => { //iterate thru each doc
                 var title = doc.data().item;       // get value of the "name" key
                 var type = doc.data().type;
-                var dealstartdate = doc.data().startdate; // get value of the "details" key   //get unique ID to each hike to be used for fetching right image //gets the length field
+                var imageCode = doc.data().code;
+                var dealStartDate = doc.data().startDate; // get value of the "details" key   //get unique ID to each hike to be used for fetching right image //gets the length field
+                var dealEndDate = doc.data().endDate;
+                var retailer = doc.data().retailer
                 let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
 
                 //update title and text and image
@@ -40,7 +44,9 @@ function displayCardsDynamically(collection) {
 
                 //newcard.querySelector('.card-startdate').innerHTML = startdate;
                 newcard.querySelector('.card-deal').innerHTML = type;
-                //newcard.querySelector('.card-image').src = `./images/${hikeCode}.jpg`; //Example: NV01.jpg
+                newcard.querySelector('.card-end-date').innerHTML = dealEndDate;
+                newcard.querySelector('.card-retailer').innerHTML = retailer;
+                newcard.querySelector('.card-image').src = imageCode; //Example: NV01.jpg `./images/${imageCode}.png`
                 //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
 
                 //Optional: give unique ids to all elements for future use
