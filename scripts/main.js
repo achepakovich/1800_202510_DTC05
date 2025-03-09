@@ -24,7 +24,6 @@ db.collection("deals").get().then((querySnapshot) => {
 // Input parameter is a string representing the collection we are reading from
 //------------------------------------------------------------------------------
 function displayCardsDynamically(collection) {
-    console.log("hello");
     let cardTemplate = document.getElementById("dealCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable. 
 
     db.collection(collection).get()   //the collection called "hikes"
@@ -55,12 +54,23 @@ function displayCardsDynamically(collection) {
                 // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
 
                 //attach to gallery, Example: "hikes-go-here"
-                console.log("hello");
                 document.getElementById(collection + "-go-here").appendChild(newcard);
-                console.log("hello");
                 //i++;   //Optional: iterate variable to serve as unique ID
+                $(".card").click(function () {
+                    //window.location = "http://google.com"
+                });
+                $(".card").click(function () {
+                    $(".popup").show();
+                })
             })
         })
 }
 
+function closeDeal() {
+    $(".btn-close").click(function () {
+        $(".popup").hide();
+    })
+}
+
 displayCardsDynamically("deals");
+closeDeal();
