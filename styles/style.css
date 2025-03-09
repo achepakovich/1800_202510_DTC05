@@ -43,3 +43,7 @@
 .card-body-template {
     line-height: 40%;
 }
+
+.dropdown-toggle::after {
+    border-top-color: white !important; /* Changes the caret to white */
+}
