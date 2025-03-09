@@ -70,9 +70,21 @@ ui.start("#firebaseui-auth-container", uiConfig);
 
 firebase.auth().onAuthStateChanged((user) => {
   const signInBox = document.getElementById("signInBox");
+
   if (user) {
+    // If user is signed in, hide the box
     signInBox.style.display = "none";
+
+    // 1) Initialize UI if not done yet
+    initUI(); // from ui.js
+
+    // 2) Subscribe to that user's shopping list
+    subscribeToShoppingList(user.uid, (items) => {
+      // Whenever the Firestore data changes, call this:
+      renderShoppingList(items);
+    });
   } else {
+    // If no user, show sign-in box
     signInBox.style.display = "block";
   }
 });

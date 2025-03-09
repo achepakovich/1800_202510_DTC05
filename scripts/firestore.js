@@ -43,3 +43,29 @@ function removeItem(userUID, itemID) {
     .doc(itemID)
     .delete();
 }
+
+function clearShoppingList(userUID) {
+  // Reference all documents in user’s shoppingList subcollection
+  const listRef = db
+    .collection("users")
+    .doc(userUID)
+    .collection("shoppingList");
+
+  // Get all documents, then batch-delete them
+  listRef
+    .get()
+    .then((snapshot) => {
+      const batch = db.batch();
+      snapshot.forEach((docSnap) => {
+        batch.delete(docSnap.ref);
+      });
+      // Commit the batch
+      return batch.commit();
+    })
+    .then(() => {
+      console.log("All items removed!");
+    })
+    .catch((err) => {
+      console.error("Error clearing list:", err);
+    });
+}

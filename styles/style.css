@@ -70,11 +70,3 @@
 .btn-close {
     float: right;
 }
-
-.shoppinglistlayout {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-}

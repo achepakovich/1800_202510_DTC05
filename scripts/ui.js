@@ -53,3 +53,10 @@ function renderShoppingList(items) {
     shoppingListEl.appendChild(li);
   });
 }
+
+document.getElementById("clearList").addEventListener("click", () => {
+  const user = firebase.auth().currentUser;
+  if (user) {
+    clearShoppingList(user.uid); // call the function above
+  }
+});

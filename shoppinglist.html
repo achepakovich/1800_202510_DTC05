@@ -166,14 +166,14 @@
     <!------------------------------>
 
     <!-- Main container -->
-    <div class="shoppinglistlayout">
-      <!-- left column -->
-      <div class="d-flex flex-column justify-content-center">
-        <h4 class="text-center mt-1 mb-2 text-muted">My List</h4>
+    <div class="container d-flex flex-column flex-wrap my-4 mx-auto">
+      <div class="row">
+        <!-- left column -->
+        <div class="d-flex flex-column justify-content-start">
+          <h4 class="text-center mt-1 mb-2 text-muted">My List</h4>
 
-        <!-- Row for input and button -->
-        <div class="row mb-3">
-          <div class="col-12 offset-md-2">
+          <!-- Row for input and buttons -->
+          <div class="mb-3">
             <div class="input-group">
               <input
                 type="text"
@@ -184,12 +184,15 @@
               <button id="addItemBtn" class="btn btn-success" type="button">
                 Add Item
               </button>
+
               <!-- printer button -->
               <button
                 id="print"
-                class="d-block d-flex btn btn-success"
+                class="btn btn-success"
                 type="button"
+                style="margin-left: 5px"
               >
+                <!-- Printer Icon -->
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -197,8 +200,8 @@
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  width="28"
-                  height="28"
+                  width="24"
+                  height="24"
                   stroke-width="1"
                 >
                   <path
@@ -211,11 +214,14 @@
                 </svg>
               </button>
 
+              <!-- clearlist button -->
               <button
-                id="clearlist"
-                class="d-block d-flex btn btn-success"
+                id="clearList"
+                class="btn btn-success"
                 type="button"
+                style="margin-left: 5px"
               >
+                <!-- Clear Icon -->
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -227,45 +233,49 @@
                   height="28"
                   stroke-width="1"
                 >
-                  <path
-                    d="M20 6a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-11l-5 -5a1.5 1.5 0 0 1 0 -2l5 -5z"
-                  ></path>
-                  <path d="M12 10l4 4m0 -4l-4 4"></path>
+                  <path d="M8 6h12"></path>
+                  <path d="M6 12h12"></path>
+                  <path d="M4 18h12"></path>
                 </svg>
               </button>
             </div>
           </div>
-        </div>
 
-        <!-- Shopping List (Bootstrap list group) -->
-        <div class="row">
-          <div class="col-12 col-md-8 offset-md-2">
+          <!-- Shopping List (Bootstrap list group) -->
+          <div>
             <ul class="list-group" id="shoppingList"></ul>
           </div>
         </div>
-      </div>
 
-      <!-- right column -->
-      <div id="signInBox" class="d-flex flex-column justify-content-evenly">
-        <div class="container my-5">
-          <div class="row justify-content-center">
-            <div class="col-md-6">
-              <div class="card shadow-sm">
-                <div class="card-body text-center">
-                  <h2 class="mb-3">Save your shopping list</h2>
-                  <p>
-                    Sign in to save your shopping list and have it available
-                    everywhere you go.
-                  </p>
-                  <a href="./login.html" class="btn btn-success">Sign in</a>
+        <!-- right column (Sign In Box) -->
+        <div class="col-md-5 d-flex flex-column justify-content-start">
+          <div id="signInBox" class="my-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10">
+                <div class="card shadow-sm">
+                  <div class="card-body text-center">
+                    <h2 class="mb-3">Save your shopping list</h2>
+                    <p>
+                      Sign in to save your shopping list and have it available
+                      everywhere you go.
+                    </p>
+                    <a href="./login.html" class="btn btn-success">Sign in</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="container my-5 d-flex flex-row ">
+            
+          </div>
         </div>
+        <!-- end right column -->
       </div>
-      <!-- /container -->
     </div>
+
+    <!-- end container -->
+
     <!-- Footer  -->
     <footer class="navbar fixed-bottom d-md-none bg-success">
       <div class="container-fluid d-flex justify-content-center">
@@ -372,6 +382,15 @@
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_Team05.js"></script>
+
+    <!-- Auth + FirebaseUI logic (authentication.js) -->
+    <script src="./scripts/authentication.js"></script>
+
+    <!-- Firestore logic (subscribe, add, remove) -->
+    <script src="./scripts/firestore.js"></script>
+
+    <!-- UI logic (rendering list, hooking up buttons, etc.) -->
+    <script src="./scripts/ui.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
   </body>
