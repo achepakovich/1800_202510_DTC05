@@ -66,6 +66,8 @@ var uiConfig = {
   privacyPolicyUrl: "<your-privacy-policy-url>",
 };
 
+ui.start("#firebaseui-auth-container", uiConfig);
+
 firebase.auth().onAuthStateChanged((user) => {
   const signInBox = document.getElementById("signInBox");
   if (user) {
@@ -74,5 +76,3 @@ firebase.auth().onAuthStateChanged((user) => {
     signInBox.style.display = "block";
   }
 });
-
-ui.start("#firebaseui-auth-container", uiConfig);

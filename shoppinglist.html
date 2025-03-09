@@ -166,13 +166,13 @@
     <!------------------------------>
 
     <!-- Main container -->
-    <div class="d-flex flex-row flex-wrap justify-content-center my-2">
+    <div class="shoppinglistlayout">
       <!-- left column -->
       <div class="d-flex flex-column justify-content-center">
         <h4 class="text-center mt-1 mb-2 text-muted">My List</h4>
 
         <!-- Row for input and button -->
-        <div class="row mb-3 gap-2">
+        <div class="row mb-3">
           <div class="col-12 offset-md-2">
             <div class="input-group">
               <input
@@ -185,7 +185,11 @@
                 Add Item
               </button>
               <!-- printer button -->
-              <button id="print" class="d-none btn btn-success" type="button">
+              <button
+                id="print"
+                class="d-block d-flex btn btn-success"
+                type="button"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -206,6 +210,29 @@
                   ></path>
                 </svg>
               </button>
+
+              <button
+                id="clearlist"
+                class="d-block d-flex btn btn-success"
+                type="button"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  width="28"
+                  height="28"
+                  stroke-width="1"
+                >
+                  <path
+                    d="M20 6a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-11l-5 -5a1.5 1.5 0 0 1 0 -2l5 -5z"
+                  ></path>
+                  <path d="M12 10l4 4m0 -4l-4 4"></path>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -217,6 +244,7 @@
           </div>
         </div>
       </div>
+
       <!-- right column -->
       <div id="signInBox" class="d-flex flex-column justify-content-evenly">
         <div class="container my-5">
