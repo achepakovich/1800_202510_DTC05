@@ -45,5 +45,28 @@
 }
 
 .dropdown-toggle::after {
-    border-top-color: white !important; /* Changes the caret to white */
+    border-top-color: white !important;
+    /* Changes the caret to white */
+}
+
+.card {
+    cursor: pointer;
+}
+
+.popup {
+    width: 700px;
+    height: 90vh;
+    position: fixed;
+    background: white;
+    top: 50%;
+    left: 50%;
+    border-radius: 6px;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    padding: 20px;
+    display: none;
+}
+
+.btn-close {
+    float: right;
 }
