@@ -34,7 +34,7 @@
 
 <body>
     <template id="dealCardTemplate">
-        <div class="card py-2 mx-2 hovernow" style="width: 18rem">
+        <div class="card py-2 mx-2 hovernow mb-4" style="width: 18rem">
             <img class="card-image card-img-top" src=" ..." alt="..." />
             <h5 class="card-item">Card title</h5>
             <div class="card-body-template mt-3">
@@ -45,6 +45,19 @@
             </div>
         </div>
     </template>
+
+    <div class="popup shadow-lg">
+        <button type="button" class="btn-close" aria-label="Close"></button>
+        <h1>Item Title</h1>
+        <img class="card-image card-img-top" src=" ..." alt="..." />
+        <div class="card-body-template mt-3">
+            <h3><span class="fw-semibold">Deal: </span><span class="card-deal"></span></h3>
+            <h3><span class="fw-semibold">Price: </span><span class="card-price"></span></h3>
+            <h3><span class="fw-semibold">Retailer: </span><span class="card-retailer"></span></h3>
+            <h3><span class="fw-semibold">End Date: </span><span class="card-end-date"></span></h3>
+        </div>
+    </div>
+
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
