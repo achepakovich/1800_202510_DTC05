@@ -66,4 +66,13 @@ var uiConfig = {
   privacyPolicyUrl: "<your-privacy-policy-url>",
 };
 
+firebase.auth().onAuthStateChanged((user) => {
+  const signInBox = document.getElementById("signInBox");
+  if (user) {
+    signInBox.style.display = "none";
+  } else {
+    signInBox.style.display = "block";
+  }
+});
+
 ui.start("#firebaseui-auth-container", uiConfig);
