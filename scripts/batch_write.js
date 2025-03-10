@@ -1,4 +1,6 @@
+//-----------------------------------------------
 // This is a utility script. Do not link to HTML.
+//-----------------------------------------------
 
 // Import the Firebase SDK and initialize Firebase (requires firebase to be installed locally if you want to run with node)
 const firebase = require("firebase/compat/app");
