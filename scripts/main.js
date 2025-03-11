@@ -101,8 +101,8 @@ function displayCardsDynamically(collection) {
                 // Assign a unique ID to the cloned card
                 let cardElement = newcard.querySelector(".card");
                 if (cardElement) {
-                    cardElement.setAttribute("id", i);
-                    cardElement.classList.add(i)
+                    cardElement.setAttribute("id", doc.id);
+                    cardElement.classList.add(doc.id)
                 }
 
                 //Optional: give unique ids to all elements for future use
@@ -118,7 +118,7 @@ function displayCardsDynamically(collection) {
                 // })
                 $('.card').click(function () {
                     var theClass = $(this).attr('id');
-                    $(`#popup${theClass}`).show();
+                    $(`#popup_${theClass}`).show();
                 });
                 $(".card").click(function () {
                     $("#overlay").show();
@@ -154,7 +154,7 @@ function displayDealPopupsDynamically(collection) {
                 //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
                 let popupElement = newcard.querySelector(".popup");
                 if (popupElement) {
-                    popupElement.setAttribute("id", "popup" + i);
+                    popupElement.setAttribute("id", "popup_" + doc.id);
                     popupElement.style.display = 'none'
                     popupElement.classList.add(i)
                 }
@@ -164,7 +164,6 @@ function displayDealPopupsDynamically(collection) {
                 // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
                 // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
                 $("#saveDeal").click(function () {
-                    console.log("hello");
                     $('#saveDeal').css({
                         'background-color': 'green',
                     })
@@ -190,11 +189,12 @@ function closeDeal() {
 }
 
 function reply_click(clicked_id) {
-    console.log("hello");
     $(`#${clicked_id}`).css({
         'background-color': 'green',
     })
-
+    let popupID = $(`#${clicked_id}`).parents('.popup').last().prop('id');
+    let dealDocumentID = (popupID.split("_"))[1]
+    console.log(dealDocumentID);
 }
 
 function saveItem() {
