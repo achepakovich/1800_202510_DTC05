@@ -87,5 +87,6 @@
     /* Hide by default */
 }
 
-#saveItem {
+.saveDealButton {
+    background-color: white;
 }
