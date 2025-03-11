@@ -53,9 +53,12 @@
     cursor: pointer;
 }
 
+.card-image-popup {
+    width: 100%;
+}
+
 .popup {
     width: 700px;
-    height: 90vh;
     position: fixed;
     background: white;
     top: 50%;
@@ -69,4 +72,18 @@
 
 .btn-close {
     float: right;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust transparency */
+    z-index: 999;
+    /* Ensure it appears above other content */
+    display: none;
+    /* Hide by default */
 }
