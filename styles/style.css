@@ -67,7 +67,6 @@
     transform: translate(-50%, -50%);
     z-index: 1000;
     padding: 20px;
-    display: none;
 }
 
 .btn-close {
@@ -86,4 +85,7 @@
     /* Ensure it appears above other content */
     display: none;
     /* Hide by default */
+}
+
+#saveItem {
 }
