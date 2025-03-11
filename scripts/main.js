@@ -76,6 +76,7 @@ function displayCardsDynamically(collection) {
                     $(".popup").show();
                 })
                 $(".card").click(function () {
+                    $("#overlay").show();
                     $("#deals-popup-here").show();
                 })
             })
@@ -104,7 +105,7 @@ function displayDealPopupsDynamically(collection) {
                 newcard.querySelector('.card-deal').innerHTML = type;
                 newcard.querySelector('.card-end-date').innerHTML = dealEndDate;
                 newcard.querySelector('.card-retailer').innerHTML = retailer;
-                newcard.querySelector('.card-image').src = imageCode; //Example: NV01.jpg `./images/${imageCode}.png`
+                newcard.querySelector('.card-image-popup').src = imageCode; //Example: NV01.jpg `./images/${imageCode}.png`
                 //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
 
                 //Optional: give unique ids to all elements for future use
@@ -117,6 +118,7 @@ function displayDealPopupsDynamically(collection) {
                 //i++;   //Optional: iterate variable to serve as unique ID
                 $(".btn-close").click(function () {
                     $("#deals-popup-here").hide();
+                    $("#overlay").hide();
                 })
             })
         })
@@ -126,6 +128,7 @@ function closeDeal() {
     $(".btn-close").click(function () {
         console.log("hello")
         $("#deals-popup-here").hide();
+        $("#overlay").hide();
     })
 }
 
