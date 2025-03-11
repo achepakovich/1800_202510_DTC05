@@ -82,7 +82,7 @@ function displayCardsDynamically(collection) {
             var i = 1;  //Optional: if you want to have a unique ID for each hike
             allDeals.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;       // get value of the "name" key
-                var type = doc.data().type;
+                var deal = doc.data().deal;
                 var imageCode = doc.data().code;
                 var dealStartDate = doc.data().startDate; // get value of the "details" key   //get unique ID to each hike to be used for fetching right image //gets the length field
                 var dealEndDate = doc.data().endDate;
@@ -93,7 +93,7 @@ function displayCardsDynamically(collection) {
                 newcard.querySelector('.card-item').innerHTML = title;
 
                 //newcard.querySelector('.card-startdate').innerHTML = startdate;
-                newcard.querySelector('.card-deal').innerHTML = type;
+                newcard.querySelector('.card-deal').innerHTML = deal;
                 newcard.querySelector('.card-end-date').innerHTML = dealEndDate;
                 newcard.querySelector('.card-retailer').innerHTML = retailer;
                 newcard.querySelector('.card-image').src = `./images/items/${imageCode}` //`.images/items/${imageCode}`; //Example: NV01.jpg `./images/${imageCode}.png`
@@ -136,7 +136,7 @@ function displayDealPopupsDynamically(collection) {
             var i = 1;  //Optional: if you want to have a unique ID for each hike
             allDeals.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;       // get value of the "name" key
-                var type = doc.data().type;
+                var deal = doc.data().deal;
                 var imageCode = doc.data().code;
                 var dealStartDate = doc.data().startDate; // get value of the "details" key   //get unique ID to each hike to be used for fetching right image //gets the length field
                 var dealEndDate = doc.data().endDate;
@@ -147,7 +147,7 @@ function displayDealPopupsDynamically(collection) {
                 newcard.querySelector('.card-item').innerHTML = title;
 
                 //newcard.querySelector('.card-startdate').innerHTML = startdate;
-                newcard.querySelector('.card-deal').innerHTML = type;
+                newcard.querySelector('.card-deal').innerHTML = deal;
                 newcard.querySelector('.card-end-date').innerHTML = dealEndDate;
                 newcard.querySelector('.card-retailer').innerHTML = retailer;
                 newcard.querySelector('.card-image-popup').src = `./images/items/${imageCode}`; //Example: NV01.jpg `./images/${imageCode}.png`
