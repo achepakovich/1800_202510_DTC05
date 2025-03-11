@@ -48,16 +48,21 @@
         </div>
     </template>
 
+    <div class="overlay" id="overlay"></div>
     <template id="dealPopupTemplate">
         <div class="popup shadow-lg">
             <button type="button" class="btn-close" aria-label="Close"></button>
             <h1 class="card-item">Item Title</h1>
-            <img class="card-image card-img-top" src=" ..." alt="..." />
-            <div class="card-body-template mt-3">
-                <h3><span class="fw-semibold">Deal: </span><span class="card-deal"></span></h3>
-                <h3><span class="fw-semibold">Price: </span><span class="card-price"></span></h3>
-                <h3><span class="fw-semibold">Retailer: </span><span class="card-retailer"></span></h3>
-                <h3><span class="fw-semibold">End Date: </span><span class="card-end-date"></span></h3>
+            <p class="card-description">Description</p>
+            <div class="row flex-row align-items-center my-auto">
+                <div class="col"> <img class="card-image-popup card-img-top" src=" ..." alt="..." /></div>
+                <div class="card-body-template mt-3 mx-auto dealinfo col">
+                    <h4><span class="fw-semibold">Deal: </span><span class="card-deal"></span></h4>
+                    <h4><span class="fw-semibold">Price: </span><span class="card-price"></span></h4>
+                    <h4><span class="fw-semibold">Retailer: </span><span class="card-retailer"></span></h4>
+                    <h4><span class="fw-semibold">Retailer: </span><span class="card-retailer"></span></h4>
+                    <h4><span class="fw-semibold">End Date: </span><span class="card-end-date"></span></h4>
+                </div>
             </div>
         </div>
     </template>
