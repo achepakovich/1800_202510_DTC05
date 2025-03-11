@@ -148,7 +148,7 @@ function displayDealPopupsDynamically(collection) {
                 newcard.querySelector('.card-deal').innerHTML = type;
                 newcard.querySelector('.card-end-date').innerHTML = dealEndDate;
                 newcard.querySelector('.card-retailer').innerHTML = retailer;
-                //newcard.querySelector('.card-image-popup').src = imageCode; //Example: NV01.jpg `./images/${imageCode}.png`
+                newcard.querySelector('.card-image-popup').src = `./images/items/${imageCode}`; //Example: NV01.jpg `./images/${imageCode}.png`
                 //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
                 let popupElement = newcard.querySelector(".popup");
                 if (popupElement) {
