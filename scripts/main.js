@@ -35,6 +35,42 @@ db.collection("deals").get().then((querySnapshot) => {
     }
 })
 
+function writeFavouriteDeals() {
+    //define a variable for the collection you want to create in Firestore to populate data
+    var dealsRef = db.collection("favourites");
+
+    // dealsRef.add({
+    //     name: "Spaghetti Pasta 16.00 oz",
+    //     brand: "Barilla",
+    //     type: "30% off",
+    //     price: "$1.97",
+    //     saved: "false",
+    //     retailer: "No Frills", //replace with your own city?
+    //     startDate: "3/5/2025",
+    //     endDate: "4/5/2025",
+    //     code: "https://product-images.metro.ca/images/h50/ha5/9530112049182.jpg",
+    //     UPC: "076808280081",
+    //     last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
+    // });
+
+    dealsRef.add({ name: "Roma Tomatoes", deal: "Save $0.13", price: 0.55, pricedByWeight: true, brand: "N/A", retailer: "Loblaws", endDate: "03/12/2025", UPC: "00000000004087", code: "00000000004087.jpg" });
+    dealsRef.add({ name: "Celery Bunch", deal: "Save $1.13", price: 4.45, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004070", code: "00000000004070.jpg" });
+    dealsRef.add({ name: "Carrots", deal: "Save $1.13", price: 0.66, pricedByWeight: true, brand: "N/A", retailer: "Superstore", endDate: "03/25/2025", UPC: "00000000004562", code: "00000000004562.jpg" });
+    dealsRef.add({ name: "Bell Peppers - Red", deal: "Save $1.13", price: 2.98, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004688", code: "00000000004688.jpg" });
+}
+
+db.collection("favourites").get().then((querySnapshot) => {
+    if (querySnapshot.size == 0) {
+        writeFavouriteDeals();
+    }
+})
+
+db.collection("favourites").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        console.log(doc.id, " => ", doc.data());
+    });
+});
+
 //------------------------------------------------------------------------------
 // Input parameter is a string representing the collection we are reading from
 //------------------------------------------------------------------------------
