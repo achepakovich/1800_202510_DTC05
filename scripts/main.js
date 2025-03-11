@@ -50,7 +50,8 @@ function displayCardsDynamically(collection) {
                 var imageCode = doc.data().code;
                 var dealStartDate = doc.data().startDate; // get value of the "details" key   //get unique ID to each hike to be used for fetching right image //gets the length field
                 var dealEndDate = doc.data().endDate;
-                var retailer = doc.data().retailer
+                var retailer = doc.data().retailer;
+                var UPC = doc.data().UPC;
                 let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
                 //update title and text and image
                 newcard.querySelector('.card-item').innerHTML = title;
@@ -104,6 +105,7 @@ function displayDealPopupsDynamically(collection) {
                 var dealStartDate = doc.data().startDate; // get value of the "details" key   //get unique ID to each hike to be used for fetching right image //gets the length field
                 var dealEndDate = doc.data().endDate;
                 var retailer = doc.data().retailer
+                var UPC = doc.data().UPC;
                 let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
                 //update title and text and image
                 newcard.querySelector('.card-item').innerHTML = title;
@@ -122,10 +124,15 @@ function displayDealPopupsDynamically(collection) {
                 }
 
                 //Optional: give unique ids to all elements for future use
-                // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+                newcard.querySelector('.saveDealButton').setAttribute("id", "saveDeal" + i);
                 // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
                 // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
-
+                $("#saveDeal").click(function () {
+                    console.log("hello");
+                    $('#saveDeal').css({
+                        'background-color': 'green',
+                    })
+                })
                 //attach to gallery, Example: "hikes-go-here"
                 document.getElementById(collection + "-popup-here").appendChild(newcard);
                 i++;   //Optional: iterate variable to serve as unique ID
@@ -146,6 +153,30 @@ function closeDeal() {
     })
 }
 
+function reply_click(clicked_id) {
+    console.log("hello");
+    $(`#${clicked_id}`).css({
+        'background-color': 'green',
+    })
+
+}
+
+function saveItem() {
+    $('').click(function () {
+        var theClass = $(this).attr('id');
+        $(`#popup${theClass}`).show();
+    });
+    $("#saveDeal").click(function () {
+        console.log("hello");
+        $('#saveDeal').css({
+            'background-color': 'green',
+        })
+    })
+};
+
+
 displayCardsDynamically("deals");
 displayDealPopupsDynamically("deals");
+reply_click();
+saveItem();
 closeDeal();
