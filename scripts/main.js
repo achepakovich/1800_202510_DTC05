@@ -117,7 +117,7 @@ function displayCardsDynamically(collection) {
 }
 
 function displayDealPopupsDynamically(collection) {
-    let cardTemplate = document.getElementById("dealPopupTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable. 
+    let popupTemplate = document.getElementById("dealPopupTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable. 
 
     db.collection(collection).get()   //the collection called "hikes"
         .then(allDeals => {
@@ -131,7 +131,7 @@ function displayDealPopupsDynamically(collection) {
                 var dealEndDate = doc.data().endDate;
                 var retailer = doc.data().retailer
                 var UPC = doc.data().UPC;
-                let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
+                let newcard = popupTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
                 //update title and text and image
                 newcard.querySelector('.card-item').innerHTML = title;
 
