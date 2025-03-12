@@ -178,6 +178,7 @@ function closeDeal() {
     })
 }
 
+// This function adds the saved deal to favourite deals collection under user in Firestore
 function reply_click(clicked_id) {
     $(`#${clicked_id}`).css({
         'background-color': 'green',
@@ -185,6 +186,35 @@ function reply_click(clicked_id) {
     let popupID = $(`#${clicked_id}`).parents('.popup').last().prop('id');
     let dealDocumentID = (popupID.split("_"))[1]
     console.log(dealDocumentID);
+
+    const favouriteDealsDocRef = firebase.firestore().collection('users').doc('user').collection("favourite_deals").doc('dealDocumentID');
+    const dealsDocRef = firebase.firestore().collection('deals').doc(dealDocumentID);
+
+    favouriteDealsDocRef.get().then((doc) => {
+        if (doc.exists) {
+            console.log('Document data:', doc.data());
+        } else {
+            dealsDocRef.get().then((dealDoc) => {
+                if (dealDoc.exists) {
+                    // Set the data in favouriteDealsDocRef
+                    favouriteDealsDocRef.set(dealDoc.data())
+                        .then(() => {
+                            console.log('Deal successfully added to favourites!');
+                        })
+                        .catch((error) => {
+                            console.error('Error adding deal to favourites:', error);
+                        });
+                } else {
+                    console.log('Deal document does not exist!');
+                }
+            }).catch((error) => {
+                console.error('Error getting deal document:', error);
+            });
+            console.log('No such document!');
+        }
+    }).catch((error) => {
+        console.log('Error getting document:', error);
+    });
 }
 
 function saveItem() {
