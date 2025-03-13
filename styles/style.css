@@ -118,3 +118,8 @@
     .shopping-item:hover::after {
         opacity: 1;
 }
+.removeButton {
+    border-radius: 0.5rem;
+    border-width: 0cap;
+    font-size: 12px;
+}
