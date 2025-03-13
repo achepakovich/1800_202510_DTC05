@@ -167,7 +167,7 @@
 
     <!-- Main container -->
     <!-- <div class="container d-flex flex-column flex-wrap my-4 mx-auto"> -->
-    <div class="row mx-3 my-3">
+      <div class="row mx-3 my-3 bg-gray">
       <div class="col-12 col-md-6">
         <!-- left column -->
         <div class="d-flex flex-column justify-content-start">
@@ -191,7 +191,7 @@
                 id="print"
                 class="btn btn-success mx-1"
                 type="button"
-                onclick="window.print()
+                onclick="window.print()"
                 style="margin-left: 5px"
               >
                 <!-- Printer Icon -->
@@ -243,15 +243,15 @@
           </div>
 
           <!-- Shopping List (Bootstrap list group) -->
-          <div>
-            <ul class="list-group" id="shoppingList"></ul>
+          <div class="">
+            <ul class="list-group ms-3" id="shoppingList"></ul>
           </div>
         </div>
       </div>
       <!-- end left column -->
       <div class="col-12 col-md-6">
         <!-- right column (Sign In Box) -->
-        <div class="col-12">
+        <div class="col-12 bg-gray">
           <div id="signInBox" class="my-5">
             <div class="row justify-content-center">
               <div class="col-md-10">
@@ -268,56 +268,111 @@
               </div>
             </div>
           </div>
-          <h4 class="text-center my-3 text-muted ">Recommended Items</h4>
+          <!-- Recommended Items -->
+          <h4 class="text-center font-extralight my-3 text-muted ">Recommended Items</h4>
           <div class="container d-flex flex-row flex-wrap">
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/apple.png" alt="apple" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/bacon.png" alt="bacon" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/bananas.png" alt="bananas" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/bread.png" alt="bread" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/broccoli.png" alt="broccoli" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/butter.png" alt="butter" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/cereal.png" alt="cereal" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/cheese.png" alt="cheese" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/chicken.png" alt="chicken" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/cucumber.png" alt="cucumber" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/eggs.png" alt="eggs" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/lettuce.png" alt="lettuce" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/milk.png" alt="milk" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/sad-ice-cream-new.png" alt="ice-cream" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/toilet_paper.png" alt="toilet-paper" class="shopping-item img-fluid">
-            </button>
-            <button class="btn rounded-circle" onclick="addItem()">
-              <img src="images/shoppingListIcons/yogurt.png" alt="yogurt" class="shopping-item img-fluid">
-            </button>
+            <div class="d-flex flex-column text-center align-items-center">
+              <button id="addItemBtn" class="btn rounded-circle recommended-item" data-item="Apple" type="button">
+                <img src="images/shoppingListIcons/apple.png" alt="apple" class="shopping-item img-fluid">
+              </button>
+              <p class="fs-6 font-extralight">Apple</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Bacon" type="button">
+                  <img src="images/shoppingListIcons/bacon.png" alt="bacon" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Bacon</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Bananas" type="button">
+                  <img src="images/shoppingListIcons/bananas.png" alt="bananas" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Bananas</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Bacon" type="button">
+                  <img src="images/shoppingListIcons/bread.png" alt="bread" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Bread</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Bacon" type="button">
+                  <img src="images/shoppingListIcons/broccoli.png" alt="broccoli" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Broccoli</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Butter" type="button">
+                  <img src="images/shoppingListIcons/butter.png" alt="butter" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Butter</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Cereal" type="button">
+                  <img src="images/shoppingListIcons/cereal.png" alt="cereal" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Cereal</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Cheese" type="button">
+                  <img src="images/shoppingListIcons/cheese.png" alt="cheese" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Cheese</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Chicken" type="button">
+                  <img src="images/shoppingListIcons/chicken.png" alt="chicken" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Chicken</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Cucumber" type="button">
+                  <img src="images/shoppingListIcons/cucumber.png" alt="cucumber" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Cucumber</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Eggs" type="button">
+                  <img src="images/shoppingListIcons/eggs.png" alt="eggs" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Eggs</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Lettuce" type="button">
+                  <img src="images/shoppingListIcons/lettuce.png" alt="lettuce" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Lettuce</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Milk" type="button">
+                  <img src="images/shoppingListIcons/milk.png" alt="milk" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Milk</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Ice Cream" type="button">
+                  <img src="images/shoppingListIcons/sad-ice-cream-new.png" alt="ice-cream" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Ice Cream</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Toilet Paper" type="button">
+                  <img src="images/shoppingListIcons/toilet_paper.png" alt="toilet-paper" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Toilet Paper</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Tomato" type="button">
+                  <img src="images/shoppingListIcons/tomato.png" alt="tomato" class="shopping-item img-fluid">
+                </button>
+                <p class="fs-6 font-extralight">Tomato</p>
+              </div>
+              <div class="d-flex flex-column text-center align-items-center">
+                <button class="btn rounded-circle recommended-item" data-item="Yogurt" type="button">
+                  <img src="images/shoppingListIcons/yogurt.png" alt="yogurt" class="shopping-item img-fluid">
+                </button>
+              <p class="fs-6 font-extralight">Yogurt</p>
+              </div>
           
           </div>
         </div>
