@@ -54,7 +54,7 @@
             <button type="button" class="btn-close" aria-label="Close"></button>
             <div class="row my-auto">
                 <h1 class="card-item col">Item Title</h1>
-                <div class="col my-auto align-content-end">
+                <div class="col my-auto align-content-end"> 
                     <button id="saveItem" type="button" class="bg-white rounded-2"><svg
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6 " height="35px" weight="35px">
@@ -110,9 +110,9 @@
                 <img src="./images/hound_white.png" height="36" alt="" />
             </a>
             <form class="d-flex me-auto" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search flyers or items"
+                <input id="searchBox" class="form-control me-2" type="text" name="item" placeholder="Search flyers or items"
                     aria-label="Search" />
-                <button class="btn btn-success-light" type="submit">
+                <button id="searchButton" class="btn btn-success-light" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white"
                         stroke-linecap="round" stroke-linejoin="round" width="28" height="28" stroke-width="1.5">
                         <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
@@ -251,6 +251,7 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/main.js"></script>
+    <script src="./scripts/navigateToSearch.js"></script>
 </body>
 
 </html>
