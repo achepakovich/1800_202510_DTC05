@@ -163,6 +163,47 @@
       </div>
     </nav>
 
+    <!-- Profile content -->
+    
+    <div class="container d-flex flex-column gap-3">
+      <form class="container d-flex flex-column gap-3 mt-2" style="max-width: 400px;">
+        <!-- Personal Info Section -->
+        <fieldset class="mb-3" id="personalInfoFields" disabled>
+          <legend class="text-muted mb-3">User Profile</legend>
+    
+          <!-- Name Field -->
+          <div class="form-group mb-3">
+            <label for="nameInput" class="form-label text-muted">Name</label>
+            <input type="text" id="nameInput" class="form-control" placeholder="Christian Bale">
+          </div>
+    
+          <!-- City Field -->
+          <div class="form-group mb-3">
+            <label for="cityInput" class="form-label text-muted">City</label>
+            <input type="text" id="cityInput" class="form-control" placeholder="Vancouver">
+          </div>
+    
+          <!-- Postal Code Field -->
+          <div class="form-group mb-3">
+            <label for="postalInput" class="form-label text-muted">Postal Code</label>
+            <input type="text" id="postalInput" class="form-control" placeholder="V6B3H6">
+          </div>
+    
+          <!-- Favourite Fruit Field -->
+          <div class="form-group mb-3">
+            <label for="favouriteFruitInput" class="form-label text-muted">Favourite Fruit</label>
+            <input type="text" id="favouriteFruit" class="form-control" placeholder="Apple">
+          </div>
+        </fieldset>
+    
+        <!-- Action Buttons -->
+        <div class="d-flex justify-content-end gap-2 mt-1">
+          <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+          <button type="button" class="btn btn-success" onclick="saveUserInfo()">Save</button>
+        </div>
+      </form>
+    </div>
+
     <footer class="navbar fixed-bottom d-md-none bg-success">
       <div class="container-fluid d-flex justify-content-center">
         <div class="d-flex justify-content-center" id="navbarNavAltMarkup">
@@ -170,7 +211,7 @@
             <a
               class="nav-link active d-flex flex-column pe-5 align-items-center"
               aria-current="page"
-              href="#"
+              href="main.html"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -188,7 +229,7 @@
               </svg>
               Home
             </a>
-            <a class="nav-link d-flex flex-column align-items-center" href="#">
+            <a class="nav-link d-flex flex-column align-items-center" href="shoppinglist.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -214,7 +255,7 @@
             </a>
             <a
               class="nav-link d-flex flex-column px-5 align-items-center"
-              href="#"
+              href="favourites.html"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -233,7 +274,7 @@
               </svg>
               Favourites
             </a>
-            <a class="nav-link d-flex flex-column align-items-center" href="#">
+            <a class="nav-link d-flex flex-column align-items-center" href="profiles.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -264,5 +305,7 @@
     <script src="./scripts/firebaseAPI_Team05.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/profiles.js"></script>
+
   </body>
 </html>
