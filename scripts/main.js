@@ -1,18 +1,18 @@
 function writeDeals() {
     //define a variable for the collection you want to create in Firestore to populate data
-    var dealsRef = db.collection("deals");
+    var dealsRef = db.collection("deals"); 
 
-    dealsRef.add({ name: "Roma Tomatoes", deal: "Save $0.13", price: 0.55, pricedByWeight: true, brand: "N/A", retailer: "Loblaws", endDate: "03/12/2025", UPC: "00000000004087", code: "00000000004087.jpg" });
-    dealsRef.add({ name: "Celery Bunch", deal: "Save $1.13", price: 4.45, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004070", code: "00000000004070.jpg" });
-    dealsRef.add({ name: "Carrots", deal: "Save $1.13", price: 0.66, pricedByWeight: true, brand: "N/A", retailer: "Superstore", endDate: "03/25/2025", UPC: "00000000004562", code: "00000000004562.jpg" });
-    dealsRef.add({ name: "Bell Peppers - Red", deal: "Save $1.13", price: 2.98, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004688", code: "00000000004688.jpg" });
-    dealsRef.add({ name: "Yellow Onions", deal: "Save $1.13", price: 1.86, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004093", code: "00000000004093.jpg" });
-    dealsRef.add({ name: "Red Onions", deal: "Save $1.13", price: 2.58, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004082", code: "00000000004082.jpg" });
-    dealsRef.add({ name: "Russet Potatoes", deal: "Save $1.13", price: 1.9, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004072", code: "00000000004072.jpg" });
-    dealsRef.add({ name: "Anaheim Peppers", deal: "Save $1.13", price: 0.25, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004677", code: "00000000004677.jpg" });
-    dealsRef.add({ name: "Maple Leaf - Prime Chicken Breasts, Boneless Skinless, 1 Each", deal: "Save $1.13", price: 20.0, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00777262503609", code: "00777262503609.jpg" });
-    dealsRef.add({ name: "Lilydale Boneless Skinless Thighs Value Pack, 10-14 pieces per tray, 1.06 - 1.44 kg", deal: "Save $1.13", price: 25.89, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00222650000005", code: "00222650000005.jpg" });
-    dealsRef.add({ name: "Maple Leaf Fresh Boneless Pork Chops Center and Rib End, Combo Pack 9 Pieces, 1.00 - 1.35 kg", deal: "Save $1.13", price: 16.17, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00221372000003", code: "00221372000003.jpg" });
+    dealsRef.add({ name: "Roma Tomatoes", itemName: "Tomatoes", deal: "Save $0.13", price: 0.55, pricedByWeight: true, brand: "N/A", retailer: "Loblaws", endDate: "03/12/2025", UPC: "00000000004087", code: "00000000004087.jpg" });
+    dealsRef.add({ name: "Celery Bunch", itemName: "Celery", deal: "Save $1.13", price: 4.45, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004070", code: "00000000004070.jpg" });
+    dealsRef.add({ name: "Carrots", itemName: "Carrots", deal: "Save $1.13", price: 0.66, pricedByWeight: true, brand: "N/A", retailer: "Superstore", endDate: "03/25/2025", UPC: "00000000004562", code: "00000000004562.jpg" });
+    dealsRef.add({ name: "Bell Peppers - Red", itemName: "Peppers", deal: "Save $1.13", price: 2.98, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004688", code: "00000000004688.jpg" });
+    dealsRef.add({ name: "Yellow Onions", itemName: "Onions", deal: "Save $1.13", price: 1.86, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004093", code: "00000000004093.jpg" });
+    dealsRef.add({ name: "Red Onions", itemName: "Onions", deal: "Save $1.13", price: 2.58, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004082", code: "00000000004082.jpg" });
+    dealsRef.add({ name: "Russet Potatoes", itemName: "Potatoes", deal: "Save $1.13", price: 1.9, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004072", code: "00000000004072.jpg" });
+    dealsRef.add({ name: "Anaheim Peppers", itemName: "Peppers", deal: "Save $1.13", price: 0.25, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004677", code: "00000000004677.jpg" });
+    dealsRef.add({ name: "Maple Leaf - Prime Chicken Breasts, Boneless Skinless, 1 Each", itemName: "Chicken", deal: "Save $1.13", price: 20.0, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00777262503609", code: "00777262503609.jpg" });
+    dealsRef.add({ name: "Lilydale Boneless Skinless Thighs Value Pack, 10-14 pieces per tray, 1.06 - 1.44 kg", itemName: "Chicken", deal: "Save $1.13", price: 25.89, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00222650000005", code: "00222650000005.jpg" });
+    dealsRef.add({ name: "Maple Leaf Fresh Boneless Pork Chops Center and Rib End, Combo Pack 9 Pieces, 1.00 - 1.35 kg", itemName: "Pork Chops", deal: "Save $1.13", price: 16.17, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00221372000003", code: "00221372000003.jpg" });
 }
 
 db.collection("deals").get().then((querySnapshot) => {
