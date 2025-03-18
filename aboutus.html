@@ -1,345 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Deals Hound</title>
-    <meta name="comp1800 template" content="My 1800 App" />
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <title>Deals Hound</title>
+  <meta name="comp1800 template" content="My 1800 App" />
 
-    <!-- Bootstrap Library CSS CDN go here -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <!-- Boostrap Library JS CDN  go here -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Other libraries go here -->
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="./images/favicon_io/favicon.ico"
-    />
+  <!-- Bootstrap Library CSS CDN go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <!-- Boostrap Library JS CDN  go here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 
-    <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="styles/style.css" />
-  </head>
+  <!-- Other libraries go here -->
+  <link rel="icon" type="image/x-icon" href="./images/favicon_io/favicon.ico" />
 
-  <body>
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-      <div class="container-fluid">
-        <!-- Brand -->
-        <a class="navbar-brand active" href="index.html">
-          <img src="./images/hound_white.png" height="36" alt="" />
-        </a>
-        <form class="d-flex me-auto" role="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search flyers or items"
-            aria-label="Search"
-          />
-          <button class="btn btn-success-light" type="submit">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              width="28"
-              height="28"
-              stroke-width="1.5"
-            >
-              <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
-              <path d="M21 21l-6 -6"></path>
+  <!-- Link to styles of your own -->
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body>
+  <!------------------------------>
+  <!-- Your HTML Layout go here -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container-fluid">
+      <!-- Brand -->
+      <a class="navbar-brand active" href="index.html">
+        <img src="./images/hound_white.png" height="36" alt="" />
+      </a>
+      <form class="d-flex me-auto" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search flyers or items" aria-label="Search" />
+        <button class="btn btn-success-light" type="submit">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-linecap="round"
+            stroke-linejoin="round" width="28" height="28" stroke-width="1.5">
+            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+            <path d="M21 21l-6 -6"></path>
+          </svg>
+        </button>
+        <div class="dropdown">
+          <button class="btn btn-success-light dropdown-toggle" type="button" id="filterDropdown"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white"
+              stroke-linecap="round" stroke-linejoin="round" width="28" height="28" stroke-width="1.5">
+              <path d="M3 4h18l-7 10v4l-4 2v-6L3 4z"></path>
             </svg>
           </button>
-        </form>
-
-        <!-- Collapsible menu-->
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="navbarNav"
-        >
-          <ul class="navbar-nav d-block d-lg-flex">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  width="28"
-                  height="28"
-                  stroke-width="1.5"
-                >
-                  <path
-                    d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
-                  ></path>
-                  <path
-                    d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 1 1 -2 2h-2a2 2 0 0 1 -2 -2z"
-                  ></path>
-                  <path d="M9 14h.01"></path>
-                  <path d="M9 17h.01"></path>
-                  <path d="M12 16l1 1l3 -3"></path>
-                </svg>
-                Shopping List
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="favourites.html">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  width="28"
-                  height="28"
-                  stroke-width="1"
-                >
-                  <path
-                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
-                  ></path>
-                </svg>
-                Favourites
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  width="28"
-                  height="28"
-                  stroke-width="1"
-                >
-                  <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                  <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-                  <path
-                    d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"
-                  ></path>
-                </svg>
-                Sign in
-              </a>
-            </li>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="filterDropdown">
+            <li><a class="dropdown-item" href="#">Lowest Price</a></li>
+            <li><a class="dropdown-item" href="#">Highest Discount</a></li>
+            <li><a class="dropdown-item" href="#">Newest Deals</a></li>
+            <li><a class="dropdown-item" href="#">Expiring Soon</a></li>
           </ul>
         </div>
-      </div>
-    </nav>
-    <main id="aboutus" class="mx-auto p-5">
-      <h1 id="mission-header" class="text-center text-success fw-bold mb-4">
-        Finding deals for you
-      </h1>
-      <p>
-        DealHound simplifies the grocery shopping experience by collecting and
-        curating deals from multiple retailers in one place. Add your grocery
-        list and preferences, and our app will ensure that you have the best
-        deals conveniently in hand. Competitors either act as a glorified flyer
-        service or require you to hand over your entire shopping process for
-        them to handle. DealHound is the best of both worlds, acting as a
-        companion who finds all the deals and organizes them for you while still
-        giving you control over where and when you shop. Share shopping
-        responsibilities? We’ve found that over three-quarters of you do, but
-        our competitors don’t seem to understand that. DealHound gets you, so
-        link your accounts for easy shopping collaboration!
-      </p>
-      <div class="d-flex justify-content-center">
-        <img
-          class="img-fluid our-mission-images"
-          src="https://img.freepik.com/premium-vector/ready-use-doodle-mini-illustration-money-saving_67813-18920.jpg?w=740"
-        />
-        <img
-          class="img-fluid our-mission-images"
-          src="https://img.freepik.com/free-vector/shopping-basket-concept-illustration_114360-18784.jpg?t=st=1741026853~exp=1741030453~hmac=72748fa8e5461016a2995d93ebee8070aeff96c0634c1a090545c46550319ee0&w=740"
-        />
-      </div>
-      <div id="key-features">
-        <h1>Key Features</h1>
-        <ol class="rounded-5 p-md-3">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6 my-auto">
-                <li>
-                  <b>Smart Shopping Lists:</b> Create shopping lists with
-                  automatic deal suggestions to maximize savings.
-                </li>
-              </div>
-              <div class="col-md-6">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/15537/15537318.png"
-                />
-              </div>
-            </div>
-            <div class="key-feature-odd d-flex justify-content-end">
-              <div class="w-50 my-auto">
-                <li>
-                  <b>Personalized Deal Recommendations:</b> Get tailored savings
-                  based on your shopping preferences. For instance, preferred
-                  locations or travel distance, brand names, type of grocery or
-                  deal
-                </li>
-              </div>
-              <div class="d-inline-block float-right">
-                <img
-                  class="d-inline-block"
-                  src="https://cdn-icons-png.flaticon.com/128/6601/6601145.png"
-                />
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 my-auto">
-                <li>
-                  <b>Account Sharing:</b> Do you share the shopping
-                  responsibility with others? No problem. With our
-                  account-sharing feature, simply link accounts and enjoy
-                  finding the best deals together!
-                </li>
-              </div>
-              <div class="col-md-6">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/1501/1501311.png"
-                />
-              </div>
-            </div>
-          </div>
-        </ol>
-      </div>
-      <div class="mt-5">
-        <h1>Watch Our Pitch Video!</h1>
-        <iframe
-          class="mx-auto"
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/Bt_3qnpRLu4?si=EWW1WpY_vswnc-Y1"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </main>
-    <!-- our own footer goes here-->
-    <footer class="navbar fixed-bottom d-md-none bg-success">
-      <div class="container-fluid d-flex justify-content-center">
-        <div class="d-flex justify-content-center" id="navbarNavAltMarkup">
-          <div class="d-flex text-white">
-            <a
-              class="nav-link active d-flex flex-column pe-5 align-items-center"
-              aria-current="page"
-              href="#"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                width="45"
-                height="45"
-                stroke-width="1"
-              >
-                <path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>
-                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
-                <path d="M10 12h4v4h-4z"></path>
-              </svg>
-              Home
-            </a>
-            <a class="nav-link d-flex flex-column align-items-center" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                width="45"
-                height="45"
-                stroke-width="1.5"
-              >
-                <path
-                  d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
-                ></path>
-                <path
-                  d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 1 1 -2 2h-2a2 2 0 0 1 -2 -2z"
-                ></path>
+      </form>
+
+      <!-- Collapsible menu-->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav d-block d-lg-flex">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" width="28" height="28" stroke-width="1.5">
+                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path>
+                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 1 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
                 <path d="M9 14h.01"></path>
                 <path d="M9 17h.01"></path>
                 <path d="M12 16l1 1l3 -3"></path>
               </svg>
               Shopping List
             </a>
-            <a
-              class="nav-link d-flex flex-column px-5 align-items-center"
-              href="#"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                width="45"
-                height="45"
-                stroke-width="1"
-              >
-                <path
-                  d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
-                ></path>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="favourites.html">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" width="28" height="28" stroke-width="1">
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
               </svg>
               Favourites
             </a>
-            <a class="nav-link d-flex flex-column align-items-center" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                width="45"
-                height="45"
-                stroke-width="1"
-              >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" width="28" height="28" stroke-width="1">
                 <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
                 <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-                <path
-                  d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"
-                ></path>
+                <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path>
               </svg>
-              Profile</a
-            >
+              Sign in
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main id="aboutus" class="mx-auto p-5">
+    <h1 id="mission-header" class="text-center text-success fw-bold mb-4">
+      Finding deals for you
+    </h1>
+    <p>
+      DealHound simplifies the grocery shopping experience by collecting and
+      curating deals from multiple retailers in one place. Add your grocery
+      list and preferences, and our app will ensure that you have the best
+      deals conveniently in hand. Competitors either act as a glorified flyer
+      service or require you to hand over your entire shopping process for
+      them to handle. DealHound is the best of both worlds, acting as a
+      companion who finds all the deals and organizes them for you while still
+      giving you control over where and when you shop. Share shopping
+      responsibilities? We’ve found that over three-quarters of you do, but
+      our competitors don’t seem to understand that. DealHound gets you, so
+      link your accounts for easy shopping collaboration!
+    </p>
+    <div class="d-flex justify-content-center">
+      <img class="img-fluid our-mission-images"
+        src="https://img.freepik.com/premium-vector/ready-use-doodle-mini-illustration-money-saving_67813-18920.jpg?w=740" />
+      <img class="img-fluid our-mission-images"
+        src="https://img.freepik.com/free-vector/shopping-basket-concept-illustration_114360-18784.jpg?t=st=1741026853~exp=1741030453~hmac=72748fa8e5461016a2995d93ebee8070aeff96c0634c1a090545c46550319ee0&w=740" />
+    </div>
+    <div id="key-features">
+      <h1>Key Features</h1>
+      <ol class="rounded-5 p-md-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 my-auto">
+              <li>
+                <b>Smart Shopping Lists:</b> Create shopping lists with
+                automatic deal suggestions to maximize savings.
+              </li>
+            </div>
+            <div class="col-md-6">
+              <img src="https://cdn-icons-png.flaticon.com/128/15537/15537318.png" />
+            </div>
+          </div>
+          <div class="key-feature-odd d-flex justify-content-end">
+            <div class="w-50 my-auto">
+              <li>
+                <b>Personalized Deal Recommendations:</b> Get tailored savings
+                based on your shopping preferences. For instance, preferred
+                locations or travel distance, brand names, type of grocery or
+                deal
+              </li>
+            </div>
+            <div class="d-inline-block float-right">
+              <img class="d-inline-block" src="https://cdn-icons-png.flaticon.com/128/6601/6601145.png" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 my-auto">
+              <li>
+                <b>Account Sharing:</b> Do you share the shopping
+                responsibility with others? No problem. With our
+                account-sharing feature, simply link accounts and enjoy
+                finding the best deals together!
+              </li>
+            </div>
+            <div class="col-md-6">
+              <img src="https://cdn-icons-png.flaticon.com/128/1501/1501311.png" />
+            </div>
           </div>
         </div>
+      </ol>
+    </div>
+    <div class="mt-5">
+      <h1>Watch Our Pitch Video!</h1>
+      <iframe class="mx-auto" width="560" height="315"
+        src="https://www.youtube.com/embed/Bt_3qnpRLu4?si=EWW1WpY_vswnc-Y1" title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </main>
+  <!-- our own footer goes here-->
+  <footer class="navbar fixed-bottom d-md-none bg-success">
+    <div class="container-fluid d-flex justify-content-center">
+      <div class="d-flex justify-content-center" id="navbarNavAltMarkup">
+        <div class="d-flex text-white">
+          <a class="nav-link active d-flex flex-column pe-5 align-items-center" aria-current="page" href="#"><svg
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" width="45" height="45" stroke-width="1">
+              <path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>
+              <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
+              <path d="M10 12h4v4h-4z"></path>
+            </svg>
+            Home
+          </a>
+          <a class="nav-link d-flex flex-column align-items-center" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" width="45" height="45" stroke-width="1.5">
+              <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path>
+              <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 1 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
+              <path d="M9 14h.01"></path>
+              <path d="M9 17h.01"></path>
+              <path d="M12 16l1 1l3 -3"></path>
+            </svg>
+            Shopping List
+          </a>
+          <a class="nav-link d-flex flex-column px-5 align-items-center" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" width="45" height="45" stroke-width="1">
+              <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
+            </svg>
+            Favourites
+          </a>
+          <a class="nav-link d-flex flex-column align-items-center" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" width="45" height="45" stroke-width="1">
+              <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+              <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+              <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path>
+            </svg>
+            Profile</a>
+        </div>
       </div>
-    </footer>
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
+    </div>
+  </footer>
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <!---------------------------------------------->
 
-    <!-- Link to scripts of your own -->
-    <script src="./scripts/firebaseAPI_Team05.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
-  </body>
+  <!-- Link to scripts of your own -->
+  <script src="./scripts/firebaseAPI_Team05.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/script.js"></script>
+</body>
+
 </html>
