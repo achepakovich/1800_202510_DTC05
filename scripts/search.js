@@ -94,7 +94,14 @@ function displayDealPopupsDynamically(collection) {
         })
 }
 
+// This ensures that the search item name remains in the search box after search
+function populateSearchBoxValue() {
+    let searchNameGet = localStorage.getItem('searchItem');
+    $("#searchBox").val(searchNameGet)
+}
+
 $(document).ready(function () {
+    populateSearchBoxValue()
     displayCardsDynamically("deals");
     displayDealPopupsDynamically("deals");
 }); 
