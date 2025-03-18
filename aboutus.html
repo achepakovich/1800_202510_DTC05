@@ -34,8 +34,9 @@
         <img src="./images/hound_white.png" height="36" alt="" />
       </a>
       <form class="d-flex me-auto" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search flyers or items" aria-label="Search" />
-        <button class="btn btn-success-light" type="submit">
+        <input id="searchBox" class="form-control me-2" type="text" name="item" placeholder="Search flyers or items"
+          aria-label="Search" />
+        <button id="searchButton" class="btn btn-success-light" type="button">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-linecap="round"
             stroke-linejoin="round" width="28" height="28" stroke-width="1.5">
             <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
@@ -43,11 +44,11 @@
           </svg>
         </button>
         <div class="dropdown">
-          <button class="btn btn-success-light dropdown-toggle" type="button" id="filterDropdown"
-            data-bs-toggle="dropdown" aria-expanded="false">
+          <button id="searchButton" class="btn btn-success-light" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white"
               stroke-linecap="round" stroke-linejoin="round" width="28" height="28" stroke-width="1.5">
-              <path d="M3 4h18l-7 10v4l-4 2v-6L3 4z"></path>
+              <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+              <path d="M21 21l-6 -6"></path>
             </svg>
           </button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="filterDropdown">
@@ -226,6 +227,7 @@
   <script src="./scripts/firebaseAPI_Team05.js"></script>
   <script src="./scripts/skeleton.js"></script>
   <script src="./scripts/script.js"></script>
+  <script src="./scripts/navigateToSearch.js"></script>
 </body>
 
 </html>
