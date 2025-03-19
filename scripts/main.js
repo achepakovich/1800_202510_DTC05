@@ -1,5 +1,5 @@
 //Global variable pointing to the current user's Firestore document
-var currentUser;   
+var currentUser;
 
 //Function that calls everything needed for the main page  
 function doAll() {
@@ -25,7 +25,7 @@ doAll();
 
 function writeDeals() {
     //define a variable for the collection you want to create in Firestore to populate data
-    var dealsRef = db.collection("deals"); 
+    var dealsRef = db.collection("deals");
 
     dealsRef.add({ name: "Roma Tomatoes", itemName: "Tomatoes", deal: "Save $0.13", price: 0.55, pricedByWeight: true, brand: "N/A", retailer: "Loblaws", endDate: "03/12/2025", UPC: "00000000004087", code: "00000000004087.jpg" });
     dealsRef.add({ name: "Celery Bunch", itemName: "Celery", deal: "Save $1.13", price: 4.45, pricedByWeight: true, brand: "N/A", retailer: "No Frills", endDate: "03/25/2025", UPC: "00000000004070", code: "00000000004070.jpg" });
@@ -106,7 +106,7 @@ function displayCardsDynamically(collection) {
 
                 //newcard.querySelector('.card-startdate').innerHTML = startdate;
                 newcard.querySelector('.card-deal').innerHTML = deal;
-                newcard.querySelector('.card-price').innerHTML = price;
+                newcard.querySelector('.card-price').innerHTML = `$${price}`;
                 newcard.querySelector('.card-end-date').innerHTML = dealEndDate;
                 newcard.querySelector('.card-retailer').innerHTML = retailer;
                 newcard.querySelector('.card-image').src = `./images/items/${imageCode}` //`.images/items/${imageCode}`; //Example: NV01.jpg `./images/${imageCode}.png`
@@ -162,7 +162,7 @@ function displayDealPopupsDynamically(collection) {
 
                 newcard.querySelector('.card-item').innerHTML = title;
                 newcard.querySelector('.card-deal').innerHTML = deal;
-                newcard.querySelector('.card-price').innerHTML = price;
+                newcard.querySelector('.card-price').innerHTML = `$${price}`;
                 newcard.querySelector('.card-end-date').innerHTML = dealEndDate;
                 newcard.querySelector('.card-retailer').innerHTML = retailer;
                 newcard.querySelector('.card-image-popup').src = `./images/items/${imageCode}`;
@@ -185,7 +185,7 @@ function displayDealPopupsDynamically(collection) {
                 if (bookmarkIcon) {
                     bookmarkIcon.id = 'save-' + docID;
                     bookmarkIcon.onclick = () => saveBookmark(docID);
-                
+
                     currentUser.get().then(userDoc => {
                         var bookmarks = userDoc.data().bookmarks;
                         if (bookmarks.includes(docID)) {
@@ -193,7 +193,7 @@ function displayDealPopupsDynamically(collection) {
                         }
                     });
                 }
-                
+
 
                 document.getElementById(collection + "-popup-here").appendChild(newcard);
                 i++;
@@ -269,17 +269,17 @@ function saveItem() {
 };
 function saveBookmark(hikeDocID) {
     // Manage the backend process to store the hikeDocID in the database, recording which hike was bookmarked by the user.
-currentUser.update({
-                    // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
-            // This method ensures that the ID is added only if it's not already present, preventing duplicates.
+    currentUser.update({
+        // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
+        // This method ensures that the ID is added only if it's not already present, preventing duplicates.
         bookmarks: firebase.firestore.FieldValue.arrayUnion(hikeDocID)
     })
-            // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
-    .then(function () {
-        console.log("bookmark has been saved for" + hikeDocID);
-        let iconID = 'save-' + hikeDocID;
-        //console.log(iconID);
-                    //this is to change the icon of the hike that was saved to "filled"
-        document.getElementById(iconID).innerText = 'bookmark';
-    });
+        // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
+        .then(function () {
+            console.log("bookmark has been saved for" + hikeDocID);
+            let iconID = 'save-' + hikeDocID;
+            //console.log(iconID);
+            //this is to change the icon of the hike that was saved to "filled"
+            document.getElementById(iconID).innerText = 'bookmark';
+        });
 }

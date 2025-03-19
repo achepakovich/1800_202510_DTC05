@@ -130,6 +130,22 @@
     cursor: pointer;
 }
 
+/* .button-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+} */
+
+.fixed-size {
+    width: 47px;
+    height: 41px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    /* Ensures no extra space */
+}
+
 /* Styling for future side bar on deal search page */
 /* .sidebar {
   margin: 0;
