@@ -1,3 +1,28 @@
+//Global variable pointing to the current user's Firestore document
+var currentUser;   
+
+//Function that calls everything needed for the main page  
+function doAll() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            currentUser = db.collection("users").doc(user.uid); //global
+            console.log(currentUser);
+
+
+            displayCardsDynamically("deals");
+            displayDealPopupsDynamically("deals");
+            reply_click();
+            saveItem();
+            closeDeal();
+        } else {
+            // No user is signed in.
+            console.log("No user is signed in");
+            window.location.href = "login.html";
+        }
+    });
+}
+doAll();
+
 function writeDeals() {
     //define a variable for the collection you want to create in Firestore to populate data
     var dealsRef = db.collection("deals"); 
@@ -117,58 +142,71 @@ function displayCardsDynamically(collection) {
 }
 
 function displayDealPopupsDynamically(collection) {
-    let popupTemplate = document.getElementById("dealPopupTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable. 
+    let popupTemplate = document.getElementById("dealPopupTemplate");
 
-    db.collection(collection).get()   //the collection called "hikes"
+    db.collection(collection).get()
         .then(allDeals => {
-            var i = 1;  //Optional: if you want to have a unique ID for each hike
-            allDeals.forEach(doc => { //iterate thru each doc
-                var title = doc.data().name;       // get value of the "name" key
+            var i = 1;
+            allDeals.forEach(doc => {
+                var title = doc.data().name;
                 var deal = doc.data().deal;
                 var imageCode = doc.data().code;
                 var price = doc.data().price;
-                var dealStartDate = doc.data().startDate; // get value of the "details" key   //get unique ID to each hike to be used for fetching right image //gets the length field
+                var dealStartDate = doc.data().startDate;
                 var dealEndDate = doc.data().endDate;
-                var retailer = doc.data().retailer
+                var retailer = doc.data().retailer;
                 var UPC = doc.data().UPC;
-                let newcard = popupTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
-                //update title and text and image
-                newcard.querySelector('.card-item').innerHTML = title;
+                var docID = doc.id; // Get document ID
 
-                //newcard.querySelector('.card-startdate').innerHTML = startdate;
+                let newcard = popupTemplate.content.cloneNode(true);
+
+                newcard.querySelector('.card-item').innerHTML = title;
                 newcard.querySelector('.card-deal').innerHTML = deal;
                 newcard.querySelector('.card-price').innerHTML = price;
                 newcard.querySelector('.card-end-date').innerHTML = dealEndDate;
                 newcard.querySelector('.card-retailer').innerHTML = retailer;
-                newcard.querySelector('.card-image-popup').src = `./images/items/${imageCode}`; //Example: NV01.jpg `./images/${imageCode}.png`
-                //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
+                newcard.querySelector('.card-image-popup').src = `./images/items/${imageCode}`;
+
                 let popupElement = newcard.querySelector(".popup");
                 if (popupElement) {
                     popupElement.setAttribute("id", "popup_" + doc.id);
-                    popupElement.style.display = 'none'
-                    popupElement.classList.add(i)
+                    popupElement.style.display = 'none';
+                    popupElement.classList.add(i);
                 }
 
-                //Optional: give unique ids to all elements for future use
                 newcard.querySelector('.saveDealButton').setAttribute("id", "saveDeal" + i);
-                // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-                // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+
                 $("#saveDeal").click(function () {
-                    $('#saveDeal').css({
-                        'background-color': 'green',
-                    })
-                })
-                //attach to gallery, Example: "hikes-go-here"
+                    $('#saveDeal').css({ 'background-color': 'green' });
+                });
+
+                // Bookmark handling
+                let bookmarkIcon = newcard.querySelector('.saveDealButton');
+                if (bookmarkIcon) {
+                    bookmarkIcon.id = 'save-' + docID;
+                    bookmarkIcon.onclick = () => saveBookmark(docID);
+                
+                    currentUser.get().then(userDoc => {
+                        var bookmarks = userDoc.data().bookmarks;
+                        if (bookmarks.includes(docID)) {
+                            bookmarkIcon.innerText = 'bookmark';
+                        }
+                    });
+                }
+                
+
                 document.getElementById(collection + "-popup-here").appendChild(newcard);
-                i++;   //Optional: iterate variable to serve as unique ID
+                i++;
+
                 $(".btn-close").click(function () {
                     $("#deals-popup-here").hide();
                     $("#overlay").hide();
                     $(".popup").hide();
-                })
-            })
-        })
+                });
+            });
+        });
 }
+
 
 function closeDeal() {
     $(".btn-close").click(function () {
@@ -229,10 +267,19 @@ function saveItem() {
         })
     })
 };
-
-
-displayCardsDynamically("deals");
-displayDealPopupsDynamically("deals");
-reply_click();
-saveItem();
-closeDeal();
+function saveBookmark(hikeDocID) {
+    // Manage the backend process to store the hikeDocID in the database, recording which hike was bookmarked by the user.
+currentUser.update({
+                    // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
+            // This method ensures that the ID is added only if it's not already present, preventing duplicates.
+        bookmarks: firebase.firestore.FieldValue.arrayUnion(hikeDocID)
+    })
+            // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
+    .then(function () {
+        console.log("bookmark has been saved for" + hikeDocID);
+        let iconID = 'save-' + hikeDocID;
+        //console.log(iconID);
+                    //this is to change the icon of the hike that was saved to "filled"
+        document.getElementById(iconID).innerText = 'bookmark';
+    });
+}

@@ -4,6 +4,10 @@ function displayCardsDynamically(collection) {
     let searchName = $('input[name="item"]').val()
     db.collection(collection).where("itemName", "==", searchNameGet).get()
         .then(allDeals => {
+            if (allDeals.empty){
+                $("#no-results").html("<h1>No deals found for this item. Sorry!</h1>")
+                $("#no-results").after("<div class='text-center'><img class='mt-5' src='https://cdn-icons-png.freepik.com/256/6179/6179016.png?ga=GA1.1.1263291304.1741026299&semt=ais_hybrid'></div>")
+            }
             var i = 1;  //Optional: if you want to have a unique ID for each hike
             allDeals.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;       // get value of the "name" key
