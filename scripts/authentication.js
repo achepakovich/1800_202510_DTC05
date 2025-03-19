@@ -27,7 +27,10 @@ var uiConfig = {
             //write to firestore. We are using the UID for the ID in users collection
             name: user.displayName, //"users" collection
             email: user.email, //with authenticated user's ID (user.uid)
-            country: "Canada", //optional default profile info
+            country: "Canada", //optional default profile 
+            city: "Vancouver",
+            postalCode:"V6B3H6",
+            favouriteFruit:"Apple"
             // school: "BCIT", //optional default profile info
           })
           .then(function () {
