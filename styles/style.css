@@ -1,132 +1,134 @@
 .splash {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
-    url("../images/splash2.jpg");
-  background-size: cover;
-  background-position: center;
-  height: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
+        url("../images/splash2.jpg");
+    background-size: cover;
+    background-position: center;
+    height: auto;
 }
 
 #aboutus {
-  max-width: 1024px;
-  margin-top: 60px;
+    max-width: 1024px;
+    margin-top: 60px;
 }
 
 #key-features {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .our-mission-images {
-  max-width: 40%;
+    max-width: 40%;
 }
 
 #mission-header {
-  font-size: 5vw;
+    font-size: 5vw;
 }
 
 #firebaseui-auth-container {
-  margin: 0;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .hovernow {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-  transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.2s ease-in-out;
 }
 
 .hovernow:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
 }
 
 .card-body-template {
-  line-height: 40%;
+    line-height: 40%;
 }
 
 .dropdown-toggle::after {
-  border-top-color: white !important;
-  /* Changes the caret to white */
+    border-top-color: white !important;
+    /* Changes the caret to white */
 }
 
 .card {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .card-image-popup {
-  width: 100%;
+    width: 100%;
 }
 
 .popup {
-  width: 700px;
-  position: fixed;
-  background: white;
-  top: 50%;
-  left: 50%;
-  border-radius: 6px;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  padding: 20px;
+    width: 700px;
+    position: fixed;
+    background: white;
+    top: 50%;
+    left: 50%;
+    border-radius: 6px;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    padding: 20px;
 }
 
 .btn-close {
-  float: right;
+    float: right;
 }
 
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Adjust transparency */
-  z-index: 999;
-  /* Ensure it appears above other content */
-  display: none;
-  /* Hide by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust transparency */
+    z-index: 999;
+    /* Ensure it appears above other content */
+    display: none;
+    /* Hide by default */
 }
 
 .saveDealButton {
-  background-color: white;
+    background-color: white;
 }
 
 .shopping-item {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  position: relative;
-  display: inline-block;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    position: relative;
+    display: inline-block;
 }
 
 .shopping-item::after {
-  content: attr(alt);
-  position: absolute;
-  bottom: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  padding: 4px 8px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: black;
-  border-radius: 4px;
-  font-size: 14px;
-  opacity: 0;
-  transition: opacity 0.2s;
+    content: attr(alt);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    padding: 4px 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: black;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.2s;
 }
 
 .shopping-item:hover::after {
-  opacity: 1;
+    opacity: 1;
 }
 
 .removeButton {
-  border-radius: 0.5rem;
-  border-width: 0cap;
-  font-size: 12px;
+    border-radius: 0.5rem;
+    border-width: 0cap;
+    font-size: 12px;
 }
 
-
+.material-icons {
+    cursor: pointer;
+}
 
 /* Styling for future side bar on deal search page */
 /* .sidebar {
@@ -186,6 +188,6 @@ div.content {
 } */
 
 #no-results {
-  /* margin-left: 280px; */
-  margin-top: 100px;
+    /* margin-left: 280px; */
+    margin-top: 100px;
 }
