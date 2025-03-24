@@ -68,6 +68,10 @@
     transform: translate(-50%, -50%);
     z-index: 1000;
     padding: 20px;
+    max-width: 90vw;
+    /* Prevents going off-screen horizontally */
+    max-height: 90vh;
+    /* Prevents going off-screen vertically */
 }
 
 .btn-close {
