@@ -206,6 +206,7 @@ $(document).ready(function () {
         displayCardsDynamically("deals");
     });
     populateSearchBoxValue();
+    colourActiveFilter();
     displayCardsDynamically("deals");
     displayDealPopupsDynamically("deals");
 });
