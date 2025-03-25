@@ -21,7 +21,7 @@ function doAll() {
                     const decodedItem = decodeURIComponent(itemParam);
                     searchBox.value = decodedItem;
                     localStorage.setItem("searchItem", decodedItem);
-                    
+
                     const searchButton = document.getElementById("searchButton");
                     if (searchButton) {
                         setTimeout(() => {
@@ -30,7 +30,7 @@ function doAll() {
                     }
                 }
             }
-            
+
             // Filtering event handlers
             $("#price").click(() => {
                 filterDeals("price");
@@ -69,6 +69,9 @@ function doAll() {
                 displayCardsDynamically("deals");
             });
             $("#max-price").change(function () {
+                displayCardsDynamically("deals");
+            });
+            $("#filter_brand").change(function () {
                 displayCardsDynamically("deals");
             });
             populateSearchBoxValue();
@@ -169,7 +172,12 @@ function addWhereClauses(collection) {
     if ($("#max-price").val()) {
         search = search.where("price", "<=", max);
     }
-    console.log(search)
+
+    // Brands
+    if (brand_to_filter_by = $("#filter_brand").val()){
+        search = search.where("brand", "==", brand_to_filter_by);
+    }
+
     $("#deals-go-here").empty();
     return search
 }
