@@ -420,3 +420,60 @@
         /* Ensure remove column isn't too wide on mobile */
     }
 }
+
+.price-filter {
+    align-items: center;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 10px;
+
+    width: fit-content;
+}
+
+.price-filter label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.price-filter input {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.price-filter span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+#apply-filter {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+#apply-filter:hover {
+    background: #0056b3;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 500px) {
+    .price-filter {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .price-filter input {
+        width: 60px;
+    }
+}

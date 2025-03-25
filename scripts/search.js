@@ -53,11 +53,12 @@ function colourActiveFilter() {
     });
 }
 
-let retailer = [];
-
-function addWhereClauses(collection, retailer) {
+function addWhereClauses(collection) {
     let searchNameGet = localStorage.getItem("searchItem");
     let search = db.collection(collection).where("itemName", "==", searchNameGet);
+
+    let retailer = [];
+
     if ($("#walmart").is(":checked")) {
         retailer.push("walmart");
     }
@@ -67,8 +68,21 @@ function addWhereClauses(collection, retailer) {
     if ($("#whole_foods").is(":checked")) {
         retailer.push("Wholefoods");
     }
-    if (retailer.length != 0) {
+
+    // Add retailer filter only if at least one is selected
+    if (retailer.length > 0) {
         search = search.where("retailer", "in", retailer);
+    }
+
+    // Get min and max price values
+    let min = $("#min-price").val() ? parseInt($("#min-price").val()) : 0;
+    let max = $("#max-price").val() ? parseInt($("#max-price").val()) : Infinity;
+
+    if ($("#min-price").val()) {
+        search = search.where("price", ">=", min);
+    }
+    if ($("#max-price").val()) {
+        search = search.where("price", "<=", max);
     }
     console.log(search)
     $("#deals-go-here").empty();
@@ -80,7 +94,7 @@ function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("dealCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable.
     let searchNameGet = localStorage.getItem("searchItem");
     if (filterActivated == false) {
-        dbCollection = addWhereClauses(collection, retailer)
+        dbCollection = addWhereClauses(collection)
     } else if (filterActivated == true) {
         dbCollection = db
             .collection(collection)
@@ -232,6 +246,12 @@ $(document).ready(function () {
         displayCardsDynamically("deals");
     });
     $("#whole_foods").click(function () {
+        displayCardsDynamically("deals");
+    });
+    $("#min-price").change(function () {
+        displayCardsDynamically("deals");
+    });
+    $("#max-price").change(function () {
         displayCardsDynamically("deals");
     });
     populateSearchBoxValue();
