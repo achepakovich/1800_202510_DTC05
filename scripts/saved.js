@@ -2,13 +2,21 @@
 // This function is the only function that's called.
 // This strategy gives us better control of the page.
 //----------------------------------------------------------
+var currentUser;
+
+// Function that calls everything needed for the main page  
 function doAll() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
+            currentUser = db.collection("users").doc(user.uid); // Global reference
             insertNameFromFirestore(user);
-            getBookmarks(user)
+            console.log(currentUser);
+
+            getBookmarks(user);  // Retrieve and display the user's bookmarks
         } else {
+            // No user is signed in.
             console.log("No user is signed in");
+            window.location.href = "login.html";  // Redirect to login page
         }
     });
 }
@@ -20,13 +28,11 @@ doAll();
 // and put into script.js for other pages to use as well).
 //----------------------------------------------------------//----------------------------------------------------------
 function insertNameFromFirestore(user) {
-            db.collection("users").doc(user.uid).get().then(userDoc => {
-                console.log(userDoc.data().name)
-                userName = userDoc.data().name;
-                console.log(userName)
-                document.getElementById("name-goes-here").innerHTML = userName;
-            })
-
+    db.collection("users").doc(user.uid).get().then(userDoc => {
+        console.log(userDoc.data().name);
+        let userName = userDoc.data().name;
+        document.getElementById("name-goes-here").innerHTML = userName;
+    });
 }
 //----------------------------------------------------------
 // This function takes input param User's Firestore document pointer
@@ -46,8 +52,8 @@ function getBookmarks(user) {
                 return;
             }
 
-            let newcardTemplate = document.getElementById("savedCardTemplate");
-
+            let newcardTemplate = document.getElementById("dealsCardTemplate");
+            console.log(bookmarks)
             bookmarks.forEach(thisItemID => {
                 db.collection("deals").doc(thisItemID).get().then(doc => { 
                     if (doc.exists) {

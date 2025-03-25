@@ -211,3 +211,188 @@ div.content {
     /* margin-left: 280px; */
     margin-top: 100px;
 }
+/* Add these styles to your style.css file */
+
+/* Shopping list table styles */
+#shopping-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+#shopping-table th {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem;
+}
+
+#shopping-table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+}
+
+#shopping-table tbody tr:hover {
+    background-color: rgba(0, 128, 0, 0.05);
+}
+
+/* Style for the deals count cell */
+#shopping-table .text-success {
+    color: #28a745;
+}
+
+#shopping-table .text-muted {
+    color: #6c757d;
+}
+
+/* Make clickable deals count more obvious */
+#shopping-table td[style*="cursor: pointer"]:hover {
+    text-decoration: underline;
+    background-color: rgba(0, 128, 0, 0.1);
+}
+
+/* Style for the remove button */
+/* .removeButton {
+    border: none;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+} */
+
+.removeButton:hover {
+    background-color: #c82333;
+}
+
+/* Responsive table adjustments */
+@media (max-width: 576px) {
+
+    #shopping-table th,
+    #shopping-table td {
+        padding: 0.5rem;
+    }
+
+    #shopping-table th:last-child,
+    #shopping-table td:last-child {
+        width: 50px;
+        /* Ensure remove column isn't too wide on mobile */
+    }
+}
+
+/* Add these styles to your style.css file */
+
+/* Shopping list table styles */
+#shopping-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+#shopping-table th {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem;
+}
+
+#shopping-table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+}
+
+#shopping-table tbody tr:hover {
+    background-color: rgba(0, 128, 0, 0.05);
+}
+
+/* Style for the deals count cell */
+#shopping-table .text-success {
+    color: #28a745;
+}
+
+#shopping-table .text-muted {
+    color: #6c757d;
+}
+
+/* Make clickable deals count more obvious */
+.deals-link {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background-color: rgba(40, 167, 69, 0.1);
+    transition: all 0.2s ease;
+}
+
+.deals-link:hover {
+    background-color: rgba(40, 167, 69, 0.2);
+    text-decoration: underline;
+    color: #218838;
+}
+
+.item-icon {
+    margin-left: 5px;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+}
+
+.deals-link:hover .item-icon {
+    transform: scale(1.2);
+}
+
+.item-icon-gray {
+    margin-left: 5px;
+    vertical-align: middle;
+    opacity: 0.5;
+    filter: grayscale(100%);
+}
+
+/* Style for the remove button */
+.removeButton {
+    border: none;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.removeButton:hover {
+    background-color: #c82333;
+}
+
+/* Responsive table adjustments */
+@media (max-width: 576px) {
+
+    #shopping-table th,
+    #shopping-table td {
+        padding: 0.5rem;
+    }
+
+    #shopping-table th:last-child,
+    #shopping-table td:last-child {
+        width: 50px;
+        /* Ensure remove column isn't too wide on mobile */
+    }
+}
