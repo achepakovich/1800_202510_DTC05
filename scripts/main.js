@@ -274,19 +274,37 @@ function saveItem() {
         })
     })
 };
-function saveBookmark(hikeDocID) {
-    // Manage the backend process to store the hikeDocID in the database, recording which hike was bookmarked by the user.
-    currentUser.update({
-        // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
-        // This method ensures that the ID is added only if it's not already present, preventing duplicates.
-        bookmarks: firebase.firestore.FieldValue.arrayUnion(hikeDocID)
-    })
-        // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
-        .then(function () {
-            console.log("bookmark has been saved for" + hikeDocID);
-            let iconID = 'save-' + hikeDocID;
-            //console.log(iconID);
-            //this is to change the icon of the hike that was saved to "filled"
-            document.getElementById(iconID).innerText = 'bookmark';
-        });
+function saveBookmark(dealDocID) {
+    let iconID = 'save-' + dealDocID;
+    let bookmarkIcon = document.getElementById(iconID);
+
+    currentUser.get().then(userDoc => {
+        if (userDoc.exists) {
+            let bookmarks = userDoc.data().bookmarks || [];
+
+            if (bookmarks.includes(dealDocID)) {
+                // If the deal is already bookmarked, remove it
+                currentUser.update({
+                    bookmarks: firebase.firestore.FieldValue.arrayRemove(dealDocID)
+                }).then(() => {
+                    console.log("Bookmark removed for " + dealDocID);
+                    bookmarkIcon.innerText = 'bookmark_border'; // Change icon to unbookmarked
+                }).catch(error => {
+                    console.error("Error removing bookmark: ", error);
+                });
+            } else {
+                // If the deal is not bookmarked, add it
+                currentUser.update({
+                    bookmarks: firebase.firestore.FieldValue.arrayUnion(dealDocID)
+                }).then(() => {
+                    console.log("Bookmark saved for " + dealDocID);
+                    bookmarkIcon.innerText = 'bookmark'; // Change icon to bookmarked
+                }).catch(error => {
+                    console.error("Error adding bookmark: ", error);
+                });
+            }
+        }
+    }).catch(error => {
+        console.error("Error getting user document: ", error);
+    });
 }
