@@ -1,5 +1,11 @@
 var currentUser;
 
+function titleCase(item) {
+    item = item.toLowerCase().split(' ').map(function (word) {
+        return word.replace(word[0], word[0].toUpperCase());
+    });
+    return item.join(' ');
+}
 // Function to read URL parameters
 function getURLParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -174,8 +180,10 @@ function addWhereClauses(collection) {
     }
 
     // Brands
-    if (brand_to_filter_by = $("#filter_brand").val()){
-        search = search.where("brand", "==", brand_to_filter_by);
+
+    if (brand_to_filter_by = $("#filter_brand").val()) {
+        brand_to_filter_by_title_case = titleCase(brand_to_filter_by)
+        search = search.where("brand", "==", brand_to_filter_by_title_case);
     }
 
     $("#deals-go-here").empty();
