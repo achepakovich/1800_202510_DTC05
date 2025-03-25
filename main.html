@@ -52,10 +52,17 @@
     <template id="dealPopupTemplate">
         <div class="popup shadow-lg">
             <button type="button" class="btn-close" aria-label="Close"></button>
-            <div class="row my-auto">
-                <h1 class="card-item col">Item Title</h1>
-                <div class="col justify-content-end">
-                    <button type="button" class="bg-white rounded-2 fixed-size">
+            <div class="col my-auto">
+                <h2 class="card-item col">Item Title</h2>
+                <div class="col my-auto align-content-end">
+                    <!-- <button id="saveItem" type="button" class="bg-white rounded-2 my-2"><svg
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6 " height="35px" weight="35px">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                        </svg>
+                    </button> -->
+                    <button type="button" class="bg-white rounded-2 px-12 py-6 fixed-size">
                         <i class="material-icons saveDealButton">bookmark_border</i>
                     </button>
                 </div>
@@ -116,10 +123,12 @@
                         </svg>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="filterDropdown">
-                        <li><a class="dropdown-item" href="#">Lowest Price</a></li>
-                        <li><a class="dropdown-item" href="#">Highest Discount</a></li>
-                        <li><a class="dropdown-item" href="#">Newest Deals</a></li>
-                        <li><a class="dropdown-item" href="#">Expiring Soon</a></li>
+                        <li><a id="price" class="dropdown-item" href="#">Lowest Price</a></li>
+                        <li><a id="discount" class="dropdown-item" href="#">Highest Discount</a></li>
+                        <li><a id="newest" class="dropdown-item" href="#">Newest Deals</a></li>
+                        <li><a id="enddate" class="dropdown-item" href="#">Expiring Soon</a></li>
+                        <li><a id="retailer" class="dropdown-item" href="#">Retailer</a></li>
+                        <li><a id="brand" class="dropdown-item" href="#">Brand</a></li>
                     </ul>
                 </div>
             </form>
