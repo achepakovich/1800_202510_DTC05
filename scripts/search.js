@@ -1,3 +1,78 @@
+var currentUser;
+
+// Function to read URL parameters
+function getURLParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// Function that calls everything needed for the deals page
+function doAll() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            currentUser = db.collection("users").doc(user.uid); // global
+            console.log(currentUser);
+
+            // Handle URL search parameter
+            const itemParam = getURLParameter("item");
+            if (itemParam) {
+                const searchBox = document.getElementById("searchBox");
+                if (searchBox) {
+                    const decodedItem = decodeURIComponent(itemParam);
+                    searchBox.value = decodedItem;
+                    localStorage.setItem("searchItem", decodedItem);
+                    
+                    const searchButton = document.getElementById("searchButton");
+                    if (searchButton) {
+                        setTimeout(() => {
+                            searchButton.click();
+                        }, 100);
+                    }
+                }
+            }
+
+            // Load and display deals
+            displayCardsDynamically("deals");
+            displayDealPopupsDynamically("deals");
+            
+            // Attach event listeners
+            populateSearchBoxValue();
+            colourActiveFilter();
+            
+            // Filtering event handlers
+            $("#price").click(() => {
+                filterDeals("price");
+                displayCardsDynamically("deals");
+            });
+            $("#discount").click(() => {
+                filterDeals();
+                displayCardsDynamically("deals");
+            });
+            $("#newest").click(() => {
+                filterDeals();
+                displayCardsDynamically("deals");
+            });
+            $("#enddate").click(() => {
+                filterDeals("endDate");
+                displayCardsDynamically("deals");
+            });
+            $("#retailer").click(() => {
+                filterDeals("retailer");
+                displayCardsDynamically("deals");
+            });
+            $("#brand").click(() => {
+                filterDeals("brand");
+                displayCardsDynamically("deals");
+            });
+        } else {
+            // No user is signed in
+            console.log("No user is signed in");
+            window.location.href = "login.html";
+        }
+    });
+}
+
+doAll();
 // Function to read URL parameters
 function getURLParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -134,6 +209,7 @@ function displayDealPopupsDynamically(collection) {
                 var dealEndDate = doc.data().endDate;
                 var retailer = doc.data().retailer;
                 var UPC = doc.data().UPC;
+                var docID = doc.id;
                 let newcard = popupTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
                 //update title and text and image
                 newcard.querySelector(".card-item").innerHTML = title;
@@ -160,6 +236,19 @@ function displayDealPopupsDynamically(collection) {
                         "background-color": "green",
                     });
                 });
+                // Bookmark handling
+                let bookmarkIcon = newcard.querySelector('.saveDealButton');
+                if (bookmarkIcon) {
+                    bookmarkIcon.id = 'save-' + docID;
+                    bookmarkIcon.onclick = () => saveBookmark(docID);
+
+                    currentUser.get().then(userDoc => {
+                        var bookmarks = userDoc.data().bookmarks;
+                        if (bookmarks.includes(docID)) {
+                            bookmarkIcon.innerText = 'bookmark';
+                        }
+                    });
+                }
                 //attach to gallery, Example: "hikes-go-here"
                 document
                     .getElementById(collection + "-popup-here")
@@ -180,33 +269,68 @@ function populateSearchBoxValue() {
     $("#searchBox").val(searchNameGet);
 }
 
-$(document).ready(function () {
-    $("#price").click(function () {
-        filterDeals("price");
-        displayCardsDynamically("deals");
+// $(document).ready(function () {
+//     $("#price").click(function () {
+//         filterDeals("price");
+//         displayCardsDynamically("deals");
+//     });
+//     $("#discount").click(function () {
+//         filterDeals();
+//         displayCardsDynamically("deals");
+//     });
+//     $("#newest").click(function () {
+//         filterDeals();
+//         displayCardsDynamically("deals");
+//     });
+//     $("#enddate").click(function () {
+//         filterDeals("endDate");
+//         displayCardsDynamically("deals");
+//     });
+//     $("#retailer").click(function () {
+//         filterDeals("retailer");
+//         displayCardsDynamically("deals");
+//     });
+//     $("#brand").click(function () {
+//         filterDeals("brand");
+//         displayCardsDynamically("deals");
+//     });
+//     populateSearchBoxValue();
+//     colourActiveFilter();
+//     displayCardsDynamically("deals");
+//     displayDealPopupsDynamically("deals");
+// });
+
+function saveBookmark(dealDocID) {
+    let iconID = 'save-' + dealDocID;
+    let bookmarkIcon = document.getElementById(iconID);
+
+    currentUser.get().then(userDoc => {
+        if (userDoc.exists) {
+            let bookmarks = userDoc.data().bookmarks || [];
+
+            if (bookmarks.includes(dealDocID)) {
+                // If the deal is already bookmarked, remove it
+                currentUser.update({
+                    bookmarks: firebase.firestore.FieldValue.arrayRemove(dealDocID)
+                }).then(() => {
+                    console.log("Bookmark removed for " + dealDocID);
+                    bookmarkIcon.innerText = 'bookmark_border'; // Change icon to unbookmarked
+                }).catch(error => {
+                    console.error("Error removing bookmark: ", error);
+                });
+            } else {
+                // If the deal is not bookmarked, add it
+                currentUser.update({
+                    bookmarks: firebase.firestore.FieldValue.arrayUnion(dealDocID)
+                }).then(() => {
+                    console.log("Bookmark saved for " + dealDocID);
+                    bookmarkIcon.innerText = 'bookmark'; // Change icon to bookmarked
+                }).catch(error => {
+                    console.error("Error adding bookmark: ", error);
+                });
+            }
+        }
+    }).catch(error => {
+        console.error("Error getting user document: ", error);
     });
-    $("#discount").click(function () {
-        filterDeals();
-        displayCardsDynamically("deals");
-    });
-    $("#newest").click(function () {
-        filterDeals();
-        displayCardsDynamically("deals");
-    });
-    $("#enddate").click(function () {
-        filterDeals("endDate");
-        displayCardsDynamically("deals");
-    });
-    $("#retailer").click(function () {
-        filterDeals("retailer");
-        displayCardsDynamically("deals");
-    });
-    $("#brand").click(function () {
-        filterDeals("brand");
-        displayCardsDynamically("deals");
-    });
-    populateSearchBoxValue();
-    colourActiveFilter();
-    displayCardsDynamically("deals");
-    displayDealPopupsDynamically("deals");
-});
+}
