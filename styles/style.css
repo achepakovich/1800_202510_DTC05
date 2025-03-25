@@ -141,8 +141,8 @@
 } */
 
 .fixed-size {
-    width: 47px;
-    height: 41px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
