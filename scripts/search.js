@@ -1,3 +1,4 @@
+
 // Function to read URL parameters
 function getURLParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -52,22 +53,41 @@ function colourActiveFilter() {
     });
 }
 
+let retailer = [];
+
+function addWhereClauses(collection, retailer) {
+    let searchNameGet = localStorage.getItem("searchItem");
+    let search = db.collection(collection).where("itemName", "==", searchNameGet);
+    if ($("#walmart").is(":checked")) {
+        retailer.push("walmart");
+    }
+    if ($("#superstore").is(":checked")) {
+        retailer.push("Superstore");
+    }
+    if ($("#whole_foods").is(":checked")) {
+        retailer.push("Wholefoods");
+    }
+    if (retailer.length != 0) {
+        search = search.where("retailer", "in", retailer);
+    }
+    console.log(search)
+    $("#deals-go-here").empty();
+    return search
+}
+
+
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("dealCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable.
     let searchNameGet = localStorage.getItem("searchItem");
     if (filterActivated == false) {
-        dbCollection = db
-            .collection(collection)
-            .where("itemName", "==", searchNameGet)
-            .get();
+        dbCollection = addWhereClauses(collection, retailer)
     } else if (filterActivated == true) {
         dbCollection = db
             .collection(collection)
             .where("itemName", "==", searchNameGet)
             .orderBy(filterField)
-            .get();
     }
-    dbCollection.then((allDeals) => {
+    dbCollection.get().then((allDeals) => {
         if (allDeals.empty) {
             $("#no-results").html("<h1>No deals found for this item. Sorry!</h1>");
             $("#no-results").after(
@@ -203,6 +223,15 @@ $(document).ready(function () {
     });
     $("#brand").click(function () {
         filterDeals("brand");
+        displayCardsDynamically("deals");
+    });
+    $("#walmart").click(function () {
+        displayCardsDynamically("deals");
+    });
+    $("#superstore").click(function () {
+        displayCardsDynamically("deals");
+    });
+    $("#whole_foods").click(function () {
         displayCardsDynamically("deals");
     });
     populateSearchBoxValue();
