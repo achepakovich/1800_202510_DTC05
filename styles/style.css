@@ -213,21 +213,28 @@
         position: relative;
     }
 
+}
+
+.mainContainer {
+    margin-left: 270px;
+    /* Default margin for large screens */
+    transition: margin-left 0.3s ease-in-out;
+    height: 100vh
+}
+
+/* Override margin for small screens */
+@media screen and (max-width: 768px) {
     .mainContainer {
         margin-left: 0;
     }
-} */
-
-/* Main Content Adjustments */
-.mainContainer {
-    margin-left: 270px;
-    padding: 20px;
 }
+
 
 #no-results {
     /* margin-left: 280px; */
     margin-top: 100px;
 }
+
 /* Add these styles to your style.css file */
 
 /* Shopping list table styles */
