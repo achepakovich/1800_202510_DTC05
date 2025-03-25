@@ -148,10 +148,12 @@ function displayDealPopupsDynamically(collection) {
         .then(allDeals => {
             var i = 1;
             allDeals.forEach(doc => {
+                var description = doc.data().description;
                 var title = doc.data().name;
                 var deal = doc.data().deal;
                 var imageCode = doc.data().code;
                 var price = doc.data().price;
+                var brand = doc.data().brand;
                 var dealStartDate = doc.data().startDate;
                 var dealEndDate = doc.data().endDate;
                 var retailer = doc.data().retailer;
@@ -160,9 +162,11 @@ function displayDealPopupsDynamically(collection) {
 
                 let newcard = popupTemplate.content.cloneNode(true);
 
+                newcard.querySelector('.card-description').innerHTML = description;
                 newcard.querySelector('.card-item').innerHTML = title;
                 newcard.querySelector('.card-deal').innerHTML = deal;
                 newcard.querySelector('.card-price').innerHTML = `$${price}`;
+                newcard.querySelector('.card-brand').innerHTML = brand;
                 newcard.querySelector('.card-end-date').innerHTML = dealEndDate;
                 newcard.querySelector('.card-retailer').innerHTML = retailer;
                 newcard.querySelector('.card-image-popup').src = `./images/items/${imageCode}`;
