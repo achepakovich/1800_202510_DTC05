@@ -297,7 +297,7 @@ function displayDealPopupsDynamically(collection) {
                     currentUser.get().then(userDoc => {
                         var bookmarks = userDoc.data().bookmarks;
                         if (bookmarks.includes(docID)) {
-                            bookmarkIcon.innerText = 'bookmark';
+                            bookmarkIcon.innerText = 'favorite';
                         }
                     });
                 }
@@ -366,7 +366,7 @@ function saveBookmark(dealDocID) {
                     bookmarks: firebase.firestore.FieldValue.arrayRemove(dealDocID)
                 }).then(() => {
                     console.log("Bookmark removed for " + dealDocID);
-                    bookmarkIcon.innerText = 'bookmark_border'; // Change icon to unbookmarked
+                    bookmarkIcon.innerText = 'favorite_border'; // Change icon to unbookmarked
                 }).catch(error => {
                     console.error("Error removing bookmark: ", error);
                 });
@@ -376,7 +376,7 @@ function saveBookmark(dealDocID) {
                     bookmarks: firebase.firestore.FieldValue.arrayUnion(dealDocID)
                 }).then(() => {
                     console.log("Bookmark saved for " + dealDocID);
-                    bookmarkIcon.innerText = 'bookmark'; // Change icon to bookmarked
+                    bookmarkIcon.innerText = 'favorite'; // Change icon to bookmarked
                 }).catch(error => {
                     console.error("Error adding bookmark: ", error);
                 });
