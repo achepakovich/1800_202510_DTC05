@@ -151,61 +151,78 @@
 }
 
 /* Styling for future side bar on deal search page */
-/* .sidebar {
-  margin: 0;
-  padding: 0;
-  width: 270px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
- .sidebar a {
-  display: block;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
+/* Sidebar Styling */
+.sidebar {
+    width: 270px;
+    height: 100vh;
+    background-color: #f8f9fa;
+    position: fixed;
+    padding: 20px;
+    border-right: 2px solid #ddd;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-
-
-.sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
+/* Sidebar Title */
+.sidebar-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 8px;
 }
 
-div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
+/* Checkbox List */
+.retailer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-
-  .sidebar a {
-    float: left;
-  }
-
-  div.content {
-    margin-left: 0;
-  }
+/* Checkbox Styles */
+.form-check {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
 }
 
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
+.form-check:hover {
+    background: #e9ecef;
 }
 
+.form-check-input {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.form-check-label {
+    font-size: 16px;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Responsive Sidebar */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .mainContainer {
+        margin-left: 0;
+    }
+}
+
+/* Main Content Adjustments */
 .mainContainer {
-  margin-left: 270px;
-} */
+    margin-left: 270px;
+    padding: 20px;
+}
 
 #no-results {
     /* margin-left: 280px; */
