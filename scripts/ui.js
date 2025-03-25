@@ -70,12 +70,14 @@ function getItemIconPath(itemName) {
     bananas: "images/shoppingListIcons/bananas.png",
     banana: "images/shoppingListIcons/bananas.png",
     bread: "images/shoppingListIcons/bread.png",
+    breads: "images/shoppingListIcons/breads.png",
     broccoli: "images/shoppingListIcons/broccoli.png",
     butter: "images/shoppingListIcons/butter.png",
     cereals: "images/shoppingListIcons/cereal.png",
     cereal: "images/shoppingListIcons/cereal.png",
     cheese: "images/shoppingListIcons/cheese.png",
     chicken: "images/shoppingListIcons/chicken.png",
+    chickens: "images/shoppingListIcons/chicken.png",
     cucumbers: "images/shoppingListIcons/cucumber.png",
     cucumber: "images/shoppingListIcons/cucumber.png",
     eggs: "images/shoppingListIcons/eggs.png",
@@ -93,6 +95,8 @@ function getItemIconPath(itemName) {
     strawberry: "images/shoppingListIcons/strawberry.png",
     oranges: "images/shoppingListIcons/orange.png",
     orange: "images/shoppingListIcons/orange.png",
+    peppers: "images/shoppingListIcons/pepper.png",
+    pepper: "images/shoppingListIcons/pepper.png",
   };
 
   // Return the icon path if it exists, or a default icon if not
