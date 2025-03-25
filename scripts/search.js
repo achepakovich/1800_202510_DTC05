@@ -21,7 +21,7 @@ function doAll() {
                     const decodedItem = decodeURIComponent(itemParam);
                     searchBox.value = decodedItem;
                     localStorage.setItem("searchItem", decodedItem);
-                    
+
                     const searchButton = document.getElementById("searchButton");
                     if (searchButton) {
                         setTimeout(() => {
@@ -30,7 +30,7 @@ function doAll() {
                     }
                 }
             }
-            
+
             // Filtering event handlers
             $("#price").click(() => {
                 filterDeals("price");
@@ -253,6 +253,7 @@ function displayDealPopupsDynamically(collection) {
                 var dealEndDate = doc.data().endDate;
                 var retailer = doc.data().retailer;
                 var UPC = doc.data().UPC;
+                var retailerURL = doc.data().retailerURL;
                 var docID = doc.id;
                 let newcard = popupTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
                 //update title and text and image
@@ -260,7 +261,7 @@ function displayDealPopupsDynamically(collection) {
                 newcard.querySelector(".card-deal").innerHTML = deal;
                 newcard.querySelector(".card-price").innerHTML = price;
                 newcard.querySelector(".card-end-date").innerHTML = dealEndDate;
-                newcard.querySelector(".card-retailer").innerHTML = retailer;
+                newcard.querySelector(".card-retailer").innerHTML = `<a href="${retailerURL}" target="_blank">${retailer}</a>`;
                 newcard.querySelector(
                     ".card-image-popup"
                 ).src = `./images/items/${imageCode}`;
