@@ -151,66 +151,90 @@
 }
 
 /* Styling for future side bar on deal search page */
-/* .sidebar {
-  margin: 0;
-  padding: 0;
-  width: 270px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
- .sidebar a {
-  display: block;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
+/* Sidebar Styling */
+.sidebar {
+    width: 270px;
+    height: 100vh;
+    background-color: #f8f9fa;
+    position: fixed;
+    padding: 20px;
+    border-right: 2px solid #ddd;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-
-
-.sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
+/* Sidebar Title */
+.sidebar-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 8px;
 }
 
-div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
+/* Checkbox List */
+.retailer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-
-  .sidebar a {
-    float: left;
-  }
-
-  div.content {
-    margin-left: 0;
-  }
+/* Checkbox Styles */
+.form-check {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
 }
 
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
+.form-check:hover {
+    background: #e9ecef;
+}
+
+.form-check-input {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.form-check-label {
+    font-size: 16px;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Responsive Sidebar */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
 }
 
 .mainContainer {
-  margin-left: 270px;
-} */
+    margin-left: 270px;
+    /* Default margin for large screens */
+    transition: margin-left 0.3s ease-in-out;
+    height: 100vh
+}
+
+/* Override margin for small screens */
+@media screen and (max-width: 768px) {
+    .mainContainer {
+        margin-left: 0;
+    }
+}
+
 
 #no-results {
     /* margin-left: 280px; */
     margin-top: 100px;
 }
+
 /* Add these styles to your style.css file */
 
 /* Shopping list table styles */
@@ -394,5 +418,62 @@ div.content {
     #shopping-table td:last-child {
         width: 50px;
         /* Ensure remove column isn't too wide on mobile */
+    }
+}
+
+.price-filter {
+    align-items: center;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 10px;
+
+    width: fit-content;
+}
+
+.price-filter label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.price-filter input {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.price-filter span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+#apply-filter {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+#apply-filter:hover {
+    background: #0056b3;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 500px) {
+    .price-filter {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .price-filter input {
+        width: 60px;
     }
 }

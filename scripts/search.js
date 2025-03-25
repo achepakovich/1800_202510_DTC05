@@ -30,14 +30,6 @@ function doAll() {
                     }
                 }
             }
-
-            // Load and display deals
-            displayCardsDynamically("deals");
-            displayDealPopupsDynamically("deals");
-            
-            // Attach event listeners
-            populateSearchBoxValue();
-            colourActiveFilter();
             
             // Filtering event handlers
             $("#price").click(() => {
@@ -64,6 +56,25 @@ function doAll() {
                 filterDeals("brand");
                 displayCardsDynamically("deals");
             });
+            $("#walmart").click(function () {
+                displayCardsDynamically("deals");
+            });
+            $("#superstore").click(function () {
+                displayCardsDynamically("deals");
+            });
+            $("#whole_foods").click(function () {
+                displayCardsDynamically("deals");
+            });
+            $("#min-price").change(function () {
+                displayCardsDynamically("deals");
+            });
+            $("#max-price").change(function () {
+                displayCardsDynamically("deals");
+            });
+            populateSearchBoxValue();
+            colourActiveFilter();
+            displayCardsDynamically("deals");
+            displayDealPopupsDynamically("deals");
         } else {
             // No user is signed in
             console.log("No user is signed in");
@@ -127,22 +138,55 @@ function colourActiveFilter() {
     });
 }
 
+function addWhereClauses(collection) {
+    let searchNameGet = localStorage.getItem("searchItem");
+    let search = db.collection(collection).where("itemName", "==", searchNameGet);
+
+    let retailer = [];
+
+    if ($("#walmart").is(":checked")) {
+        retailer.push("walmart");
+    }
+    if ($("#superstore").is(":checked")) {
+        retailer.push("Superstore");
+    }
+    if ($("#whole_foods").is(":checked")) {
+        retailer.push("Wholefoods");
+    }
+
+    // Add retailer filter only if at least one is selected
+    if (retailer.length > 0) {
+        search = search.where("retailer", "in", retailer);
+    }
+
+    // Get min and max price values
+    let min = $("#min-price").val() ? parseInt($("#min-price").val()) : 0;
+    let max = $("#max-price").val() ? parseInt($("#max-price").val()) : Infinity;
+
+    if ($("#min-price").val()) {
+        search = search.where("price", ">=", min);
+    }
+    if ($("#max-price").val()) {
+        search = search.where("price", "<=", max);
+    }
+    console.log(search)
+    $("#deals-go-here").empty();
+    return search
+}
+
+
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("dealCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable.
     let searchNameGet = localStorage.getItem("searchItem");
     if (filterActivated == false) {
-        dbCollection = db
-            .collection(collection)
-            .where("itemName", "==", searchNameGet)
-            .get();
+        dbCollection = addWhereClauses(collection)
     } else if (filterActivated == true) {
         dbCollection = db
             .collection(collection)
             .where("itemName", "==", searchNameGet)
             .orderBy(filterField)
-            .get();
     }
-    dbCollection.then((allDeals) => {
+    dbCollection.get().then((allDeals) => {
         if (allDeals.empty) {
             $("#no-results").html("<h1>No deals found for this item. Sorry!</h1>");
             $("#no-results").after(
@@ -333,4 +377,4 @@ function saveBookmark(dealDocID) {
     }).catch(error => {
         console.error("Error getting user document: ", error);
     });
-}
+};
