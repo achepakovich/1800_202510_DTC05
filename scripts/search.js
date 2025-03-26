@@ -275,6 +275,7 @@ function displayDealPopupsDynamically(collection) {
             var i = 1; //Optional: if you want to have a unique ID for each hike
             allDeals.forEach((doc) => {
                 //iterate thru each doc
+                var description = doc.data().description;
                 var title = doc.data().name; // get value of the "name" key
                 var deal = doc.data().deal;
                 var imageCode = doc.data().code;
@@ -287,6 +288,7 @@ function displayDealPopupsDynamically(collection) {
                 var docID = doc.id;
                 let newcard = popupTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
                 //update title and text and image
+                newcard.querySelector('.card-description').innerHTML = description;
                 newcard.querySelector(".card-item").innerHTML = title;
                 newcard.querySelector(".card-deal").innerHTML = deal;
                 newcard.querySelector(".card-price").innerHTML = price;
