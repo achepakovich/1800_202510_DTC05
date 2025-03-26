@@ -214,13 +214,13 @@
                 </label>
             </div>
             <div id="retailer" class="form-check">
-                <input class="form-check-input superstore" type="checkbox" value="" >
+                <input class="form-check-input superstore" type="checkbox" value="">
                 <label id="superstore_label" class="form-check-label" for="superstore">
                     Superstore
                 </label>
             </div>
             <div id="retailer" class="form-check ml-2">
-                <input class="form-check-input walmart" type="checkbox" value="" >
+                <input class="form-check-input walmart" type="checkbox" value="">
                 <label id="walmart_label" class="form-check-label" for="walmart">
                     Walmart
                 </label>
@@ -242,7 +242,7 @@
                     <span>$</span>
                     <input class="min-price" type="number" placeholder="Min" min="0">
                     <span>-</span>
-                    <input class="max-price" type="number"  placeholder="Max" min="0">
+                    <input class="max-price" type="number" placeholder="Max" min="0">
                 </div>
             </div>
         </div>
@@ -309,56 +309,57 @@
 
     <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
         <div class="offcanvas-header">
-            <h5 id="offcanvasTopLabel">Offcanvas top</h5>
+            <h5 id="offcanvasTopLabel">Filter</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-                <div class="form-check">
-                    <input class="form-check-input no_frills" type="checkbox" value="" id="flexCheckDefault">
-                    <label id="save-on-foods" class="form-check-label" for="flexCheckDefault">
-                        No Frills
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input save_on_foods" type="checkbox" value="" id="flexCheckDefault">
-                    <label id="save-on-foods" class="form-check-label" for="flexCheckDefault">
-                        Save-On-Foods
-                    </label>
-                </div>
-                <div id="retailer" class="form-check">
-                    <input class="form-check-input superstore" type="checkbox" value="" id="superstore">
-                    <label id="superstore_label" class="form-check-label" for="superstore">
-                        Superstore
-                    </label>
-                </div>
-                <div id="retailer" class="form-check ml-2">
-                    <input class="form-check-input walmart" type="checkbox" value="" id="walmart">
-                    <label id="walmart_label" class="form-check-label" for="walmart">
-                        Walmart
-                    </label>
-                </div>
-                <!-- <div id="retailer" class="form-check ml-2">
+            <h4>Retailer</h4>
+            <div class="form-check">
+                <input class="form-check-input no_frills" type="checkbox" value="" id="flexCheckDefault">
+                <label id="save-on-foods" class="form-check-label" for="flexCheckDefault">
+                    No Frills
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input save_on_foods" type="checkbox" value="" id="flexCheckDefault">
+                <label id="save-on-foods" class="form-check-label" for="flexCheckDefault">
+                    Save-On-Foods
+                </label>
+            </div>
+            <div id="retailer" class="form-check">
+                <input class="form-check-input superstore" type="checkbox" value="" id="superstore">
+                <label id="superstore_label" class="form-check-label" for="superstore">
+                    Superstore
+                </label>
+            </div>
+            <div id="retailer" class="form-check ml-2">
+                <input class="form-check-input walmart" type="checkbox" value="" id="walmart">
+                <label id="walmart_label" class="form-check-label" for="walmart">
+                    Walmart
+                </label>
+            </div>
+            <!-- <div id="retailer" class="form-check ml-2">
                     <input class="form-check-input whole_foods" type="checkbox" value="" id="whole_foods">
                     <label id="whole_foods_label" class="form-check-label" for="whole_foods">
                         Whole Foods
                     </label>
                 </div> -->
-                <div class="form-group mt-4">
-                    <h4>Brand</h4>
-                    <input type="search" class="form-control filter_brand" id="filter_brand" aria-describedby="brand_filter"
-                        placeholder="Filter Brand">
-                </div>
-                <div id="filter_price" class="mt-4">
-                    <h4>Price</h4>
-                    <div class="price-filter">
-                        <span>$</span>
-                        <input class="min-price" type="number" id="min-price" placeholder="Min" min="0">
-                        <span>-</span>
-                        <input class="max-price" type="number" id="max-price" placeholder="Max" min="0">
-                    </div>
+            <div class="form-group mt-4">
+                <h4>Brand</h4>
+                <input type="search" class="form-control filter_brand" id="filter_brand" aria-describedby="brand_filter"
+                    placeholder="Filter Brand">
+            </div>
+            <div id="filter_price" class="mt-4">
+                <h4>Price</h4>
+                <div class="price-filter">
+                    <span>$</span>
+                    <input class="min-price" type="number" id="min-price" placeholder="Min" min="0">
+                    <span>-</span>
+                    <input class="max-price" type="number" id="max-price" placeholder="Max" min="0">
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <div class="d-flex flex-lg-row mainContainer">
