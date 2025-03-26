@@ -1,4 +1,5 @@
 var currentUser;
+let filter_open = false;
 
 function titleCase(item) {
     item = item.toLowerCase().split(' ').map(function (word) {
@@ -11,6 +12,7 @@ function getURLParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
+
 
 // Function that calls everything needed for the deals page
 function doAll() {
@@ -80,6 +82,18 @@ function doAll() {
             $("#filter_brand").change(function () {
                 displayCardsDynamically("deals");
             });
+            $("#open_close").click(function () {
+                $("#filter_contents").toggle();  // Toggles visibility of the element
+                if (filter_open == false) {
+                    filter_open = true;
+                    $("#open_close").html("<div id='open_close' class='text - center'><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' width='30px' class='size-6'><path stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' /></svg><div>")
+                } else {
+                    filter_open = false
+                    $("#open_close").html("<div id='open_close' class='text - center'><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' width='30px' class='size-6'><path stroke-linecap='round' stroke-linejoin='round' d='m4.5 15.75 7.5-7.5 7.5 7.5' /></svg></div>")
+                }
+            });
+
+
             populateSearchBoxValue();
             colourActiveFilter();
             displayCardsDynamically("deals");

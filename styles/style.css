@@ -477,3 +477,27 @@
         width: 60px;
     }
 }
+
+#open_close {
+    display: none;
+}
+
+#open_close:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Light gray highlight */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Soft shadow */
+    cursor: pointer;
+}
+
+/* On small screens (max-width: 768px), show the element */
+@media screen and (max-width: 768px) {
+    #open_close {
+        display: block;
+        /* Or inline-block, depending on the layout */
+    }
+}
+
+#filter_contents {
+    display: none;
+}
