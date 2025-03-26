@@ -165,6 +165,7 @@ function displayDealPopupsDynamically(collection) {
                 var dealEndDate = doc.data().endDate;
                 var retailer = doc.data().retailer;
                 var UPC = doc.data().UPC;
+                var retailerURL = doc.data().retailerURL;
                 var docID = doc.id; // Get document ID
 
                 let newcard = popupTemplate.content.cloneNode(true);
@@ -175,7 +176,7 @@ function displayDealPopupsDynamically(collection) {
                 newcard.querySelector('.card-price').innerHTML = `$${price}`;
                 newcard.querySelector('.card-brand').innerHTML = brand;
                 newcard.querySelector('.card-end-date').innerHTML = dealEndDate;
-                newcard.querySelector('.card-retailer').innerHTML = retailer;
+                newcard.querySelector('.card-retailer').innerHTML = `<a href="${retailerURL}" target="_blank">${retailer}</a>`;
                 newcard.querySelector('.card-image-popup').src = `./images/items/${imageCode}`;
 
                 let popupElement = newcard.querySelector(".popup");

@@ -55,7 +55,7 @@ function getBookmarks(user) {
             let newcardTemplate = document.getElementById("dealsCardTemplate");
             console.log(bookmarks)
             bookmarks.forEach(thisItemID => {
-                db.collection("deals").doc(thisItemID).get().then(doc => { 
+                db.collection("deals").doc(thisItemID).get().then(doc => {
                     if (doc.exists) {
                         let data = doc.data();
                         let newcard = newcardTemplate.content.cloneNode(true);
@@ -63,11 +63,12 @@ function getBookmarks(user) {
                         newcard.querySelector('.card-title').innerHTML = data.name;
                         newcard.querySelector('.card-price').innerHTML = `$${data.price}`;
                         newcard.querySelector('.card-deal').innerHTML = data.deal;
-                        newcard.querySelector('.card-retailer').innerHTML = `Retailer: ${data.retailer}`;
+                        newcard.querySelector('.card-retailer').innerHTML =
+                            `Retailer: <a href="${data.retailerURL}" target="_blank">${data.retailer}</a>`;
                         newcard.querySelector('.card-end-date').innerHTML = `Deal ends: ${data.endDate}`;
                         newcard.querySelector('.card-image').src = `./images/items/${data.code}`;
 
-                    
+
                         itemContainer.appendChild(newcard);
                     }
                 });
