@@ -40,7 +40,7 @@ function doAll() {
             }
 
             // Filtering event handlers
-            $(".price").click(() => {
+            $("#price").click(() => {
                 filterDeals("price");
                 displayCardsDynamically("deals");
             });
@@ -48,15 +48,15 @@ function doAll() {
                 filterDeals();
                 displayCardsDynamically("deals");
             });
-            $(".newest").click(() => {
+            $("#newest").click(() => {
                 filterDeals();
                 displayCardsDynamically("deals");
             });
-            $(".enddate").click(() => {
+            $("#enddate").click(() => {
                 filterDeals("endDate");
                 displayCardsDynamically("deals");
             });
-            $(".retailer").click(() => {
+            $("#retailer").click(() => {
                 filterDeals("retailer");
                 displayCardsDynamically("deals");
             });
@@ -214,10 +214,7 @@ function displayCardsDynamically(collection) {
     if (filterActivated == false) {
         dbCollection = addWhereClauses(collection)
     } else if (filterActivated == true) {
-        dbCollection = db
-            .collection(collection)
-            .where("itemName", "==", searchNameGet)
-            .orderBy(filterField)
+        dbCollection = addWhereClauses(collection).orderBy(filterField)
     }
     dbCollection.get().then((allDeals) => {
         if (allDeals.empty) {
