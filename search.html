@@ -116,9 +116,9 @@
                 <div class="dropdown">
                     <button class="btn btn-success-light dropdown-toggle" type="button" id="filterDropdown"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white"
-                            stroke-linecap="round" stroke-linejoin="round" width="28" height="28" stroke-width="1.5">
-                            <path d="M3 4h18l-7 10v4l-4 2v-6L3 4z"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="2em">
+                            <path fill="white"
+                                d="M151.6 42.4C145.5 35.8 137 32 128 32s-17.5 3.8-23.6 10.4l-88 96c-11.9 13-11.1 33.3 2 45.2s33.3 11.1 45.2-2L96 146.3 96 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-301.7 32.4 35.4c11.9 13 32.2 13.9 45.2 2s13.9-32.2 2-45.2l-88-96zM320 480l32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-32 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm0-128l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm0-128l160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm0-128l224 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L320 32c-17.7 0-32 14.3-32 32s14.3 32 32 32z" />
                         </svg>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="filterDropdown">
@@ -130,7 +130,19 @@
                         <li><a id="brand" class="dropdown-item" href="#">Brand</a></li>
                     </ul>
                 </div>
+                <button class="btn btn-success-light dropdown-toggle .d-none" type="button" id="filter_dropdown"
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white"
+                        stroke-linecap="round" stroke-linejoin="round" width="28" height="28" stroke-width="1.5">
+                        <path d="M3 4h18l-7 10v4l-4 2v-6L3 4z"></path>
+                    </svg>
+                </button>
             </form>
+            <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+                aria-controls="offcanvasTop">Toggle top offcanvas</button> -->
+
+
+
 
             <!-- Collapsible menu-->
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -186,60 +198,166 @@
         <div id="deals-popup-here"></div>
     </div>
 
-
     <div class="sidebar">
-        <div id ="filter_contents" class="ml-2 left-2">
+        <div id="filter_contents" class="ml-2 left-2">
             <h4>Retailer</h4>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label id="save-on-foods" class="form-check-label" for="flexCheckDefault">
+                <label id="no_frills" class="form-check-label no_frills" for="flexCheckDefault">
                     No Frills
                 </label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label id="save-on-foods" class="form-check-label" for="flexCheckDefault">
+                <label id="save-on-foods" class="form-check-label save-on-foods" for="flexCheckDefault">
                     Save-On-Foods
                 </label>
             </div>
             <div id="retailer" class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="superstore">
+                <input class="form-check-input superstore" type="checkbox" value="" >
                 <label id="superstore_label" class="form-check-label" for="superstore">
                     Superstore
                 </label>
             </div>
             <div id="retailer" class="form-check ml-2">
-                <input class="form-check-input" type="checkbox" value="" id="walmart">
+                <input class="form-check-input walmart" type="checkbox" value="" >
                 <label id="walmart_label" class="form-check-label" for="walmart">
                     Walmart
                 </label>
             </div>
-            <div id="retailer" class="form-check ml-2">
-                <input class="form-check-input" type="checkbox" value="" id="whole_foods">
-                <label id="whole_foods_label" class="form-check-label" for="whole_foods">
+            <!-- <div class="form-check ml-2 retailer">
+                <input class="form-check-input whole_foods" type="checkbox" value="">
+                <label class="form-check-label whole_foods_label" for="whole_foods">
                     Whole Foods
                 </label>
-            </div>
+            </div> -->
             <div class="form-group mt-4">
                 <h4>Brand</h4>
-                <input type="search" class="form-control" id="filter_brand" aria-describedby="brand_filter"
+                <input type="search" class="form-control filter_brand" aria-describedby="brand_filter"
                     placeholder="Filter Brand">
             </div>
-            <div id="filter_price" class="mt-4">
+            <div class="mt-4 filter_price">
                 <h4>Price</h4>
                 <div class="price-filter">
                     <span>$</span>
-                    <input class="" type="number" id="min-price" placeholder="Min" min="0">
+                    <input class="min-price" type="number" placeholder="Min" min="0">
                     <span>-</span>
-                    <input class="" type="number" id="max-price" placeholder="Max" min="0">
+                    <input class="max-price" type="number"  placeholder="Max" min="0">
                 </div>
             </div>
         </div>
-        <div id="open_close" class="text-center">
+    </div>
+    <!-- <div id="open_close" class="text-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6 text-center" width="30px">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
             </svg>
+        </div> -->
+    <!-- </div> -->
+    <!-- <div ><svg id="toggleSidebar" xmlns="http://www.w3.org/2000/svg" fill="none" width="50px" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </svg>
+    </div> -->
+
+    <!-- <div class="sidebar">
+            <div id="filter_contents" class="ml-2 left-2">
+                <h4>Retailer</h4>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">No Frills</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="flexCheckDefault2">
+                    <label class="form-check-label" for="flexCheckDefault2">Save-On-Foods</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="superstore">
+                    <label class="form-check-label" for="superstore">Superstore</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="walmart">
+                    <label class="form-check-label" for="walmart">Walmart</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="whole_foods">
+                    <label class="form-check-label" for="whole_foods">Whole Foods</label>
+                </div>
+                <div class="form-group mt-4">
+                    <h4>Brand</h4>
+                    <input type="search" class="form-control" id="filter_brand" placeholder="Filter Brand">
+                </div>
+                <div id="filter_price" class="mt-4">
+                    <h4>Price</h4>
+                    <div class="price-filter">
+                        <span>$</span>
+                        <input type="number" id="min-price" placeholder="Min" min="0">
+                        <span>-</span>
+                        <input type="number" id="max-price" placeholder="Max" min="0">
+                    </div>
+                </div>
+            </div>
+        
+            Toggle Button (Inside Sidebar) -->
+    <!-- <div id="open_close" class="text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="size-6 text-center" width="30px">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </div>
+        </div>  -->
+
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasTopLabel">Offcanvas top</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+                <div class="form-check">
+                    <input class="form-check-input no_frills" type="checkbox" value="" id="flexCheckDefault">
+                    <label id="save-on-foods" class="form-check-label" for="flexCheckDefault">
+                        No Frills
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input save_on_foods" type="checkbox" value="" id="flexCheckDefault">
+                    <label id="save-on-foods" class="form-check-label" for="flexCheckDefault">
+                        Save-On-Foods
+                    </label>
+                </div>
+                <div id="retailer" class="form-check">
+                    <input class="form-check-input superstore" type="checkbox" value="" id="superstore">
+                    <label id="superstore_label" class="form-check-label" for="superstore">
+                        Superstore
+                    </label>
+                </div>
+                <div id="retailer" class="form-check ml-2">
+                    <input class="form-check-input walmart" type="checkbox" value="" id="walmart">
+                    <label id="walmart_label" class="form-check-label" for="walmart">
+                        Walmart
+                    </label>
+                </div>
+                <!-- <div id="retailer" class="form-check ml-2">
+                    <input class="form-check-input whole_foods" type="checkbox" value="" id="whole_foods">
+                    <label id="whole_foods_label" class="form-check-label" for="whole_foods">
+                        Whole Foods
+                    </label>
+                </div> -->
+                <div class="form-group mt-4">
+                    <h4>Brand</h4>
+                    <input type="search" class="form-control filter_brand" id="filter_brand" aria-describedby="brand_filter"
+                        placeholder="Filter Brand">
+                </div>
+                <div id="filter_price" class="mt-4">
+                    <h4>Price</h4>
+                    <div class="price-filter">
+                        <span>$</span>
+                        <input class="min-price" type="number" id="min-price" placeholder="Min" min="0">
+                        <span>-</span>
+                        <input class="max-price" type="number" id="max-price" placeholder="Max" min="0">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

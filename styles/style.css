@@ -208,9 +208,8 @@
 /* Responsive Sidebar */
 @media screen and (max-width: 768px) {
     .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
+
+        display: none;
     }
 
 }
@@ -498,6 +497,32 @@
     }
 }
 
-#filter_contents {
+/* #filter_contents {
     display: none;
+} */
+
+#toggleSidebar {
+    position: fixed;
+    top: 50%;
+    left: 280px;
+    /* Align with the sidebar edge */
+    transform: translateY(-50%);
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: left 0.3s ease-in-out;
+}
+
+#toggleSidebar:hover {
+    background-color: #e1dfdf;
+}
+
+@media (min-width: 768px) {
+
+    /* Adjust the breakpoint as needed */
+    #filter_dropdown {
+        display: none;
+    }
 }

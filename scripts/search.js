@@ -40,57 +40,60 @@ function doAll() {
             }
 
             // Filtering event handlers
-            $("#price").click(() => {
+            $(".price").click(() => {
                 filterDeals("price");
                 displayCardsDynamically("deals");
             });
-            $("#discount").click(() => {
+            $(".discount").click(() => {
                 filterDeals();
                 displayCardsDynamically("deals");
             });
-            $("#newest").click(() => {
+            $(".newest").click(() => {
                 filterDeals();
                 displayCardsDynamically("deals");
             });
-            $("#enddate").click(() => {
+            $(".enddate").click(() => {
                 filterDeals("endDate");
                 displayCardsDynamically("deals");
             });
-            $("#retailer").click(() => {
+            $(".retailer").click(() => {
                 filterDeals("retailer");
                 displayCardsDynamically("deals");
             });
-            $("#brand").click(() => {
+            $(".brand").click(() => {
                 filterDeals("brand");
                 displayCardsDynamically("deals");
             });
-            $("#walmart").click(function () {
+            $(".walmart").click(function () {
                 displayCardsDynamically("deals");
             });
-            $("#superstore").click(function () {
+            $(".superstore").click(function () {
                 displayCardsDynamically("deals");
             });
-            $("#whole_foods").click(function () {
+            // $(".whole_foods").click(function () {
+            //     displayCardsDynamically("deals");
+            // });
+            $(".min-price").change(function () {
                 displayCardsDynamically("deals");
             });
-            $("#min-price").change(function () {
+            $(".max-price").change(function () {
                 displayCardsDynamically("deals");
             });
-            $("#max-price").change(function () {
+            $(".filter_brand").change(function () {
                 displayCardsDynamically("deals");
             });
-            $("#filter_brand").change(function () {
-                displayCardsDynamically("deals");
-            });
-            $("#open_close").click(function () {
-                $("#filter_contents").toggle();  // Toggles visibility of the element
-                if (filter_open == false) {
-                    filter_open = true;
-                    $("#open_close").html("<div id='open_close' class='text - center'><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' width='30px' class='size-6'><path stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' /></svg><div>")
-                } else {
-                    filter_open = false
-                    $("#open_close").html("<div id='open_close' class='text - center'><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' width='30px' class='size-6'><path stroke-linecap='round' stroke-linejoin='round' d='m4.5 15.75 7.5-7.5 7.5 7.5' /></svg></div>")
-                }
+            // $("#open_close").click(function () {
+            //     $("#filter_contents").toggle();  // Toggles visibility of the element
+            //     if (filter_open == false) {
+            //         filter_open = true;
+            //         $("#open_close").html("<div id='open_close' class='text - center'><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' width='30px' class='size-6'><path stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' /></svg><div>")
+            //     } else {
+            //         filter_open = false
+            //         $("#open_close").html("<div id='open_close' class='text - center'><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' width='30px' class='size-6'><path stroke-linecap='round' stroke-linejoin='round' d='m4.5 15.75 7.5-7.5 7.5 7.5' /></svg></div>")
+            //     }
+            // });
+            $("#toggleSidebar").click(function () {
+                $(".sidebar").toggle(); // Toggle sidebar
             });
 
 
@@ -167,15 +170,15 @@ function addWhereClauses(collection) {
 
     let retailer = [];
 
-    if ($("#walmart").is(":checked")) {
+    if ($(".walmart").is(":checked")) {
         retailer.push("walmart");
     }
-    if ($("#superstore").is(":checked")) {
+    if ($(".superstore").is(":checked")) {
         retailer.push("Superstore");
     }
-    if ($("#whole_foods").is(":checked")) {
-        retailer.push("Wholefoods");
-    }
+    // if ($(".whole_foods").is(":checked")) {
+    //     retailer.push("Wholefoods");
+    // }
 
     // Add retailer filter only if at least one is selected
     if (retailer.length > 0) {
@@ -183,19 +186,19 @@ function addWhereClauses(collection) {
     }
 
     // Get min and max price values
-    let min = $("#min-price").val() ? parseInt($("#min-price").val()) : 0;
-    let max = $("#max-price").val() ? parseInt($("#max-price").val()) : Infinity;
+    let min = $(".min-price").val() ? parseInt($(".min-price").val()) : 0;
+    let max = $(".max-price").val() ? parseInt($(".max-price").val()) : Infinity;
 
-    if ($("#min-price").val()) {
+    if ($(".min-price").val()) {
         search = search.where("price", ">=", min);
     }
-    if ($("#max-price").val()) {
+    if ($(".max-price").val()) {
         search = search.where("price", "<=", max);
     }
 
     // Brands
 
-    if (brand_to_filter_by = $("#filter_brand").val()) {
+    if (brand_to_filter_by = $(".filter_brand").val()) {
         brand_to_filter_by_title_case = titleCase(brand_to_filter_by)
         search = search.where("brand", "==", brand_to_filter_by_title_case);
     }
