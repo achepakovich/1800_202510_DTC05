@@ -186,8 +186,8 @@ function addWhereClauses(collection) {
     }
 
     // Get min and max price values
-    let min = $(".min-price").val() ? parseInt($(".min-price").val()) : 0;
-    let max = $(".max-price").val() ? parseInt($(".max-price").val()) : Infinity;
+    let min = $(".min-price").val() ? parseFloat($(".min-price").val()) : 0;
+    let max = $(".max-price").val() ? parseFloat($(".max-price").val()) : Infinity;
 
     if ($(".min-price").val()) {
         search = search.where("price", ">=", min);
