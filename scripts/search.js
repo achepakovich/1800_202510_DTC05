@@ -82,6 +82,9 @@ function doAll() {
             $(".filter_brand").change(function () {
                 displayCardsDynamically("deals");
             });
+            $(".filter_enddate").change(function () {
+                displayCardsDynamically("deals");
+            });
             // $("#open_close").click(function () {
             //     $("#filter_contents").toggle();  // Toggles visibility of the element
             //     if (filter_open == false) {
@@ -164,31 +167,34 @@ function colourActiveFilter() {
     });
 }
 
+function formatEndDateForDatabase(endDate) {
+    endDate_split = endDate.split("-")
+    endDate_formatted = endDate_split[1] + "/" + endDate_split[2] + "/" + endDate_split[0]
+    console.log(endDate_formatted)
+    return endDate_formatted
+}
+
+// Apply filters by adding where clause to database query
 function addWhereClauses(collection) {
     let searchNameGet = localStorage.getItem("searchItem");
     let search = db.collection(collection).where("itemName", "==", searchNameGet);
 
+    // Retailer
     let retailer = [];
-
     if ($(".walmart").is(":checked")) {
         retailer.push("walmart");
     }
     if ($(".superstore").is(":checked")) {
         retailer.push("Superstore");
     }
-    // if ($(".whole_foods").is(":checked")) {
-    //     retailer.push("Wholefoods");
-    // }
-
     // Add retailer filter only if at least one is selected
     if (retailer.length > 0) {
         search = search.where("retailer", "in", retailer);
     }
 
-    // Get min and max price values
+    // Price
     let min = $(".min-price").val() ? parseFloat($(".min-price").val()) : 0;
     let max = $(".max-price").val() ? parseFloat($(".max-price").val()) : Infinity;
-
     if ($(".min-price").val()) {
         search = search.where("price", ">=", min);
     }
@@ -197,10 +203,15 @@ function addWhereClauses(collection) {
     }
 
     // Brands
-
     if (brand_to_filter_by = $(".filter_brand").val()) {
         brand_to_filter_by_title_case = titleCase(brand_to_filter_by)
         search = search.where("brand", "==", brand_to_filter_by_title_case);
+    }
+
+    // End Date
+    if (enddate_to_filter_by = $(".filter_enddate").val()) {
+        endDate = formatEndDateForDatabase(enddate_to_filter_by)
+        search = search.where("endDate", "==", endDate);
     }
 
     $("#deals-go-here").empty();
