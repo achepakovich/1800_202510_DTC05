@@ -210,8 +210,12 @@ function addWhereClauses(collection) {
 
     // End Date
     if (enddate_to_filter_by = $(".filter_enddate").val()) {
-        endDate = formatEndDateForDatabase(enddate_to_filter_by)
-        search = search.where("endDate", "==", endDate);
+        // endDate = formatEndDateForDatabase(enddate_to_filter_by)
+        let endDate = new Date(enddate_to_filter_by)
+        let firestoreEndDate = new firebase.firestore.Timestamp.fromDate(endDate);
+        // console.log(endDate)
+        console.log(firestoreEndDate)
+        search = search.where("expiryDate", ">", firestoreEndDate);
     }
 
     $("#deals-go-here").empty();
@@ -422,3 +426,23 @@ function saveBookmark(dealDocID) {
         console.error("Error getting user document: ", error);
     });
 };
+
+// Implementing the scroll to to top button
+let mybutton = document.getElementById("scrollToTopButton");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
