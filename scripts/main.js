@@ -13,7 +13,6 @@ function doAll() {
             displayDealPopupsDynamically("deals");
             reply_click();
             saveItem();
-            closeDeal();
         } else {
             // No user is signed in.
             console.log("No user is signed in");
@@ -220,13 +219,6 @@ function displayDealPopupsDynamically(collection) {
 }
 
 
-function closeDeal() {
-    $(".btn-close").click(function () {
-        console.log("hello")
-        $("#deals-popup-here").hide();
-        $("#overlay").hide();
-    })
-}
 
 // This function adds the saved deal to favourite deals collection under user in Firestore
 function reply_click(clicked_id) {

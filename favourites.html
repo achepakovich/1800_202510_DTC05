@@ -29,6 +29,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <!-- Link to styles of your own -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/style.css" />
 
 </head>
 
@@ -121,6 +124,12 @@
         <div class="container">
             <div id="bookmarks-here" class="row row-cols-auto"></div>
         </div>
+        <div class="container mx-auto">
+            <div id="deals-popup-here"></div>
+        </div>
+        <div class="container pb-4">
+            <div id="deals-go-here" class="row row-cols-auto  justify-content-center"></div>
+        </div>
     </div>
 
     <!-- Template for saved deals -->
@@ -157,14 +166,6 @@
             <div class="row my-auto">
                 <h1 class="card-item col">Item Title</h1>
                 <div class="col my-auto d-flex gap-2">
-                    <button id="saveItem" type="button" class="bg-white rounded-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="size-6 " height="35px" weight="35px">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-                        </svg>
-                    </button>
-
                     <!-- New Bookmark Icon -->
                     <button type="button" class="bg-white rounded-2 px-12 py-6 fixed-size">
                         <i class="material-icons saveDealButton">favorite</i>
