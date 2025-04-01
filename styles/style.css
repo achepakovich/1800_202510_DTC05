@@ -46,7 +46,7 @@
 }
 
 .dropdown-toggle::after {
-    border-top-color: white !important;
+    color: white
     /* Changes the caret to white */
 }
 
