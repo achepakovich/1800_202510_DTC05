@@ -527,6 +527,15 @@
     }
 }
 
+@media (min-width: 768px) {
+
+    /* Adjust the breakpoint as needed */
+    #offcanvasTop {
+        margin-top: 63px;
+        width: 270px;
+    }
+}
+
 /* Style the scroll back top button on pages with deals */
 #scrollToTopButton {
     display: none;
