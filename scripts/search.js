@@ -38,7 +38,6 @@ function doAll() {
                     }
                 }
             }
-
             // Filtering event handlers
             $("#price").click(() => {
                 filterDeals("price");
@@ -210,10 +209,9 @@ function addWhereClauses(collection) {
 
     // End Date
     if (enddate_to_filter_by = $(".filter_enddate").val()) {
-        // endDate = formatEndDateForDatabase(enddate_to_filter_by)
         let endDate = new Date(enddate_to_filter_by)
         let firestoreEndDate = new firebase.firestore.Timestamp.fromDate(endDate);
-        // console.log(endDate)
+        console.log(endDate)
         console.log(firestoreEndDate)
         search = search.where("expiryDate", ">", firestoreEndDate);
     }
