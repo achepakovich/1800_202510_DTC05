@@ -109,10 +109,6 @@ function displayDealPopupsDynamically(bookmarks) {
         return;
     }
     
-    if (bookmarks.length === 0) {
-        popupContainer.innerHTML = "<p>No saved deal popups found.</p>";
-        return;
-    }
     
     bookmarks.forEach(dealID => {
         db.collection("deals").doc(dealID).get().then(doc => {
