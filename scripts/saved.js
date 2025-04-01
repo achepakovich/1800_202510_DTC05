@@ -11,14 +11,14 @@ function doAll() {
             currentUser = db.collection("users").doc(user.uid); // Global reference
             insertNameFromFirestore(user);
             console.log(currentUser);
-            currentUser.get().then(userDoc => {
+            currentUser.onSnapshot(userDoc => {
                 if (userDoc.exists) {
+                    $("#overlay").hide();
                     let bookmarks = userDoc.data().bookmarks || [];
                     displayCardsDynamically(bookmarks);
                     displayDealPopupsDynamically(bookmarks);
-                    closeDeal();
-            
-        }})
+                }
+            });
         } else {
             // No user is signed in.
             console.log("No user is signed in");
@@ -162,14 +162,6 @@ function displayDealPopupsDynamically(bookmarks) {
     });
 
    
-}
-
-function closeDeal() {
-    $(".btn-close").click(function () {
-        console.log("hello")
-        $("#deals-popup-here").hide();
-        $("#overlay").hide();
-    })
 }
 
 function saveBookmark(dealDocID) {
