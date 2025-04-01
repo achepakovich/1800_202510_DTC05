@@ -144,6 +144,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    function updateOffcanvas() {
+        const offcanvasElement = document.getElementById("offcanvasTop");
+
+        if (window.innerWidth < 768) { // Small screens
+            offcanvasElement.classList.remove("offcanvas-start");
+            offcanvasElement.classList.add("offcanvas-top");
+        } else { // Medium and larger screens
+            offcanvasElement.classList.remove("offcanvas-top");
+            offcanvasElement.classList.add("offcanvas-start");
+            offcanvasElement.classList.add("show");
+        }
+    }
+    // Run on page load
+    updateOffcanvas();
+    // Run on window resize
+    window.addEventListener("resize", updateOffcanvas);
+});
+
 
 // handle filtering the deals
 filterActivated = false;
