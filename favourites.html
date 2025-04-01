@@ -53,7 +53,7 @@
                         <path d="M21 21l-6 -6"></path>
                     </svg>
                 </button>
-                <div class="dropdown">
+                <!-- <div class="dropdown">
                     <button class="btn btn-success-light dropdown-toggle" type="button" id="filterDropdown"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="2em">
@@ -67,7 +67,7 @@
                         <li><a class="dropdown-item" href="#">Newest Deals</a></li>
                         <li><a class="dropdown-item" href="#">Expiring Soon</a></li>
                     </ul>
-                </div>
+                </div> -->
             </form>
 
             <!-- Collapsible menu-->
@@ -119,7 +119,11 @@
     </nav>
 
     <div class="container">
-        <h1 class="my-2 text-muted"><span id="name-goes-here"></span>'s Saved Deals</h1>
+        <h1 class="my-2 text-muted">
+            <div class="text-center">
+                <span id="name-goes-here"></span>'s Saved Deals
+            </div>
+        </h1>
 
         <div class="container">
             <div id="bookmarks-here" class="row row-cols-auto"></div>
