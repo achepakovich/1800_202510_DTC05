@@ -198,7 +198,7 @@
         <div id="deals-popup-here"></div>
     </div>
 
-    <div class="sidebar">
+    <!-- <div class="offcanvas offcanvas-top sidebar">
         <div id="filter_contents" class="ml-2 left-2">
             <h4>Retailer</h4>
             <div class="form-check">
@@ -224,14 +224,14 @@
                 <label id="walmart_label" class="form-check-label" for="walmart">
                     Walmart
                 </label>
-            </div>
-            <!-- <div class="form-check ml-2 retailer">
+            </div> -->
+    <!-- <div class="form-check ml-2 retailer">
                 <input class="form-check-input whole_foods" type="checkbox" value="">
                 <label class="form-check-label whole_foods_label" for="whole_foods">
                     Whole Foods
                 </label>
             </div> -->
-            <div class="form-group mt-4">
+    <!-- <div class="form-group mt-4">
                 <h4>Brand</h4>
                 <input type="search" class="form-control filter_brand" aria-describedby="brand_filter"
                     placeholder="Filter Brand">
@@ -248,12 +248,14 @@
             <div class="mt-4">
                 <h4>End Date</h4>
                 <div>
-                    <label for="startDate">Start</label>
+                    <label for="startDate">Exclude deals that end after:</label>
                     <input id="startDate" class="form-control filter_enddate" type="date" />
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
+
     <!-- <div id="open_close" class="text-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6 text-center" width="30px">
@@ -314,9 +316,9 @@
             </div>
         </div>  -->
 
-    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+    <div class="offcanvas offcanvas-top show" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel"
+        data-bs-scroll="true" data-bs-backdrop="false">
         <div class="offcanvas-header">
-            <h5 id="offcanvasTopLabel">Filter</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -365,9 +367,16 @@
                     <input class="max-price" type="number" id="max-price" placeholder="Max" min="0">
                 </div>
             </div>
+            <div class="mt-4">
+                <h4>End Date</h4>
+                <div>
+                    <label for="startDate">Exclude deals that end after:</label>
+                    <input id="startDate" class="form-control filter_enddate" type="date" />
+                </div>
+            </div>
         </div>
     </div>
-    </div>
+    <!-- </div> -->
 
     <div class="d-flex flex-lg-row mainContainer">
         <div class="container">
