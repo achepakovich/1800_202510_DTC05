@@ -72,6 +72,9 @@ function doAll() {
             $(".save_on_foods").click(function () {
                 displayCardsDynamically("deals");
             });
+            $(".choices_markets").click(function () {
+                displayCardsDynamically("deals");
+            });
             // $(".whole_foods").click(function () {
             //     displayCardsDynamically("deals");
             // });
@@ -215,6 +218,9 @@ function addWhereClauses(collection) {
     }
     if ($(".superstore").is(":checked")) {
         retailer.push("Superstore");
+    }
+    if ($(".choices_markets").is(":checked")) {
+        retailer.push("Choices Markets");
     }
     // Add retailer filter only if at least one is selected
     if (retailer.length > 0) {
