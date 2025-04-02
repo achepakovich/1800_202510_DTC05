@@ -59,7 +59,7 @@ function doAll() {
                 filterDeals("retailer");
                 displayCardsDynamically("deals");
             });
-            $(".brand").click(() => {
+            $("#brand").click(() => {
                 filterDeals("brand");
                 displayCardsDynamically("deals");
             });
