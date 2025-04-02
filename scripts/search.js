@@ -254,6 +254,9 @@ function displayCardsDynamically(collection) {
             $("#no-results").after(
                 "<div class='text-center'><img class='mt-5' src='https://cdn-icons-png.freepik.com/256/6179/6179016.png?ga=GA1.1.1263291304.1741026299&semt=ais_hybrid'></div>"
             );
+            $("#deals-container").attr("style", "display: none !important;");
+        } else {
+            $("#deals-container").attr("style", "display: flex !important;");
         }
         var i = 1; //Optional: if you want to have a unique ID for each hike
         allDeals.forEach((doc) => {
