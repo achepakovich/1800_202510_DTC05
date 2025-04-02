@@ -159,6 +159,7 @@ function getItemIconPath(itemName) {
     orange: "images/shoppingListIcons/orange.png",
     peppers: "images/shoppingListIcons/pepper.png",
     pepper: "images/shoppingListIcons/pepper.png",
+    cauliflower: "images/shoppingListIcons/cauliflower.png",
   };
 
   // Return the icon path if it exists, or a default icon if not
