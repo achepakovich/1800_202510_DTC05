@@ -59,7 +59,7 @@ function doAll() {
                 filterDeals("retailer");
                 displayCardsDynamically("deals");
             });
-            $(".brand").click(() => {
+            $("#brand").click(() => {
                 filterDeals("brand");
                 displayCardsDynamically("deals");
             });
@@ -144,6 +144,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+
+// This is to control how the filter bar behaves when moving between small and larger screen sizes
 document.addEventListener("DOMContentLoaded", function () {
     function updateOffcanvas() {
         const offcanvasElement = document.getElementById("offcanvasTop");
