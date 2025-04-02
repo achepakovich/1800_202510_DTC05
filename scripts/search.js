@@ -201,6 +201,12 @@ function addWhereClauses(collection) {
 
     // Retailer
     let retailer = [];
+    if ($(".no_frills").is(":checked")) {
+        retailer.push("no_frills");
+    }
+    if ($(".save-on-foods").is(":checked")) {
+        retailer.push("save-on-foods");
+    }
     if ($(".walmart").is(":checked")) {
         retailer.push("walmart");
     }
@@ -276,7 +282,7 @@ function displayCardsDynamically(collection) {
             //update title and text and image
             newcard.querySelector(".card-item").innerHTML = title;
             newcard.querySelector(".card-deal").innerHTML = deal;
-            newcard.querySelector(".card-price").innerHTML = price;
+            newcard.querySelector(".card-price").innerHTML = `$${price}`;
             newcard.querySelector(".card-end-date").innerHTML = dealEndDate;
             newcard.querySelector(".card-retailer").innerHTML = retailer;
             newcard.querySelector(".card-image").src = `./images/items/${imageCode}`; //`.images/items/${imageCode}`; //Example: NV01.jpg `./images/${imageCode}.png`
