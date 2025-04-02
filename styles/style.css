@@ -1,137 +1,137 @@
 .splash {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
-    url("../images/splash2.jpg");
-  background-size: cover;
-  background-position: center;
-  height: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
+        url("../images/splash2.jpg");
+    background-size: cover;
+    background-position: center;
+    height: auto;
 }
 
 #aboutus {
-  max-width: 1024px;
-  margin-top: 60px;
+    max-width: 1024px;
+    margin-top: 60px;
 }
 
 #key-features {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .our-mission-images {
-  max-width: 40%;
+    max-width: 40%;
 }
 
 #mission-header {
-  font-size: 5vw;
+    font-size: 5vw;
 }
 
 #firebaseui-auth-container {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .hovernow {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-  transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.2s ease-in-out;
 }
 
 .hovernow:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
 }
 
 .card-body-template {
-  line-height: 40%;
+    line-height: 40%;
 }
 
 .dropdown-toggle::after {
-  color: white;
-  /* Changes the caret to white */
+    color: white;
+    /* Changes the caret to white */
 }
 
 .card {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .card-image-popup {
-  width: 100%;
+    width: 100%;
 }
 
 .popup {
-  width: 700px;
-  position: fixed;
-  background: white;
-  top: 50%;
-  left: 50%;
-  border-radius: 6px;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  padding: 20px;
-  max-width: 90vw;
-  /* Prevents going off-screen horizontally */
-  max-height: 90vh;
-  /* Prevents going off-screen vertically */
+    width: 700px;
+    position: fixed;
+    background: white;
+    top: 50%;
+    left: 50%;
+    border-radius: 6px;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    padding: 20px;
+    max-width: 90vw;
+    /* Prevents going off-screen horizontally */
+    max-height: 90vh;
+    /* Prevents going off-screen vertically */
 }
 
 .btn-close {
-  float: right;
+    float: right;
 }
 
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Adjust transparency */
-  z-index: 999;
-  /* Ensure it appears above other content */
-  display: none;
-  /* Hide by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust transparency */
+    z-index: 999;
+    /* Ensure it appears above other content */
+    display: none;
+    /* Hide by default */
 }
 
 .saveDealButton {
-  background-color: white;
+    background-color: white;
 }
 
 .shopping-item {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  position: relative;
-  display: inline-block;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    position: relative;
+    display: inline-block;
 }
 
 .shopping-item::after {
-  content: attr(alt);
-  position: absolute;
-  bottom: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  padding: 4px 8px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: black;
-  border-radius: 4px;
-  font-size: 14px;
-  opacity: 0;
-  transition: opacity 0.2s;
+    content: attr(alt);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    padding: 4px 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: black;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.2s;
 }
 
 .shopping-item:hover::after {
-  opacity: 1;
+    opacity: 1;
 }
 
 .removeButton {
-  border-radius: 0.5rem;
-  border-width: 0cap;
-  font-size: 12px;
+    border-radius: 0.5rem;
+    border-width: 0cap;
+    font-size: 12px;
 }
 
 .material-icons {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 /* .button-container {
@@ -141,137 +141,137 @@
 } */
 
 .fixed-size {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  /* Ensures no extra space */
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    /* Ensures no extra space */
 }
 
 /* Styling for future side bar on deal search page */
 /* Sidebar Styling */
 .sidebar {
-  width: 270px;
-  height: 100vh;
-  background-color: #f8f9fa;
-  position: fixed;
-  padding: 20px;
-  border-right: 2px solid #ddd;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    width: 270px;
+    height: 100vh;
+    background-color: #f8f9fa;
+    position: fixed;
+    padding: 20px;
+    border-right: 2px solid #ddd;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Sidebar Title */
 .sidebar-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #333;
-  text-transform: uppercase;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 8px;
 }
 
 /* Checkbox List */
 .retailer-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* Checkbox Styles */
 .form-check {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 5px;
-  transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
 }
 
 .form-check:hover {
-  background: #e9ecef;
+    background: #e9ecef;
 }
 
 .form-check-input {
-  margin-right: 10px;
-  transform: scale(1.2);
+    margin-right: 10px;
+    transform: scale(1.2);
 }
 
 .form-check-label {
-  font-size: 16px;
-  color: #555;
-  font-weight: 500;
+    font-size: 16px;
+    color: #555;
+    font-weight: 500;
 }
 
 /* Responsive Sidebar */
 @media screen and (max-width: 768px) {
-  .sidebar {
-    display: none;
-  }
+    .sidebar {
+        display: none;
+    }
 }
 
 .mainContainer {
-  margin-left: 270px;
-  /* Default margin for large screens */
-  transition: margin-left 0.3s ease-in-out;
-  height: 100vh;
+    margin-left: 270px;
+    /* Default margin for large screens */
+    transition: margin-left 0.3s ease-in-out;
+    height: 100vh;
 }
 
 /* Override margin for small screens */
 @media screen and (max-width: 768px) {
-  .mainContainer {
-    margin-left: 0;
-  }
+    .mainContainer {
+        margin-left: 0;
+    }
 }
 
 #no-results {
-  /* margin-left: 280px; */
-  margin-top: 100px;
+    /* margin-left: 280px; */
+    margin-top: 100px;
 }
 
 /* Add these styles to your style.css file */
 
 /* Shopping list table styles */
 #shopping-table {
-  width: 100%;
-  margin-bottom: 1rem;
-  border-collapse: separate;
-  border-spacing: 0;
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
 #shopping-table th {
-  background-color: #f8f9fa;
-  color: #495057;
-  font-weight: 600;
-  text-align: left;
-  padding: 0.75rem;
+    background-color: #f8f9fa;
+    color: #495057;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem;
 }
 
 #shopping-table td {
-  padding: 0.75rem;
-  vertical-align: middle;
-  border-top: 1px solid #dee2e6;
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
 }
 
 #shopping-table tbody tr:hover {
-  background-color: rgba(0, 128, 0, 0.05);
+    background-color: rgba(0, 128, 0, 0.05);
 }
 
 /* Style for the deals count cell */
 #shopping-table .text-success {
-  color: #28a745;
+    color: #28a745;
 }
 
 #shopping-table .text-muted {
-  color: #6c757d;
+    color: #6c757d;
 }
 
 /* Make clickable deals count more obvious */
 #shopping-table td[style*="cursor: pointer"]:hover {
-  text-decoration: underline;
-  background-color: rgba(0, 128, 0, 0.1);
+    text-decoration: underline;
+    background-color: rgba(0, 128, 0, 0.1);
 }
 
 /* Style for the remove button */
@@ -291,205 +291,207 @@
 } */
 
 .removeButton:hover {
-  background-color: #c82333;
+    background-color: #c82333;
 }
 
 /* Responsive table adjustments */
 @media (max-width: 576px) {
-  #shopping-table th,
-  #shopping-table td {
-    padding: 0.5rem;
-  }
 
-  #shopping-table th:last-child,
-  #shopping-table td:last-child {
-    width: 50px;
-    /* Ensure remove column isn't too wide on mobile */
-  }
+    #shopping-table th,
+    #shopping-table td {
+        padding: 0.5rem;
+    }
+
+    #shopping-table th:last-child,
+    #shopping-table td:last-child {
+        width: 50px;
+        /* Ensure remove column isn't too wide on mobile */
+    }
 }
 
 /* Add these styles to your style.css file */
 
 /* Shopping list table styles */
 #shopping-table {
-  width: 100%;
-  margin-bottom: 1rem;
-  border-collapse: separate;
-  border-spacing: 0;
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
 #shopping-table th {
-  background-color: #f8f9fa;
-  color: #495057;
-  font-weight: 600;
-  text-align: left;
-  padding: 0.75rem;
+    background-color: #f8f9fa;
+    color: #495057;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem;
 }
 
 #shopping-table td {
-  padding: 0.75rem;
-  vertical-align: middle;
-  border-top: 1px solid #dee2e6;
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
 }
 
 #shopping-table tbody tr:hover {
-  background-color: rgba(0, 128, 0, 0.05);
+    background-color: rgba(0, 128, 0, 0.05);
 }
 
 /* Style for the deals count cell */
 #shopping-table .text-success {
-  color: #28a745;
+    color: #28a745;
 }
 
 #shopping-table .text-muted {
-  color: #6c757d;
+    color: #6c757d;
 }
 
 /* Make clickable deals count more obvious */
 .deals-link {
-  color: #28a745;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 8px;
-  border-radius: 12px;
-  background-color: rgba(40, 167, 69, 0.1);
-  transition: all 0.2s ease;
+    color: #28a745;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background-color: rgba(40, 167, 69, 0.1);
+    transition: all 0.2s ease;
 }
 
 .deals-link:hover {
-  background-color: rgba(40, 167, 69, 0.2);
-  text-decoration: underline;
-  color: #218838;
+    background-color: rgba(40, 167, 69, 0.2);
+    text-decoration: underline;
+    color: #218838;
 }
 
 .item-icon {
-  margin-left: 5px;
-  vertical-align: middle;
-  transition: transform 0.2s ease;
+    margin-left: 5px;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
 }
 
 .deals-link:hover .item-icon {
-  transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .item-icon-gray {
-  margin-left: 5px;
-  vertical-align: middle;
-  opacity: 0.5;
-  filter: grayscale(100%);
+    margin-left: 5px;
+    vertical-align: middle;
+    opacity: 0.5;
+    filter: grayscale(100%);
 }
 
 /* Style for the remove button */
 .removeButton {
-  border: none;
-  background-color: #dc3545;
-  color: white;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.2s;
+    border: none;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 .removeButton:hover {
-  background-color: #c82333;
+    background-color: #c82333;
 }
 
 /* Responsive table adjustments */
 @media (max-width: 576px) {
-  #shopping-table th,
-  #shopping-table td {
-    padding: 0.5rem;
-  }
 
-  #shopping-table th:last-child,
-  #shopping-table td:last-child {
-    width: 50px;
-    /* Ensure remove column isn't too wide on mobile */
-  }
+    #shopping-table th,
+    #shopping-table td {
+        padding: 0.5rem;
+    }
+
+    #shopping-table th:last-child,
+    #shopping-table td:last-child {
+        width: 50px;
+        /* Ensure remove column isn't too wide on mobile */
+    }
 }
 
 .price-filter {
-  align-items: center;
-  gap: 10px;
-  background: #f8f9fa;
-  padding: 10px;
+    align-items: center;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 10px;
 
-  width: fit-content;
+    width: fit-content;
 }
 
 .price-filter label {
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
 }
 
 .price-filter input {
-  width: 80px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-  text-align: center;
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
 }
 
 .price-filter span {
-  font-size: 16px;
-  font-weight: bold;
-  color: #555;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
 }
 
 #apply-filter {
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.3s ease;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
 }
 
 #apply-filter:hover {
-  background: #0056b3;
+    background: #0056b3;
 }
 
 /* Responsive Styling */
 @media screen and (max-width: 500px) {
-  .price-filter {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+    .price-filter {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-  .price-filter input {
-    width: 60px;
-  }
+    .price-filter input {
+        width: 60px;
+    }
 }
 
 #open_close {
-  display: none;
+    display: none;
 }
 
 #open_close:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  /* Light gray highlight */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  /* Soft shadow */
-  cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Light gray highlight */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Soft shadow */
+    cursor: pointer;
 }
 
 /* On small screens (max-width: 768px), show the element */
 @media screen and (max-width: 768px) {
-  #open_close {
-    display: block;
-    /* Or inline-block, depending on the layout */
-  }
+    #open_close {
+        display: block;
+        /* Or inline-block, depending on the layout */
+    }
 }
 
 /* #filter_contents {
@@ -497,74 +499,80 @@
 } */
 
 #toggleSidebar {
-  position: fixed;
-  top: 50%;
-  left: 280px;
-  /* Align with the sidebar edge */
-  transform: translateY(-50%);
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: left 0.3s ease-in-out;
+    position: fixed;
+    top: 50%;
+    left: 280px;
+    /* Align with the sidebar edge */
+    transform: translateY(-50%);
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: left 0.3s ease-in-out;
 }
 
 #toggleSidebar:hover {
-  background-color: #e1dfdf;
+    background-color: #e1dfdf;
 }
 
 @media (min-width: 768px) {
-  /* Adjust the breakpoint as needed */
-  #filter_dropdown {
-    display: none;
-  }
+
+    /* Adjust the breakpoint as needed */
+    #filter_dropdown {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) {
-  /* Adjust the breakpoint as needed */
-  #offcanvasTop {
-    margin-top: 63px;
-    width: 270px;
-  }
+
+    /* Adjust the breakpoint as needed */
+    #offcanvasTop {
+        margin-top: 63px;
+        width: 270px;
+    }
 }
 
 /* Style the scroll back top button on pages with deals */
 #scrollToTopButton {
-  display: none;
-  position: fixed;
-  bottom: 90px;
-  right: 30px;
-  z-index: 99;
-  border: none;
-  outline: none;
-  background-color: green;
-  color: white;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 10px;
-  font-size: 18px;
-  opacity: 50%;
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    opacity: 50%;
 }
 
 @media (min-width: 768px) {
-  #scrollToTopButton {
-    bottom: 20px;
-  }
+    #scrollToTopButton {
+        bottom: 20px;
+    }
 }
 
 #scrollToTopButton:hover {
-  background-color: #555;
-  /* Add a dark-grey background on hover */
+    background-color: #555;
+    /* Add a dark-grey background on hover */
 }
 
 @media (max-width: 767.98px) {
-  footer.navbar.fixed-bottom #navbarNavAltMarkup .nav-link {
-    font-size: 12px;
-  }
+    footer.navbar.fixed-bottom #navbarNavAltMarkup .nav-link {
+        font-size: 12px;
+    }
 
-  footer.navbar.fixed-bottom #navbarNavAltMarkup .nav-link svg {
-    width: 30px;
-    height: 30px;
-  }
+    footer.navbar.fixed-bottom #navbarNavAltMarkup .nav-link svg {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.searchBoxSearchPage {
+    width: 100px
 }
