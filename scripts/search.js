@@ -69,6 +69,9 @@ function doAll() {
             $(".superstore").click(function () {
                 displayCardsDynamically("deals");
             });
+            $(".save_on_foods").click(function () {
+                displayCardsDynamically("deals");
+            });
             // $(".whole_foods").click(function () {
             //     displayCardsDynamically("deals");
             // });
@@ -204,8 +207,8 @@ function addWhereClauses(collection) {
     if ($(".no_frills").is(":checked")) {
         retailer.push("no_frills");
     }
-    if ($(".save-on-foods").is(":checked")) {
-        retailer.push("save-on-foods");
+    if ($(".save_on_foods").is(":checked")) {
+        retailer.push("Save-On-Foods");
     }
     if ($(".walmart").is(":checked")) {
         retailer.push("walmart");
