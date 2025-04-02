@@ -12,6 +12,7 @@ function subscribeToShoppingList(userUID, callback) {
   db.collection("users")
     .doc(userUID)
     .collection("shoppingList")
+    .orderBy("createdAt", "desc") // Sort by creation time (newest first)
     .onSnapshot((snapshot) => {
       const items = [];
       snapshot.forEach((doc) => {
@@ -22,13 +23,58 @@ function subscribeToShoppingList(userUID, callback) {
 }
 
 /**
+ * Check if an item with the same name already exists in the user's shopping list
+ *
+ * @param {string} userUID - The user's UID
+ * @param {string} itemName - The name of the item to check
+ * @returns {Promise<boolean>} - A promise that resolves to true if item exists, false otherwise
+ */
+function checkItemExists(userUID, itemName) {
+  // Normalize the item name (lowercase and trim whitespace)
+  const normalizedName = itemName.toLowerCase().trim();
+
+  return db
+    .collection("users")
+    .doc(userUID)
+    .collection("shoppingList")
+    .where("normalizedName", "==", normalizedName)
+    .get()
+    .then((querySnapshot) => {
+      return !querySnapshot.empty; // Returns true if the item exists
+    });
+}
+
+/**
  * Add a new item to the user's shopping list in Firestore.
+ * Prevents duplicates by adding a normalized version of the name.
+ *
+ * @param {string} userUID - User's UID
+ * @param {string} itemName - Item name to add
+ * @returns {Promise} - Promise that resolves when the item is added
  */
 function addItem(userUID, itemName) {
-  return db.collection("users").doc(userUID).collection("shoppingList").add({
-    name: itemName,
-    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-    // or you can just store new Date()
+  // Trim the item name and create a normalized (lowercase) version for comparison
+  const trimmedName = itemName.trim();
+  const normalizedName = trimmedName.toLowerCase();
+
+  // First check if this item already exists
+  return checkItemExists(userUID, itemName).then((exists) => {
+    if (exists) {
+      // Item already exists, return a rejected promise
+      console.log(`Item "${itemName}" already exists in shopping list`);
+      return Promise.reject(new Error("Duplicate item"));
+    } else {
+      // Item doesn't exist, add it with normalized name for future comparisons
+      return db
+        .collection("users")
+        .doc(userUID)
+        .collection("shoppingList")
+        .add({
+          name: trimmedName,
+          normalizedName: normalizedName,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+    }
   });
 }
 
@@ -44,8 +90,11 @@ function removeItem(userUID, itemID) {
     .delete();
 }
 
+/**
+ * Clear all items from a user's shopping list.
+ */
 function clearShoppingList(userUID) {
-  // Reference all documents in user’s shoppingList subcollection
+  // Reference all documents in user's shoppingList subcollection
   const listRef = db
     .collection("users")
     .doc(userUID)

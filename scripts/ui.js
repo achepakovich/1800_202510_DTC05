@@ -17,9 +17,22 @@ function initUI() {
     const name = itemInput.value.trim();
     const user = firebase.auth().currentUser;
     if (user && name) {
-      addItem(user.uid, name).then(() => {
-        itemInput.value = "";
-      });
+      // Check if item already exists before adding
+      checkForDuplicate(user.uid, name)
+        .then((isDuplicate) => {
+          if (isDuplicate) {
+            // Show a notification that item already exists
+            alert(`"${name}" is already in your shopping list!`);
+          } else {
+            // Add the item if it's not a duplicate
+            addItem(user.uid, name).then(() => {
+              itemInput.value = "";
+            });
+          }
+        })
+        .catch((error) => {
+          console.error("Error checking for duplicate:", error);
+        });
     }
   });
 
@@ -29,10 +42,59 @@ function initUI() {
       const itemName = button.dataset.item; // Get the item name from the data attribute
       const user = firebase.auth().currentUser;
       if (user) {
-        addItem(user.uid, itemName); // Call addItem with user's UID and item name
+        // Check if item already exists before adding
+        checkForDuplicate(user.uid, itemName)
+          .then((isDuplicate) => {
+            if (isDuplicate) {
+              // Show a notification that item already exists
+              alert(`"${itemName}" is already in your shopping list!`);
+            } else {
+              // Add the item if it's not a duplicate
+              addItem(user.uid, itemName);
+            }
+          })
+          .catch((error) => {
+            console.error("Error checking for duplicate:", error);
+          });
       }
     });
   });
+
+  // Add keypress event to the input field (to capture Enter key)
+  itemInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Prevent form submission
+      addItemBtn.click(); // Trigger the add button click
+    }
+  });
+}
+
+/**
+ * Check if an item with the same name already exists in the user's shopping list
+ * @param {string} userUID - The user's UID
+ * @param {string} itemName - The name of the item to check
+ * @returns {Promise<boolean>} - A promise that resolves to true if item exists, false otherwise
+ */
+function checkForDuplicate(userUID, itemName) {
+  // Normalize the item name (lowercase and trim)
+  const normalizedName = itemName.toLowerCase().trim();
+
+  return db
+    .collection("users")
+    .doc(userUID)
+    .collection("shoppingList")
+    .get()
+    .then((querySnapshot) => {
+      // Check each item in the collection for a match
+      let isDuplicate = false;
+      querySnapshot.forEach((doc) => {
+        const existingItem = doc.data();
+        if (existingItem.name.toLowerCase().trim() === normalizedName) {
+          isDuplicate = true;
+        }
+      });
+      return isDuplicate;
+    });
 }
 
 /**
