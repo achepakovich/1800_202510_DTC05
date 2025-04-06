@@ -2,17 +2,14 @@
 
 ## Overview
 
-Summarize your project's purpose, problem solved, key features, user benefits, development context, and main technologies used.
-
-Example:
-
 DealHound saves shoppers time and money by organizing and searching for deals on groceries. This app is meant to eliminate the hastle of using flyers or more bloated apps. Key features include:
+
 - Item browser
 - Favourites
 - Shopping list
 - Linked accounts
 - Filters
-DealHound helps users ease pain-points of shopping frugally. The current goal for this app is to achieve the basic functionality that other methods/apps use in a distilled form. DealHound is developed in HTML, CSS, and Javascript, making use of Bootstrap for interface design.
+  DealHound helps users ease pain-points of shopping frugally. The current goal for this app is to achieve the basic functionality that other methods/apps use in a distilled form. DealHound is developed in HTML, CSS, and Javascript, making use of Bootstrap for interface design.
 
 ---
 
@@ -21,19 +18,18 @@ DealHound helps users ease pain-points of shopping frugally. The current goal fo
 - Item browser
 - Favourites
 - Shopping list
-- Linked accounts
 - Filters
-    - By location
-    - By distance
-    - By item
-    - By price
+  - By location
+  - By distance
+  - By item
+  - By price
 
 ---
 
 ## Technologies Used
 
 - **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Netlify for hosting
+- **Backend**: Firestore Hosting, Firestore Database
 
 ---
 
@@ -41,7 +37,7 @@ DealHound helps users ease pain-points of shopping frugally. The current goal fo
 
 Example:
 
-1. Open your browser and visit `http://dealhound.ca`.
+1. Open your browser and visit `https://dtc05-e0f80.web.app/`.
 2. Sign in or sign up to access personalized features, or;
 3. Browse deals without personalized features.
 
@@ -53,12 +49,21 @@ Example:
 project-name/
 ├── images/
 │   ├── hound.png
-│   └── card#.jpg
+|   ├── shoppingListIcons
+|   └── favicon.png
 ├── scripts/
 │   └── script.js
 ├── styles/
-│   └── style.js
+│   └── style.css
 ├── index.html
+├── aboutus.html
+├── 404.html
+├── favourites.html
+├── login.html
+├── main.html
+├── profiles.html
+├── search.html
+├── shoppinglist.html
 ├── README.md
 └── .gitignore
 ```
@@ -72,48 +77,34 @@ project-name/
 - **Andrei Chepakovich** - BCIT CST Student with a passion for creating user-friendly applications. Fun fact: I love to play video games.
 - Hi my name is **Mason**. I am looking forward to developing our application! Fun Fact: All the dogs that my family has owned have been Jack Russells
 
----
-
-## Acknowledgments
-
-<!-- TODO -->
-
-Example:
-
-- Weather data sourced from [OpenWeatherMap](https://openweathermap.org/).
-- Code snippets for \_\_\_ algoirthm were adapted from resources such as [Stack Overflow](https://stackoverflow.com/) and [MDN Web Docs](https://developer.mozilla.org/).
-- Icons sourced from [FontAwesome](https://fontawesome.com/) and images from [Unsplash](https://unsplash.com/).
-
----
-
 ## Limitations and Future Work
-
-<!-- TODO -->
 
 ### Limitations
 
-<!-- TODO -->
-
-Example:
-
-- Currently, the app only supports city-based weather searches.
-- Limited to basic weather parameters like temperature, humidity, and conditions.
-- The user interface can be further enhanced for accessibility.
+- Currently, the app does not allow searching nearest groceries store by location of shopper
+- The deals are not populated to database by any APIs
+- The user interface (favourite and shoppinglist) can be further enhanced for user experience.
 
 ### Future Work
 
-<!-- TODO -->
-
-Example:
-
-- Add support for location-based weather detection using GPS.
-- Implement additional weather parameters like wind speed and UV index.
+- Input a map to pinpoint the shops on the map and number of available deals at each. 
+- Add support for location-based deals detection using GPS.
 - Create a dark mode for better usability in low-light conditions.
-- Integrate user accounts for saving favorite locations.
+- ...
 
 ---
 
-## License
+## Resources
 
-GNU GENERAL PUBLIC LICENSE
-Version 3, 29 June 2007
+- In-app icons flaticons (http://flaticon.com/)
+- Logo homemade!
+
+## Contact
+
+- Ben Le - cle61@my.bcit.ca
+- ...
+
+## Acknowledgements
+
+- <a href="https://fonts.google.com/">Google Fonts</a>
+- <a href="https://getbootstrap.com/">Bootstrap</a>
