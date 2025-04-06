@@ -108,6 +108,7 @@ project-name/
 
 - Ben Le - cle61@my.bcit.ca
 - Andrei Chepakovich - achepakovich@my.bcit.ca
+- Mason Young - myoung103@my.bcit.ca
 
 ## Acknowledgements
 
