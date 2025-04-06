@@ -4,11 +4,11 @@
 
 DealHound saves shoppers time and money by organizing and searching for deals on groceries. This app is meant to eliminate the hastle of using flyers or more bloated apps. Key features include:
 
-- Item browser
+- Item browser and deal search
 - Favourites
 - Shopping list
 - Linked accounts
-- Filters
+- Sort and filter options for deals
   DealHound helps users ease pain-points of shopping frugally. The current goal for this app is to achieve the basic functionality that other methods/apps use in a distilled form. DealHound is developed in HTML, CSS, and Javascript, making use of Bootstrap for interface design.
 
 ---
@@ -20,7 +20,12 @@ DealHound saves shoppers time and money by organizing and searching for deals on
 - Shopping list
 - Filters
   - By location
-  - By distance
+  - By end date
+  - By item
+  - By price
+- Sort deals
+  - By location
+  - By end date
   - By item
   - By price
 
@@ -84,12 +89,14 @@ project-name/
 - Currently, the app does not allow searching nearest groceries store by location of shopper
 - The deals are not populated to database by any APIs
 - The user interface (favourite and shoppinglist) can be further enhanced for user experience.
+- Search feature is not flexible. It requires specific input for a general category of grocery item to see all related deals (e.g. search 'bread' for all deals pertaining to bread items)
 
 ### Future Work
 
 - Input a map to pinpoint the shops on the map and number of available deals at each. 
 - Add support for location-based deals detection using GPS.
 - Create a dark mode for better usability in low-light conditions.
+- Implement flexible search by incorporating Elasticsearch into our current seach feature. This would allow users to search and find deals using a much broader range of terms that might be found in the specific item name.
 - ...
 
 ---
@@ -103,6 +110,7 @@ project-name/
 
 - Ben Le - cle61@my.bcit.ca
 - Andrei Chepakovich - achepakovich@my.bcit.ca
+- Mason Young - myoung103@my.bcit.ca
 
 ## Acknowledgements
 
