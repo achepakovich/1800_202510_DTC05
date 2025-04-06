@@ -51,8 +51,8 @@ DealHound saves shoppers time and money by organizing and searching for deals on
 Example:
 
 1. Open your browser and visit `https://dtc05-e0f80.web.app/`.
-2. Sign in or sign up to access personalized features, or;
-3. Browse deals without personalized features.
+2. Sign in or sign up to access personalized features like your shopping list or favourited deals, or;
+3. Browse and search deals without personalized features.
 
 ---
 
