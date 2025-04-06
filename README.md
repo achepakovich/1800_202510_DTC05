@@ -4,11 +4,11 @@
 
 DealHound saves shoppers time and money by organizing and searching for deals on groceries. This app is meant to eliminate the hastle of using flyers or more bloated apps. Key features include:
 
-- Item browser
+- Item browser and deal search
 - Favourites
 - Shopping list
 - Linked accounts
-- Filters
+- Sort and filter options for deals
   DealHound helps users ease pain-points of shopping frugally. The current goal for this app is to achieve the basic functionality that other methods/apps use in a distilled form. DealHound is developed in HTML, CSS, and Javascript, making use of Bootstrap for interface design.
 
 ---
@@ -20,7 +20,12 @@ DealHound saves shoppers time and money by organizing and searching for deals on
 - Shopping list
 - Filters
   - By location
-  - By distance
+  - By end date
+  - By item
+  - By price
+- Sort deals
+  - By location
+  - By end date
   - By item
   - By price
 
