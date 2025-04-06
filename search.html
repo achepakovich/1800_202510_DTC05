@@ -2,39 +2,33 @@
 <html lang="en">
 
 <head>
+    <!-- Document metadata -->
     <title>Deals Hound</title>
     <meta name="Home" content="Deals Hound App" />
-
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Bootstrap Library CSS CDN go here -->
+    <!-- Bootstrap Library CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
+    <!-- Firebase scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-
-    <!-- Other libraries go here -->
-    <link rel="icon" type="image/x-icon" href="./images/favicon_io/favicon.ico" />
-
-    <!-- Link to styles of your own -->
+    <!-- Styling -->
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="./images/favicon_io/favicon.ico" />
     <link rel="stylesheet" href="styles/style.css" />
 </head>
 
 <body>
+    <!-- Template for deal cards -->
     <template id="dealCardTemplate">
         <div class="card py-2 mx-2 hovernow mb-4" style="width: 18rem">
             <img class="card-image card-img-top" src=" ..." alt="..." />
@@ -48,20 +42,16 @@
         </div>
     </template>
 
+    <!-- Template for deal popups -->
     <div class="overlay" id="overlay"></div>
     <template id="dealPopupTemplate">
         <div class="popup shadow-lg">
             <button type="button" class="btn-close" aria-label="Close"></button>
             <div class="col my-auto">
+                <!-- Item name -->
                 <h2 class="card-item col">Item Title</h2>
+                <!-- Favourite button -->
                 <div class="col my-auto align-content-end">
-                    <!-- <button id="saveItem" type="button" class="bg-white rounded-2 my-2"><svg
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="size-6 " height="35px" weight="35px">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-                        </svg>
-                    </button> -->
                     <button type="button" class="bg-white rounded-2 px-12 py-6 fixed-size">
                         <i class="material-icons saveDealButton">favorite_border</i>
                     </button>
@@ -70,40 +60,46 @@
             <div class="row flex-row align-items-center my-auto">
                 <div class="col"> <img class="card-image-popup card-img-top" src=" ..." alt="..." /></div>
                 <div class="card-body-template mt-3 mx-auto dealinfo col">
+                    <!-- Deal description -->
                     <div>
                         <h4 class="d-inline">Deal: <span class="card-deal"></span></h4>
                     </div>
+                    <!-- Item price -->
                     <div class="my-2">
                         <h4 class="d-inline">Price: $<span class="card-price"></span>
                         </h4>
                     </div>
+                    <!-- Item brand -->
                     <div>
                         <h4 class="d-inline">Brand: <span class="card-brand"></span></h4>
 
                     </div>
+                    <!-- Selling retailer -->
                     <div class="my-2">
                         <h4 class="d-inline"><span class="fw-semibold">Retailer: </span><span
                                 class="card-retailer"></span></h4>
                     </div>
+                    <!-- Deal expiration date -->
                     <div>
                         <h4 class="d-inline"><span class="fw-semibold">End Date: </span><span
                                 class="card-end-date"></span></h4>
                     </div>
                 </div>
             </div>
+            <!-- Item description -->
             <p class="card-description">Description</p>
         </div>
     </template>
 
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
+    <!-- Top nav bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
         <div class="container-fluid">
-            <!-- Brand -->
+            <!-- DealHound home button -->
             <a class="navbar-brand active" href="./main.html">
                 <img src="./images/hound_white.png" height="36" alt="" />
             </a>
             <form class="d-flex me-auto">
+                <!-- Search bar -->
                 <input id="searchBox" class="form-control me-2 searchBoxSearchPage" name="item" type="text"
                     placeholder="Search flyers or items" aria-label="Search" />
                 <button id="searchButton" class="btn btn-success-light" type="button">
@@ -113,6 +109,7 @@
                         <path d="M21 21l-6 -6"></path>
                     </svg>
                 </button>
+                <!-- Dropdown sort button -->
                 <div class="dropdown">
                     <button class="btn btn-success-light dropdown-toggle" type="button" id="filterDropdown"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -128,6 +125,7 @@
                         <li><a id="brand" class="dropdown-item" href="#">Brand</a></li>
                     </ul>
                 </div>
+                <!-- Dropdown filter button -->
                 <button class="btn btn-success-light dropdown-toggle .d-none" type="button" id="filter_dropdown"
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-expanded="false">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white"
@@ -136,15 +134,11 @@
                     </svg>
                 </button>
             </form>
-            <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
-                aria-controls="offcanvasTop">Toggle top offcanvas</button> -->
 
-
-
-
-            <!-- Collapsible menu-->
+            <!-- Collapsible top nav bar buttons -->
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav d-none d-lg-flex">
+                    <!-- Shopping list button -->
                     <li class="nav-item">
                         <a class="nav-link" href="./shoppinglist.html">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
@@ -162,6 +156,7 @@
                             Shopping List
                         </a>
                     </li>
+                    <!-- Favourites button -->
                     <li class="nav-item">
                         <a class="nav-link" href="./favourites.html">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
@@ -173,6 +168,7 @@
                             Favourites
                         </a>
                     </li>
+                    <!-- Profile button -->
                     <li class="nav-item">
                         <a class="nav-link" href="profiles.html" role="button">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
@@ -189,179 +185,63 @@
             </div>
         </div>
     </nav>
-    <!------------------------------>
 
-
+    <!-- Container for deal popup targeted by displayDealPopupsDynamically in search.js -->
     <div class="container mx-auto mt-5">
         <div id="deals-popup-here"></div>
     </div>
 
-    <!-- <div class="offcanvas offcanvas-top sidebar">
-        <div id="filter_contents" class="ml-2 left-2">
-            <h4>Retailer</h4>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label id="no_frills" class="form-check-label no_frills" for="flexCheckDefault">
-                    No Frills
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label id="save-on-foods" class="form-check-label save-on-foods" for="flexCheckDefault">
-                    Save-On-Foods
-                </label>
-            </div>
-            <div id="retailer" class="form-check">
-                <input class="form-check-input superstore" type="checkbox" value="">
-                <label id="superstore_label" class="form-check-label" for="superstore">
-                    Superstore
-                </label>
-            </div>
-            <div id="retailer" class="form-check ml-2">
-                <input class="form-check-input walmart" type="checkbox" value="">
-                <label id="walmart_label" class="form-check-label" for="walmart">
-                    Walmart
-                </label>
-            </div> -->
-    <!-- <div class="form-check ml-2 retailer">
-                <input class="form-check-input whole_foods" type="checkbox" value="">
-                <label class="form-check-label whole_foods_label" for="whole_foods">
-                    Whole Foods
-                </label>
-            </div> -->
-    <!-- <div class="form-group mt-4">
-                <h4>Brand</h4>
-                <input type="search" class="form-control filter_brand" aria-describedby="brand_filter"
-                    placeholder="Filter Brand">
-            </div>
-            <div class="mt-4 filter_price">
-                <h4>Price</h4>
-                <div class="price-filter">
-                    <span>$</span>
-                    <input class="min-price" type="number" placeholder="Min" min="0">
-                    <span>-</span>
-                    <input class="max-price" type="number" placeholder="Max" min="0">
-                </div>
-            </div>
-            <div class="mt-4">
-                <h4>End Date</h4>
-                <div>
-                    <label for="startDate">Exclude deals that end after:</label>
-                    <input id="startDate" class="form-control filter_enddate" type="date" />
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-
-    <!-- <div id="open_close" class="text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="size-6 text-center" width="30px">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-            </svg>
-        </div> -->
-    <!-- </div> -->
-    <!-- <div ><svg id="toggleSidebar" xmlns="http://www.w3.org/2000/svg" fill="none" width="50px" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-        </svg>
-    </div> -->
-
-    <!-- <div class="sidebar">
-            <div id="filter_contents" class="ml-2 left-2">
-                <h4>Retailer</h4>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">No Frills</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="flexCheckDefault2">
-                    <label class="form-check-label" for="flexCheckDefault2">Save-On-Foods</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="superstore">
-                    <label class="form-check-label" for="superstore">Superstore</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="walmart">
-                    <label class="form-check-label" for="walmart">Walmart</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="whole_foods">
-                    <label class="form-check-label" for="whole_foods">Whole Foods</label>
-                </div>
-                <div class="form-group mt-4">
-                    <h4>Brand</h4>
-                    <input type="search" class="form-control" id="filter_brand" placeholder="Filter Brand">
-                </div>
-                <div id="filter_price" class="mt-4">
-                    <h4>Price</h4>
-                    <div class="price-filter">
-                        <span>$</span>
-                        <input type="number" id="min-price" placeholder="Min" min="0">
-                        <span>-</span>
-                        <input type="number" id="max-price" placeholder="Max" min="0">
-                    </div>
-                </div>
-            </div>
-        
-            Toggle Button (Inside Sidebar) -->
-    <!-- <div id="open_close" class="text-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                    class="size-6 text-center" width="30px">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                </svg>
-            </div>
-        </div>  -->
-
+    <!-- Search result filter popout -->
     <div class="offcanvas offcanvas-top z-1" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel"
         data-bs-scroll="true" data-bs-backdrop="false">
         <div class="offcanvas-header">
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
+            <!-- Filter by retailer checkboxes -->
             <h4>Retailer</h4>
+            <!-- No Frills checkbox -->
             <div class="form-check">
                 <input class="form-check-input no_frills" type="checkbox" value="" id="no_frills">
                 <label id="no_frills_label" class="form-check-label" for="no_frills">
                     No Frills
                 </label>
             </div>
+            <!-- Save-on-Foods checkbox -->
             <div class="form-check">
                 <input class="form-check-input save_on_foods" type="checkbox" value="" id="save-on-foods">
                 <label id="save-on-foods_label" class="form-check-label" for="save-on-foods">
                     Save-On-Foods
                 </label>
             </div>
+            <!-- Superstore checkbox -->
             <div class="form-check">
                 <input class="form-check-input superstore" type="checkbox" value="" id="superstore">
                 <label id="superstore_label" class="form-check-label" for="superstore">
                     Superstore
                 </label>
             </div>
+            <!-- Walmart checkbox -->
             <div class="form-check ml-2">
                 <input class="form-check-input walmart" type="checkbox" value="" id="walmart">
                 <label id="walmart_label" class="form-check-label" for="walmart">
                     Walmart
                 </label>
             </div>
+            <!-- Choices Markets checkbox -->
             <div class="form-check ml-2">
                 <input class="form-check-input choices_markets" type="checkbox" value="">
                 <label id="choices_markets_label" class="form-check-label" for="choices_markets">
                     Choices Markets
                 </label>
             </div>
-            <!-- <div id="retailer" class="form-check ml-2">
-                    <input class="form-check-input whole_foods" type="checkbox" value="" id="whole_foods">
-                    <label id="whole_foods_label" class="form-check-label" for="whole_foods">
-                        Whole Foods
-                    </label>
-                </div> -->
+            <!-- Custom brand filter search box -->
             <div class="form-group mt-4">
                 <h4>Brand</h4>
                 <input type="search" class="form-control filter_brand" id="filter_brand" aria-describedby="brand_filter"
                     placeholder="Filter Brand">
             </div>
+            <!-- Filter by minimum & maximum price number selector -->
             <div id="filter_price" class="mt-4">
                 <h4>Price</h4>
                 <div class="price-filter">
@@ -371,6 +251,7 @@
                     <input class="max-price" type="number" id="max-price" placeholder="Max" min="0">
                 </div>
             </div>
+            <!-- Filter by deal expiration date selector -->
             <div class="mt-4">
                 <h4>End Date</h4>
                 <div>
@@ -380,8 +261,8 @@
             </div>
         </div>
     </div>
-    <!-- </div> -->
 
+    <!-- Container for deals targeted by displayCardsDynamically in search.js -->
     <div class="d-flex flex-lg-row mainContainer" id="deals-container">
         <div class="container">
             <div id="deals-go-here" class="row row-cols-auto mt-5 justify-content-center"></div>
@@ -392,12 +273,15 @@
     </div>
     <p class="mt-5"></p>
 
+    <!-- Return to top button -->
     <button onclick="topFunction()" id="scrollToTopButton" title="Go to top">Top</button>
 
+    <!-- Bottom nav bar for mobile view -->
     <footer class="navbar fixed-bottom d-md-none bg-success">
         <div class="container-fluid d-flex justify-content-center">
             <div class="d-flex justify-content-center" id="navbarNavAltMarkup">
                 <div class="d-flex text-white">
+                    <!-- Home button -->
                     <a class="nav-link active d-flex flex-column pe-5 align-items-center" aria-current="page"
                         href="./main.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="45" height="45"
@@ -408,6 +292,7 @@
                         </svg>
                         Home
                     </a>
+                    <!-- Shopping list button -->
                     <a class="nav-link d-flex flex-column align-items-center" href="./shoppinglist.html">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-linecap="round" stroke-linejoin="round" width="45" height="45" stroke-width="1.5">
@@ -421,6 +306,7 @@
                         </svg>
                         Shopping List
                     </a>
+                    <!-- Favourites button -->
                     <a class="nav-link d-flex flex-column px-5 align-items-center" href="./favourites.html">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-linecap="round" stroke-linejoin="round" width="45" height="45" stroke-width="1">
@@ -429,6 +315,7 @@
                         </svg>
                         Favourites
                     </a>
+                    <!-- Profile button -->
                     <a class="nav-link d-flex flex-column align-items-center" href="./profiles.html">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-linecap="round" stroke-linejoin="round" width="45" height="45" stroke-width="1">
@@ -436,19 +323,17 @@
                             <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
                             <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path>
                         </svg>
-                        Profile</a>
+                        Profile
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
+    <!-- DealHound scripts -->
     <script src="./scripts/firebaseAPI_Team05.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
-    <!-- <script src="./scripts/main.js"></script> -->
     <script src="./scripts/navigateToSearch.js"></script>
     <script src="./scripts/search.js"></script>
 </body>
