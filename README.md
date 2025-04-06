@@ -16,8 +16,16 @@ DealHound saves shoppers time and money by organizing and searching for deals on
 ## Features
 
 - Item browser
+  - View recommended deals
+  - Search for deals
+  - Add deals to favourites
 - Favourites
+  - View favourited deals
+  - Remove favourited deals
 - Shopping list
+  - Add recommended items
+  - Add custom items
+  - View available deals
 - Filters
   - By location
   - By end date
@@ -57,7 +65,20 @@ project-name/
 |   ├── shoppingListIcons
 |   └── favicon.png
 ├── scripts/
-│   └── script.js
+|   ├── authentication.js
+|   ├── batch_write.js
+|   ├── favourites.js
+|   ├── firestore.js
+|   ├── index.js
+|   ├── main.js
+|   ├── navigateToSearch.js
+|   ├── profiles.js
+|   ├── saved.js
+|   ├── script.js
+|   ├── search.js
+|   ├── shoppinglist.js
+|   ├── skeleton.js
+│   └── ui.js
 ├── styles/
 │   └── style.css
 ├── index.html
@@ -78,7 +99,7 @@ project-name/
 ## Contributors
 
 - Hi, my name is **Ben Le** I'm excited about this project because it helps people combat rising prices and enjoy life. Fun fact: I play the piano and my fav artist is Yann Tiersen
-- **Quinn Desforge-Major** BCIT student doing stuff at school. Fun fact: I have two arms, legs, eyes, and ears.
+- Hi, my name is **Quinn Desforge-Major** I'm a first-time student in CST at BCIT, and I love problem solving and abstract maths. Fun fact: I have a self-taught background in computer graphics, and want to use that in developing beautiful and engaging applications!
 - **Andrei Chepakovich** - BCIT CST Student with a passion for creating user-friendly applications. Fun fact: I love to play video games.
 - Hi my name is **Mason**. I am looking forward to developing our application! Fun Fact: All the dogs that my family has owned have been Jack Russells
 
@@ -111,6 +132,7 @@ project-name/
 - Ben Le - cle61@my.bcit.ca
 - Andrei Chepakovich - achepakovich@my.bcit.ca
 - Mason Young - myoung103@my.bcit.ca
+- Quinn Desforge-Major - qdesforgemajor@my.bcit.ca
 
 ## Acknowledgements
 
