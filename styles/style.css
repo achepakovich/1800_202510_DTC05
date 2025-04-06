@@ -1,3 +1,4 @@
+/* Hero splash image */
 .splash {
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
         url("../images/splash2.jpg");
@@ -6,6 +7,7 @@
     height: auto;
 }
 
+/* About Us page styling */
 #aboutus {
     max-width: 1024px;
     margin-top: 60px;
@@ -23,6 +25,7 @@
     font-size: 5vw;
 }
 
+/* Login container */
 #firebaseui-auth-container {
     margin: 0;
     position: absolute;
@@ -46,8 +49,8 @@
 }
 
 .dropdown-toggle::after {
-    color: white;
     /* Changes the caret to white */
+    color: white;
 }
 
 .card {
@@ -68,10 +71,10 @@
     transform: translate(-50%, -50%);
     z-index: 1000;
     padding: 20px;
-    max-width: 90vw;
     /* Prevents going off-screen horizontally */
-    max-height: 90vh;
+    max-width: 90vw;
     /* Prevents going off-screen vertically */
+    max-height: 90vh;
 }
 
 .btn-close {
@@ -84,12 +87,12 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
     /* Adjust transparency */
-    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
     /* Ensure it appears above other content */
-    display: none;
+    z-index: 999;
     /* Hide by default */
+    display: none;
 }
 
 .saveDealButton {
@@ -130,27 +133,22 @@
     font-size: 12px;
 }
 
+/* Change cursor when hovering over icon buttons */
 .material-icons {
     cursor: pointer;
 }
 
-/* .button-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-} */
-
+/* Make icon styling consistent regardless of icon dimensions */
 .fixed-size {
     width: 48px;
     height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
     /* Ensures no extra space */
+    padding: 0;
 }
 
-/* Styling for future side bar on deal search page */
 /* Sidebar Styling */
 .sidebar {
     width: 270px;
@@ -214,8 +212,8 @@
 }
 
 .mainContainer {
-    margin-left: 270px;
     /* Default margin for large screens */
+    margin-left: 270px;
     transition: margin-left 0.3s ease-in-out;
     height: 100vh;
 }
@@ -227,12 +225,10 @@
     }
 }
 
+/* Keep no results icon from being cut off by nav bar */
 #no-results {
-    /* margin-left: 280px; */
     margin-top: 100px;
 }
-
-/* Add these styles to your style.css file */
 
 /* Shopping list table styles */
 #shopping-table {
@@ -242,6 +238,7 @@
     border-spacing: 0;
 }
 
+/* Shopping list table header */
 #shopping-table th {
     background-color: #f8f9fa;
     color: #495057;
@@ -250,12 +247,14 @@
     padding: 0.75rem;
 }
 
+/* Shopping list table data */
 #shopping-table td {
     padding: 0.75rem;
     vertical-align: middle;
     border-top: 1px solid #dee2e6;
 }
 
+/* Shopping list table data hover background colour */
 #shopping-table tbody tr:hover {
     background-color: rgba(0, 128, 0, 0.05);
 }
@@ -265,6 +264,7 @@
     color: #28a745;
 }
 
+/* Shopping list header */
 #shopping-table .text-muted {
     color: #6c757d;
 }
@@ -275,22 +275,7 @@
     background-color: rgba(0, 128, 0, 0.1);
 }
 
-/* Style for the remove button */
-/* .removeButton {
-    border: none;
-    background-color: #dc3545;
-    color: white;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.2s;
-} */
-
+/* Shopping list remove item button hover styling */
 .removeButton:hover {
     background-color: #c82333;
 }
@@ -305,12 +290,10 @@
 
     #shopping-table th:last-child,
     #shopping-table td:last-child {
-        width: 50px;
         /* Ensure remove column isn't too wide on mobile */
+        width: 50px;
     }
 }
-
-/* Add these styles to your style.css file */
 
 /* Shopping list table styles */
 #shopping-table {
@@ -338,13 +321,13 @@
     background-color: rgba(0, 128, 0, 0.05);
 }
 
+#shopping-table .text-muted {
+    color: #6c757d;
+}
+
 /* Style for the deals count cell */
 #shopping-table .text-success {
     color: #28a745;
-}
-
-#shopping-table .text-muted {
-    color: #6c757d;
 }
 
 /* Make clickable deals count more obvious */
@@ -399,10 +382,6 @@
     transition: background-color 0.2s;
 }
 
-.removeButton:hover {
-    background-color: #c82333;
-}
-
 /* Responsive table adjustments */
 @media (max-width: 576px) {
 
@@ -413,11 +392,12 @@
 
     #shopping-table th:last-child,
     #shopping-table td:last-child {
-        width: 50px;
         /* Ensure remove column isn't too wide on mobile */
+        width: 50px;
     }
 }
 
+/* Filters styling */
 .price-filter {
     align-items: center;
     gap: 10px;
@@ -475,30 +455,28 @@
     }
 }
 
+/* Side bar toggle button */
 #open_close {
     display: none;
 }
 
 #open_close:hover {
-    background-color: rgba(0, 0, 0, 0.1);
     /* Light gray highlight */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
     /* Soft shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
 /* On small screens (max-width: 768px), show the element */
 @media screen and (max-width: 768px) {
     #open_close {
-        display: block;
         /* Or inline-block, depending on the layout */
+        display: block;
     }
 }
 
-/* #filter_contents {
-    display: none;
-} */
-
+/* Sidebar transition styling */
 #toggleSidebar {
     position: fixed;
     top: 50%;
@@ -552,17 +530,19 @@
     opacity: 50%;
 }
 
+/* Return to top button responsive position */
 @media (min-width: 768px) {
     #scrollToTopButton {
         bottom: 20px;
     }
 }
 
+/* Return to top button hover styling */
 #scrollToTopButton:hover {
     background-color: #555;
-    /* Add a dark-grey background on hover */
 }
 
+/* Footer nav bar responsive styling */
 @media (max-width: 767.98px) {
     footer.navbar.fixed-bottom #navbarNavAltMarkup .nav-link {
         font-size: 12px;
@@ -574,6 +554,7 @@
     }
 }
 
+/* Search page search box default width */
 .searchBoxSearchPage {
     width: 100px
 }
