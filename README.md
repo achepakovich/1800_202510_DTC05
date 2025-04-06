@@ -89,12 +89,14 @@ project-name/
 - Currently, the app does not allow searching nearest groceries store by location of shopper
 - The deals are not populated to database by any APIs
 - The user interface (favourite and shoppinglist) can be further enhanced for user experience.
+- Search feature is not flexible. It requires specific input for a general category of grocery item to see all related deals (e.g. search 'bread' for all deals pertaining to bread items)
 
 ### Future Work
 
 - Input a map to pinpoint the shops on the map and number of available deals at each. 
 - Add support for location-based deals detection using GPS.
 - Create a dark mode for better usability in low-light conditions.
+- Implement flexible search by incorporating Elasticsearch into our current seach feature. This would allow users to search and find deals using a much broader range of terms that might be found in the specific item name.
 - ...
 
 ---
