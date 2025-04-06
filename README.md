@@ -102,7 +102,7 @@ project-name/
 ## Contact
 
 - Ben Le - cle61@my.bcit.ca
-- ...
+- Andrei Chepakovich - achepakovich@my.bcit.ca
 
 ## Acknowledgements
 
