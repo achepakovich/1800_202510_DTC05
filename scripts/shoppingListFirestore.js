@@ -1,5 +1,5 @@
 /***************************
- * firestore.js
+ * shoppingListFirestore.js
  ***************************/
 
 /**

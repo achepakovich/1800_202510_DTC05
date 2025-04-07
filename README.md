@@ -68,7 +68,7 @@ project-name/
 |   ├── authentication.js
 |   ├── batch_write.js
 |   ├── favourites.js
-|   ├── firestore.js
+|   ├── firebaseAPI_Team05.js
 |   ├── index.js
 |   ├── main.js
 |   ├── navigateToSearch.js
@@ -77,14 +77,20 @@ project-name/
 |   ├── script.js
 |   ├── search.js
 |   ├── shoppinglist.js
-|   ├── skeleton.js
-│   └── ui.js
+|   ├── shoppingListFirestore.js
+|   ├── shoppingListUi.js
+│   └── skeleton.js
 ├── styles/
 │   └── style.css
-├── index.html
-├── aboutus.html
+├── text/
+│   ├── footer.html
+|   ├── nav_after_login.html
+|   ├── nav_before_login.html
+|   └── nav_during_login.html
 ├── 404.html
+├── aboutus.html
 ├── favourites.html
+├── index.html
 ├── login.html
 ├── main.html
 ├── profiles.html
