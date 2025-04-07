@@ -79,7 +79,7 @@ firebase.auth().onAuthStateChanged((user) => {
     signInBox.style.display = "none";
 
     // 1) Initialize UI if not done yet
-    initUI(); // from ui.js
+    initUI(); // from shoppingListUi.js
 
     // 2) Subscribe to that user's shopping list
     subscribeToShoppingList(user.uid, (items) => {

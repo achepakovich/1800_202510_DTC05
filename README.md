@@ -78,7 +78,7 @@ project-name/
 |   ├── search.js
 |   ├── shoppinglist.js
 |   ├── skeleton.js
-│   └── ui.js
+│   └── shoppingListUi.js
 ├── styles/
 │   └── style.css
 ├── index.html
