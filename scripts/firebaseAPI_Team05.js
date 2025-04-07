@@ -1,6 +1,4 @@
-//----------------------------------------
-//  Your web app's Firebase configuration
-//----------------------------------------
+//  Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDQMc07uA1vj6TI7iwTWdj-90ri_l5wLjs",
     authDomain: "dtc05-e0f80.firebaseapp.com",
@@ -11,9 +9,7 @@ const firebaseConfig = {
     measurementId: "G-10GFV7PDLZ"
 };
 
-//--------------------------------------------
 // initialize the Firebase app
-// initialize Firestore database if using it
-//--------------------------------------------
 const app = firebase.initializeApp(firebaseConfig);
+// initialize Firestore database
 const db = firebase.firestore();
