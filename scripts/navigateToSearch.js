@@ -1,9 +1,12 @@
+// Convert searched item to title case to match how it is stored in the firestore database
 function titleCase(item) {
     item = item.toLowerCase().split(' ').map(function (word) {
         return word.replace(word[0], word[0].toUpperCase());
     });
     return item.join(' ');
 }
+
+// Navigates the user to the search pages with the correct item information stored
 function navigateToSearchPage(collection) {
 
     $("#searchButton").click(function () {
